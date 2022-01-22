@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+
+[node name="Main" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top" type="HBoxContainer" parent="."]
+margin_right = 1200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Main" type="HBoxContainer" parent="."]
+margin_top = 104.0
+margin_right = 1200.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Tools" type="VBoxContainer" parent="Main"]
+margin_right = 200.0
+margin_bottom = 496.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 3
+
+[node name="Grid" type="GridContainer" parent="Main"]
+margin_left = 204.0
+margin_right = 1200.0
+margin_bottom = 496.0
+size_flags_horizontal = 3
