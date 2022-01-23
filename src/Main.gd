@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	Parts.hide()
 	add_part_buttons()
 
 func add_part_buttons():
@@ -14,4 +15,4 @@ func add_part_buttons():
 
 
 func part_pressed(pname):
-	print(pname)
+	$Main/Grid.add_child(Parts.get_part(pname))

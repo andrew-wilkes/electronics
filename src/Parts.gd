@@ -3,28 +3,30 @@ extends Control
 const PART_PATH = "res://assets/parts/small/part-"
 
 var map = {
-	"dc": 3,
-	"ac": 0,
-	"volts": 15,
-	"amps": 1,
-	"r": 12,
-	"c": 2,
-	"pot": 11,
-	"diode": 4,
-	"q": 6,
-	"ecap": 5,
-	"zener": 16,
-	"op": 10,
-	"led": 9,
-	"l": 7,
-	"t1": 13,
-	"t2": 14,
-	"lamp": 8
+	"DC": 3,
+	"AC": 0,
+	"VOLTS": 15,
+	"AMPS": 1,
+	"R": 12,
+	"C": 2,
+	"POT": 11,
+	"Diode": 4,
+	"FET": 6,
+	"ECap": 5,
+	"Zener": 16,
+	"OP": 10,
+	"LED": 9,
+	"L": 7,
+	"T1": 13,
+	"T2": 14,
+	"Lamp": 8
 }
-
-func _ready():
-	if get_parent().name != "root":
-		hide()
 
 func get_part_path(pname):
 	return PART_PATH + str(map[pname]) + ".png"
+
+
+func get_part(pname):
+	for node in get_children():
+		if node.name == pname:
+			return node.duplicate()

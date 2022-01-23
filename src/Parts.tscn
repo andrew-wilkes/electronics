@@ -48,6 +48,7 @@ __meta__ = {
 [node name="M" type="MarginContainer" parent="AC"]
 margin_right = 128.0
 margin_bottom = 94.0
+mouse_filter = 1
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -75,6 +76,7 @@ custom_constants/separation = 20
 [node name="C" type="CenterContainer" parent="AC/M/HBox/VBox"]
 margin_right = 87.0
 margin_bottom = 40.0
+mouse_filter = 1
 
 [node name="Texture" type="TextureRect" parent="AC/M/HBox/VBox/C"]
 margin_left = 23.0
@@ -86,6 +88,7 @@ texture = ExtResource( 3 )
 margin_top = 60.0
 margin_right = 87.0
 margin_bottom = 74.0
+mouse_filter = 1
 text = "100V"
 align = 1
 
@@ -108,6 +111,7 @@ __meta__ = {
 [node name="M" type="MarginContainer" parent="DC"]
 margin_right = 128.0
 margin_bottom = 94.0
+mouse_filter = 1
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -135,6 +139,7 @@ custom_constants/separation = 20
 [node name="C" type="CenterContainer" parent="DC/M/HBox/VBox"]
 margin_right = 87.0
 margin_bottom = 40.0
+mouse_filter = 1
 
 [node name="Texture" type="TextureRect" parent="DC/M/HBox/VBox/C"]
 margin_left = 23.0
@@ -146,6 +151,7 @@ texture = ExtResource( 4 )
 margin_top = 60.0
 margin_right = 87.0
 margin_bottom = 74.0
+mouse_filter = 1
 text = "12V"
 align = 1
 
@@ -181,11 +187,13 @@ __meta__ = {
 margin_right = 128.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="M" type="MarginContainer" parent="POT"]
 margin_top = 17.0
 margin_right = 128.0
 margin_bottom = 167.0
+mouse_filter = 1
 custom_constants/margin_right = 10
 custom_constants/margin_left = 10
 
@@ -210,6 +218,7 @@ custom_constants/separation = 10
 [node name="C" type="CenterContainer" parent="POT/M/HBox/VBox"]
 margin_right = 82.0
 margin_bottom = 100.0
+mouse_filter = 1
 
 [node name="Texture" type="TextureRect" parent="POT/M/HBox/VBox/C"]
 margin_left = 21.0
@@ -221,6 +230,7 @@ texture = ExtResource( 14 )
 margin_top = 110.0
 margin_right = 82.0
 margin_bottom = 124.0
+mouse_filter = 1
 text = "100K"
 align = 1
 
@@ -234,6 +244,7 @@ margin_top = 168.0
 margin_right = 128.0
 margin_bottom = 184.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="AMPS" type="GraphNode" parent="."]
 margin_left = 424.0
@@ -254,6 +265,7 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="AMPS"]
 margin_right = 96.0
 margin_bottom = 96.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -283,6 +295,7 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="VOLTS"]
 margin_right = 96.0
 margin_bottom = 96.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -312,6 +325,7 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="L"]
 margin_right = 96.0
 margin_bottom = 128.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -341,6 +355,7 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="Lamp"]
 margin_right = 96.0
 margin_bottom = 96.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -370,6 +385,7 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="Diode"]
 margin_right = 96.0
 margin_bottom = 96.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -399,6 +415,7 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="LED"]
 margin_right = 96.0
 margin_bottom = 96.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -441,11 +458,13 @@ __meta__ = {
 margin_right = 96.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="C" type="CenterContainer" parent="FET"]
 margin_top = 17.0
 margin_right = 96.0
 margin_bottom = 79.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -461,6 +480,7 @@ margin_top = 80.0
 margin_right = 96.0
 margin_bottom = 96.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="OP" type="GraphNode" parent="."]
 margin_left = 856.0
@@ -494,11 +514,13 @@ __meta__ = {
 margin_right = 136.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="C" type="CenterContainer" parent="OP"]
 margin_top = 17.0
 margin_right = 136.0
 margin_bottom = 104.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -513,6 +535,7 @@ margin_top = 105.0
 margin_right = 136.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="T1" type="GraphNode" parent="."]
 margin_left = 816.0
@@ -546,11 +569,13 @@ __meta__ = {
 margin_right = 72.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="C" type="CenterContainer" parent="T1"]
 margin_top = 17.0
 margin_right = 72.0
 margin_bottom = 129.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -565,6 +590,7 @@ margin_top = 130.0
 margin_right = 72.0
 margin_bottom = 146.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="T2" type="GraphNode" parent="."]
 margin_left = 944.0
@@ -598,11 +624,13 @@ __meta__ = {
 margin_right = 96.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="C" type="CenterContainer" parent="T2"]
 margin_top = 17.0
 margin_right = 96.0
 margin_bottom = 129.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -617,6 +645,7 @@ margin_top = 130.0
 margin_right = 96.0
 margin_bottom = 146.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
 
 [node name="ECap" type="GraphNode" parent="."]
 margin_left = 888.0
@@ -637,6 +666,7 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="ECap"]
 margin_right = 96.0
 margin_bottom = 96.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -666,6 +696,7 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="C"]
 margin_right = 96.0
 margin_bottom = 96.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -695,6 +726,7 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="R"]
 margin_right = 96.0
 margin_bottom = 96.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -724,6 +756,7 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="Zener"]
 margin_right = 96.0
 margin_bottom = 96.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
