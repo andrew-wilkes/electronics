@@ -22,6 +22,9 @@ var map = {
 	"lamp": 8
 }
 
+func _ready():
+	if get_parent().name != "root":
+		hide()
 
 func get_part_path(pname):
 	return PART_PATH + str(map[pname]) + ".png"

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.298039, 0.298039, 0.298039, 1 )
+
+[resource]
+GraphNode/styles/frame = SubResource( 1 )

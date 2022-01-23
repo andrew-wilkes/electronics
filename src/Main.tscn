@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://assets/parts/pot.png" type="Texture" id=2]
 
 [node name="Main" type="VBoxContainer"]
 anchor_right = 1.0
@@ -50,34 +49,3 @@ margin_left = 204.0
 margin_right = 1200.0
 margin_bottom = 536.0
 size_flags_horizontal = 3
-
-[node name="GraphNode" type="GraphNode" parent="Main/Grid"]
-margin_right = 98.0
-margin_bottom = 130.0
-mouse_filter = 1
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBox" type="HBoxContainer" parent="Main/Grid/GraphNode"]
-margin_left = 16.0
-margin_top = 24.0
-margin_right = 82.0
-margin_bottom = 124.0
-custom_constants/separation = 10
-
-[node name="Texture" type="TextureRect" parent="Main/Grid/GraphNode/HBox"]
-margin_right = 40.0
-margin_bottom = 100.0
-texture = ExtResource( 2 )
-
-[node name="VSlider" type="VSlider" parent="Main/Grid/GraphNode/HBox"]
-margin_left = 50.0
-margin_right = 66.0
-margin_bottom = 100.0

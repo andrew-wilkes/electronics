@@ -389,8 +389,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="8"
-     inkscape:cx="134.5625"
-     inkscape:cy="-11"
+     inkscape:cx="200.6875"
+     inkscape:cy="-10.625"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -1498,5 +1498,25 @@
          id="path19451-26-1"
          sodipodi:nodetypes="cc" />
     </g>
+    <rect
+       style="fill:#8ecfa5;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect20553"
+       width="5"
+       height="40"
+       x="200"
+       y="-25"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/frame.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect23737"
+       width="5"
+       height="10"
+       x="200"
+       y="-35"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/frame.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
   </g>
 </svg>
