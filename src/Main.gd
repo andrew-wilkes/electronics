@@ -15,4 +15,7 @@ func add_part_buttons():
 
 
 func part_pressed(pname):
-	$Main/Grid.add_child(Parts.get_part(pname))
+	var part = Parts.get_part(pname)
+	part.offset = Vector2($Main/Grid.rect_size.x / 2, 20)
+	part.set("custom_constants/port_offset", 0)
+	$Main/Grid.add_child(part)
