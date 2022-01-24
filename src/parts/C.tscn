@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://parts/C.gd" type="Script" id=1]
+[ext_resource path="res://assets/parts/cap.png" type="Texture" id=2]
+
+[node name="C" type="GraphNode"]
+margin_left = 376.0
+margin_top = 16.0
+margin_right = 432.0
+margin_bottom = 96.0
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C" type="CenterContainer" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 47.0
+margin_bottom = 72.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tex" type="TextureRect" parent="C"]
+margin_left = 1.0
+margin_right = 29.0
+margin_bottom = 48.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 73.0
+margin_right = 47.0
+margin_bottom = 87.0
+text = "10nF"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 16.0
+margin_top = 88.0
+margin_right = 47.0
+margin_bottom = 104.0
+min_value = 10.0
+max_value = 470.0
+step = 10.0
+value = 10.0
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

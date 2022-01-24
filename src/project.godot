@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "GraphData",
+"language": "GDScript",
+"path": "res://graph_data.gd"
+}, {
+"base": "Resource",
+"class": "NodeData",
+"language": "GDScript",
+"path": "res://node_data.gd"
+}, {
+"base": "GraphNode",
+"class": "Part",
+"language": "GDScript",
+"path": "res://part.gd"
+} ]
+_global_script_class_icons={
+"GraphData": "",
+"NodeData": "",
+"Part": ""
+}
+
 [application]
 
 config/name="Electronics"
@@ -17,6 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Parts="*res://Parts.tscn"
+Data="*res://data.gd"
 
 [display]
 

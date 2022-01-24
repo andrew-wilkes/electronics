@@ -29,4 +29,8 @@ func get_part_path(pname):
 func get_part(pname):
 	for node in get_children():
 		if node.name == pname:
-			return node.duplicate()
+			var part = node.duplicate()
+			part.type = pname
+			part.data = node.data
+			part.setup()
+			return part

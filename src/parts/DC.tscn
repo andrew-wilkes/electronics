@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://parts/DC.gd" type="Script" id=1]
+[ext_resource path="res://assets/parts/dc.png" type="Texture" id=2]
+
+[node name="DC" type="GraphNode"]
+margin_top = 120.0
+margin_right = 97.0
+margin_bottom = 228.0
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 0, 0, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sp1" type="Control" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 97.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 16 )
+
+[node name="M" type="MarginContainer" parent="."]
+margin_left = 16.0
+margin_top = 41.0
+margin_right = 97.0
+margin_bottom = 115.0
+mouse_filter = 1
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+
+[node name="HBox" type="HBoxContainer" parent="M"]
+margin_left = 10.0
+margin_right = 71.0
+margin_bottom = 74.0
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="VSlider" type="VSlider" parent="M/HBox"]
+margin_right = 16.0
+margin_bottom = 74.0
+max_value = 32.0
+
+[node name="VBox" type="VBoxContainer" parent="M/HBox"]
+margin_left = 21.0
+margin_right = 61.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+custom_constants/separation = 20
+
+[node name="C" type="CenterContainer" parent="M/HBox/VBox"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 1
+
+[node name="Texture" type="TextureRect" parent="M/HBox/VBox/C"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="M/HBox/VBox"]
+margin_top = 60.0
+margin_right = 40.0
+margin_bottom = 74.0
+mouse_filter = 1
+text = "12V"
+align = 1
+
+[node name="sp2" type="Control" parent="."]
+margin_left = 16.0
+margin_top = 116.0
+margin_right = 97.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 0, 16 )
+
+[connection signal="value_changed" from="M/HBox/VSlider" to="." method="_on_VSlider_value_changed"]

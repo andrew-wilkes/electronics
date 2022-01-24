@@ -389,8 +389,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="8"
-     inkscape:cx="200.6875"
-     inkscape:cy="-10.625"
+     inkscape:cx="46.5625"
+     inkscape:cy="-3.25"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -558,16 +558,6 @@
          inkscape:export-xdpi="191.99989"
          inkscape:export-ydpi="191.99989" />
     </g>
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect10055-8-9"
-       width="2"
-       height="9.0000191"
-       x="4"
-       y="24"
-       inkscape:export-filename="/home/andrew/inductor.png"
-       inkscape:export-xdpi="191.99989"
-       inkscape:export-ydpi="191.99989" />
     <g
        id="g18050"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/cap.png"
@@ -732,10 +722,20 @@
          inkscape:export-ydpi="191.99989" />
     </g>
     <g
-       id="g18099"
+       id="g28291"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/inductor.png"
        inkscape:export-xdpi="191.99989"
        inkscape:export-ydpi="191.99989">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-8-9"
+         width="2"
+         height="9.0000191"
+         x="4"
+         y="24"
+         inkscape:export-filename="/home/andrew/inductor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect10055-8-5"
@@ -1499,7 +1499,7 @@
          sodipodi:nodetypes="cc" />
     </g>
     <rect
-       style="fill:#8ecfa5;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#9c8d14;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect20553"
        width="5"
        height="40"
