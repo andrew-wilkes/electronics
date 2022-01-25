@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Oscilloscope.gd" type="Script" id=1]
+[ext_resource path="res://OscGrid.gd" type="Script" id=2]
+
+[node name="Oscilloscope" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OscGrid" type="ColorRect" parent="."]
+margin_right = 418.0
+margin_bottom = 304.0
+color = Color( 0.258824, 0.572549, 0.572549, 1 )
+script = ExtResource( 2 )

@@ -33,6 +33,11 @@ __meta__ = {
 [node name="AC" parent="." instance=ExtResource( 3 )]
 
 [node name="DC" parent="." instance=ExtResource( 4 )]
+margin_left = 616.0
+margin_top = 376.0
+margin_right = 713.0
+margin_bottom = 484.0
+slot/0/right_color = Color( 1, 1, 1, 1 )
 
 [node name="POT" parent="." instance=ExtResource( 19 )]
 
@@ -40,7 +45,7 @@ __meta__ = {
 margin_left = 104.0
 margin_top = 336.0
 margin_right = 168.0
-margin_bottom = 376.0
+margin_bottom = 384.0
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
@@ -55,22 +60,23 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="AMPS"]
 margin_left = 8.0
 margin_right = 56.0
-margin_bottom = 40.0
+margin_bottom = 48.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Tex" type="TextureRect" parent="AMPS/C"]
 margin_left = 4.0
+margin_top = 4.0
 margin_right = 44.0
-margin_bottom = 40.0
+margin_bottom = 44.0
 texture = ExtResource( 10 )
 
 [node name="VOLTS" type="GraphNode" parent="."]
-margin_left = 192.0
-margin_top = 360.0
-margin_right = 256.0
-margin_bottom = 400.0
+margin_left = 184.0
+margin_top = 336.0
+margin_right = 248.0
+margin_bottom = 384.0
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
@@ -85,24 +91,29 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="VOLTS"]
 margin_left = 8.0
 margin_right = 56.0
-margin_bottom = 40.0
+margin_bottom = 48.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Tex" type="TextureRect" parent="VOLTS/C"]
 margin_left = 4.0
+margin_top = 4.0
 margin_right = 44.0
-margin_bottom = 40.0
+margin_bottom = 44.0
 texture = ExtResource( 11 )
 
 [node name="L" parent="." instance=ExtResource( 17 )]
+margin_left = 272.0
+margin_top = 448.0
+margin_right = 400.0
+margin_bottom = 544.0
 
 [node name="Lamp" type="GraphNode" parent="."]
-margin_left = 80.0
+margin_left = 56.0
 margin_top = 232.0
-margin_right = 144.0
-margin_bottom = 292.0
+margin_right = 140.0
+margin_bottom = 304.0
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
@@ -116,26 +127,27 @@ __meta__ = {
 
 [node name="C" type="CenterContainer" parent="Lamp"]
 margin_left = 8.0
-margin_right = 56.0
-margin_bottom = 60.0
+margin_right = 76.0
+margin_bottom = 72.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Tex" type="TextureRect" parent="Lamp/C"]
 margin_left = 4.0
-margin_right = 44.0
-margin_bottom = 60.0
+margin_top = 16.0
+margin_right = 64.0
+margin_bottom = 56.0
 texture = ExtResource( 9 )
 
 [node name="Diode" type="GraphNode" parent="."]
-margin_left = 128.0
-margin_top = 32.0
-margin_right = 182.0
-margin_bottom = 86.0
+margin_left = 64.0
+margin_top = 80.0
+margin_right = 144.0
+margin_bottom = 128.0
 slot/0/left_enabled = true
 slot/0/left_type = 0
-slot/0/left_color = Color( 1, 0, 0, 1 )
+slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
@@ -146,19 +158,24 @@ __meta__ = {
 
 [node name="C" type="CenterContainer" parent="Diode"]
 margin_left = 8.0
-margin_right = 46.0
-margin_bottom = 54.0
+margin_right = 72.0
+margin_bottom = 48.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Tex" type="TextureRect" parent="Diode/C"]
-margin_left = 4.0
-margin_right = 34.0
-margin_bottom = 54.0
+margin_left = 5.0
+margin_top = 10.0
+margin_right = 59.0
+margin_bottom = 38.0
 texture = ExtResource( 5 )
 
 [node name="LED" parent="." instance=ExtResource( 16 )]
+margin_left = 192.0
+margin_top = 53.0
+margin_right = 270.0
+margin_bottom = 128.0
 
 [node name="FET" type="GraphNode" parent="."]
 margin_left = 168.0
@@ -280,17 +297,25 @@ mouse_filter = 1
 [node name="T2" parent="." instance=ExtResource( 8 )]
 
 [node name="ECap" parent="." instance=ExtResource( 13 )]
-margin_left = 670.0
-margin_top = 37.0
-margin_right = 778.0
-margin_bottom = 164.0
+margin_left = 696.0
+margin_top = 48.0
+margin_right = 776.0
+margin_bottom = 136.0
 
 [node name="R" parent="." instance=ExtResource( 6 )]
 margin_left = 492.0
-margin_top = 22.0
-margin_right = 636.0
+margin_top = 104.0
+margin_right = 616.0
 margin_bottom = 174.0
 
 [node name="C" parent="." instance=ExtResource( 12 )]
+margin_left = 696.0
+margin_top = 168.0
+margin_right = 776.0
+margin_bottom = 248.0
 
 [node name="Zener" parent="." instance=ExtResource( 7 )]
+margin_top = 32.0
+margin_right = 376.0
+margin_bottom = 128.0
+slot/0/left_color = Color( 1, 1, 1, 1 )

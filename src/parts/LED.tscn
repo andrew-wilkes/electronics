@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://parts/LED.gd" type="Script" id=1]
 [ext_resource path="res://assets/parts/led.png" type="Texture" id=2]
+[ext_resource path="res://assets/the_theme.tres" type="Theme" id=3]
 
 [node name="LED" type="GraphNode"]
 margin_left = 200.0
 margin_top = 24.0
-margin_right = 264.0
-margin_bottom = 78.0
+margin_right = 288.0
+margin_bottom = 99.0
+theme = ExtResource( 3 )
 custom_constants/separation = 10
 slot/0/left_enabled = false
 slot/0/left_type = 0
@@ -17,7 +19,7 @@ slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
 slot/1/left_enabled = true
 slot/1/left_type = 0
-slot/1/left_color = Color( 1, 0, 0, 1 )
+slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = true
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
@@ -33,30 +35,29 @@ __meta__ = {
 }
 
 [node name="sp" type="Control" parent="."]
-margin_left = 16.0
-margin_top = 24.0
-margin_right = 58.0
-margin_bottom = 24.0
+margin_left = 8.0
+margin_right = 80.0
 
 [node name="C" type="CenterContainer" parent="."]
-margin_left = 16.0
-margin_top = 34.0
-margin_right = 58.0
-margin_bottom = 88.0
+margin_left = 8.0
+margin_top = 10.0
+margin_right = 80.0
+margin_bottom = 49.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Tex" type="TextureRect" parent="C"]
-margin_right = 42.0
-margin_bottom = 54.0
+margin_left = 9.0
+margin_right = 63.0
+margin_bottom = 39.0
 texture = ExtResource( 2 )
 
 [node name="HSlider" type="HSlider" parent="."]
-margin_left = 16.0
-margin_top = 98.0
-margin_right = 58.0
-margin_bottom = 114.0
+margin_left = 8.0
+margin_top = 59.0
+margin_right = 80.0
+margin_bottom = 75.0
 max_value = 90.0
 step = 10.0
 
