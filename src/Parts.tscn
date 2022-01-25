@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Parts.gd" type="Script" id=1]
 [ext_resource path="res://assets/the_theme.tres" type="Theme" id=2]
@@ -9,8 +9,6 @@
 [ext_resource path="res://parts/Zener.tscn" type="PackedScene" id=7]
 [ext_resource path="res://parts/T2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/parts/lamp.png" type="Texture" id=9]
-[ext_resource path="res://assets/parts/amps.png" type="Texture" id=10]
-[ext_resource path="res://assets/parts/volts.png" type="Texture" id=11]
 [ext_resource path="res://parts/C.tscn" type="PackedScene" id=12]
 [ext_resource path="res://parts/ECap.tscn" type="PackedScene" id=13]
 [ext_resource path="res://parts/T1.tscn" type="PackedScene" id=14]
@@ -41,68 +39,6 @@ margin_bottom = 484.0
 slot/0/right_color = Color( 1, 1, 1, 1 )
 
 [node name="POT" parent="." instance=ExtResource( 19 )]
-
-[node name="AMPS" type="GraphNode" parent="."]
-margin_left = 104.0
-margin_top = 336.0
-margin_right = 168.0
-margin_bottom = 384.0
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="C" type="CenterContainer" parent="AMPS"]
-margin_left = 8.0
-margin_right = 56.0
-margin_bottom = 48.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Tex" type="TextureRect" parent="AMPS/C"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 44.0
-margin_bottom = 44.0
-texture = ExtResource( 10 )
-
-[node name="VOLTS" type="GraphNode" parent="."]
-margin_left = 184.0
-margin_top = 336.0
-margin_right = 248.0
-margin_bottom = 384.0
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="C" type="CenterContainer" parent="VOLTS"]
-margin_left = 8.0
-margin_right = 56.0
-margin_bottom = 48.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Tex" type="TextureRect" parent="VOLTS/C"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 44.0
-margin_bottom = 44.0
-texture = ExtResource( 11 )
 
 [node name="L" parent="." instance=ExtResource( 17 )]
 margin_left = 272.0
