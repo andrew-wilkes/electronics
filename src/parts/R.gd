@@ -2,8 +2,7 @@ extends Part
 
 signal r_changed(v)
 
-const rvals = [1, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 4.7, 6.8, 8.2]
-const mvals = ["R", "R", "R", "K", "K", "K", "M"]
+const m_vals = ["R", "K", "M"]
 
 func _init():
 	data = { r = 3 }
@@ -22,7 +21,7 @@ func set_data(v):
 
 
 func set_text(v):
-	var mult = floor(v)
-	v = (v - int(v)) * 10
-	var zeros = pow(10, fmod(mult, 3))
-	$Label.text = str(rvals[v] * zeros) + mvals[mult]
+	var mult = floor(v) # 0 - 6
+	v = fmod(v, 1) * 10 # fractional part * 10 to give 0 - 9
+	var pow_ten = pow(10, fmod(mult, 3)) # What power of 10 to multiply the part_val by
+	$Label.text = str(part_vals[v] * pow_ten) + m_vals[mult / 3]

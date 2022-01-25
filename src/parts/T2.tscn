@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://parts/T2.gd" type="Script" id=1]
+[ext_resource path="res://assets/parts/trans2.png" type="Texture" id=2]
+
+[node name="T2" type="GraphNode"]
+margin_left = 272.0
+margin_top = 176.0
+margin_right = 356.0
+margin_bottom = 322.0
+custom_constants/separation = 10
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sp1" type="Control" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 84.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
+
+[node name="C" type="CenterContainer" parent="."]
+margin_left = 16.0
+margin_top = 50.0
+margin_right = 84.0
+margin_bottom = 162.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tex" type="TextureRect" parent="C"]
+margin_right = 68.0
+margin_bottom = 112.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 172.0
+margin_right = 84.0
+margin_bottom = 186.0
+align = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 16.0
+margin_top = 196.0
+margin_right = 84.0
+margin_bottom = 212.0
+min_value = 1.0
+max_value = 19.0
+value = 1.0
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

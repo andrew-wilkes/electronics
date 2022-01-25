@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://parts/C.gd" type="Script" id=1]
-[ext_resource path="res://assets/parts/cap.png" type="Texture" id=2]
+[ext_resource path="res://parts/L.gd" type="Script" id=1]
+[ext_resource path="res://assets/parts/inductor.png" type="Texture" id=2]
 
-[node name="C" type="GraphNode"]
-margin_left = 376.0
-margin_top = 16.0
-margin_right = 480.0
-margin_bottom = 126.0
+[node name="L" type="GraphNode"]
+margin_left = 384.0
+margin_top = 368.0
+margin_right = 465.0
+margin_bottom = 560.0
+custom_constants/separation = 10
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
@@ -34,32 +35,33 @@ __meta__ = {
 [node name="C" type="CenterContainer" parent="."]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 88.0
-margin_bottom = 72.0
+margin_right = 65.0
+margin_bottom = 136.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Tex" type="TextureRect" parent="C"]
-margin_left = 22.0
-margin_right = 50.0
-margin_bottom = 48.0
+margin_left = 8.0
+margin_right = 40.0
+margin_bottom = 112.0
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 16.0
-margin_top = 73.0
-margin_right = 88.0
-margin_bottom = 87.0
-text = "10nF"
+margin_top = 146.0
+margin_right = 65.0
+margin_bottom = 160.0
 align = 1
 
 [node name="HSlider" type="HSlider" parent="."]
 margin_left = 16.0
-margin_top = 88.0
-margin_right = 88.0
-margin_bottom = 104.0
-max_value = 2.7
+margin_top = 170.0
+margin_right = 65.0
+margin_bottom = 186.0
+min_value = 1.0
+max_value = 5.0
 step = 0.1
+value = 1.0
 
 [connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

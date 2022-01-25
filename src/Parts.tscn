@@ -6,19 +6,19 @@
 [ext_resource path="res://parts/DC.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/parts/diode.png" type="Texture" id=5]
 [ext_resource path="res://parts/R.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/parts/inductor.png" type="Texture" id=7]
-[ext_resource path="res://assets/parts/zener.png" type="Texture" id=8]
+[ext_resource path="res://parts/Zener.tscn" type="PackedScene" id=7]
+[ext_resource path="res://parts/T2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/parts/lamp.png" type="Texture" id=9]
 [ext_resource path="res://assets/parts/amps.png" type="Texture" id=10]
 [ext_resource path="res://assets/parts/volts.png" type="Texture" id=11]
 [ext_resource path="res://parts/C.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/parts/e-cap.png" type="Texture" id=13]
-[ext_resource path="res://assets/parts/pot.png" type="Texture" id=14]
+[ext_resource path="res://parts/ECap.tscn" type="PackedScene" id=13]
+[ext_resource path="res://parts/T1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/parts/fet.png" type="Texture" id=15]
-[ext_resource path="res://assets/parts/led.png" type="Texture" id=16]
-[ext_resource path="res://assets/parts/trans2.png" type="Texture" id=17]
+[ext_resource path="res://parts/LED.tscn" type="PackedScene" id=16]
+[ext_resource path="res://parts/L.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/parts/opamp.png" type="Texture" id=18]
-[ext_resource path="res://assets/parts/trans1.png" type="Texture" id=19]
+[ext_resource path="res://parts/POT.tscn" type="PackedScene" id=19]
 [ext_resource path="res://part.gd" type="Script" id=20]
 
 [node name="Parts" type="Control"]
@@ -34,99 +34,7 @@ __meta__ = {
 
 [node name="DC" parent="." instance=ExtResource( 4 )]
 
-[node name="POT" type="GraphNode" parent="."]
-margin_left = 40.0
-margin_top = 392.0
-margin_right = 142.0
-margin_bottom = 576.0
-slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
-slot/1/right_enabled = true
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
-slot/2/left_enabled = false
-slot/2/left_type = 0
-slot/2/left_color = Color( 1, 1, 1, 1 )
-slot/2/right_enabled = true
-slot/2/right_type = 0
-slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="sp1" type="Control" parent="POT"]
-margin_left = 8.0
-margin_right = 94.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 0, 16 )
-mouse_filter = 1
-
-[node name="M" type="MarginContainer" parent="POT"]
-margin_left = 8.0
-margin_top = 17.0
-margin_right = 94.0
-margin_bottom = 167.0
-mouse_filter = 1
-custom_constants/margin_right = 10
-custom_constants/margin_top = 0
-custom_constants/margin_left = 10
-
-[node name="HBox" type="HBoxContainer" parent="POT/M"]
-margin_left = 10.0
-margin_right = 76.0
-margin_bottom = 150.0
-size_flags_vertical = 3
-custom_constants/separation = 10
-
-[node name="VSlider" type="VSlider" parent="POT/M/HBox"]
-margin_right = 16.0
-margin_bottom = 150.0
-
-[node name="VBox" type="VBoxContainer" parent="POT/M/HBox"]
-margin_left = 26.0
-margin_right = 66.0
-margin_bottom = 150.0
-size_flags_horizontal = 3
-custom_constants/separation = 10
-
-[node name="C" type="CenterContainer" parent="POT/M/HBox/VBox"]
-margin_right = 40.0
-margin_bottom = 100.0
-mouse_filter = 1
-
-[node name="Texture" type="TextureRect" parent="POT/M/HBox/VBox/C"]
-margin_right = 40.0
-margin_bottom = 100.0
-texture = ExtResource( 14 )
-
-[node name="Label" type="Label" parent="POT/M/HBox/VBox"]
-margin_top = 110.0
-margin_right = 40.0
-margin_bottom = 124.0
-mouse_filter = 1
-text = "100K"
-align = 1
-
-[node name="HSlider" type="HSlider" parent="POT/M/HBox/VBox"]
-margin_top = 134.0
-margin_right = 40.0
-margin_bottom = 150.0
-
-[node name="sp2" type="Control" parent="POT"]
-margin_left = 8.0
-margin_top = 168.0
-margin_right = 94.0
-margin_bottom = 184.0
-rect_min_size = Vector2( 0, 16 )
-mouse_filter = 1
+[node name="POT" parent="." instance=ExtResource( 19 )]
 
 [node name="AMPS" type="GraphNode" parent="."]
 margin_left = 104.0
@@ -188,35 +96,7 @@ margin_right = 44.0
 margin_bottom = 40.0
 texture = ExtResource( 11 )
 
-[node name="L" type="GraphNode" parent="."]
-margin_left = 384.0
-margin_top = 368.0
-margin_right = 440.0
-margin_bottom = 480.0
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="C" type="CenterContainer" parent="L"]
-margin_left = 8.0
-margin_right = 48.0
-margin_bottom = 112.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Tex" type="TextureRect" parent="L/C"]
-margin_left = 4.0
-margin_right = 36.0
-margin_bottom = 112.0
-texture = ExtResource( 7 )
+[node name="L" parent="." instance=ExtResource( 17 )]
 
 [node name="Lamp" type="GraphNode" parent="."]
 margin_left = 80.0
@@ -278,35 +158,7 @@ margin_right = 34.0
 margin_bottom = 54.0
 texture = ExtResource( 5 )
 
-[node name="LED" type="GraphNode" parent="."]
-margin_left = 200.0
-margin_top = 24.0
-margin_right = 264.0
-margin_bottom = 78.0
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 0, 0, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="C" type="CenterContainer" parent="LED"]
-margin_left = 8.0
-margin_right = 56.0
-margin_bottom = 54.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Tex" type="TextureRect" parent="LED/C"]
-margin_left = 3.0
-margin_right = 45.0
-margin_bottom = 54.0
-texture = ExtResource( 16 )
+[node name="LED" parent="." instance=ExtResource( 16 )]
 
 [node name="FET" type="GraphNode" parent="."]
 margin_left = 168.0
@@ -423,219 +275,22 @@ margin_bottom = 121.0
 rect_min_size = Vector2( 0, 16 )
 mouse_filter = 1
 
-[node name="T1" type="GraphNode" parent="."]
-margin_left = 384.0
-margin_top = 184.0
-margin_right = 452.0
-margin_bottom = 330.0
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
-slot/2/left_enabled = true
-slot/2/left_type = 0
-slot/2/left_color = Color( 1, 1, 1, 1 )
-slot/2/right_enabled = true
-slot/2/right_type = 0
-slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="T1" parent="." instance=ExtResource( 14 )]
 
-[node name="sp1" type="Control" parent="T1"]
-margin_left = 8.0
-margin_right = 60.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 0, 16 )
-mouse_filter = 1
+[node name="T2" parent="." instance=ExtResource( 8 )]
 
-[node name="C" type="CenterContainer" parent="T1"]
-margin_left = 8.0
-margin_top = 17.0
-margin_right = 60.0
-margin_bottom = 129.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Tex" type="TextureRect" parent="T1/C"]
-margin_right = 52.0
-margin_bottom = 112.0
-texture = ExtResource( 19 )
-
-[node name="sp2" type="Control" parent="T1"]
-margin_left = 8.0
-margin_top = 130.0
-margin_right = 60.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 0, 16 )
-mouse_filter = 1
-
-[node name="T2" type="GraphNode" parent="."]
-margin_left = 272.0
-margin_top = 176.0
-margin_right = 356.0
-margin_bottom = 322.0
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
-slot/1/right_enabled = true
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
-slot/2/left_enabled = true
-slot/2/left_type = 0
-slot/2/left_color = Color( 1, 1, 1, 1 )
-slot/2/right_enabled = true
-slot/2/right_type = 0
-slot/2/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="sp1" type="Control" parent="T2"]
-margin_left = 8.0
-margin_right = 76.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 0, 16 )
-mouse_filter = 1
-
-[node name="C" type="CenterContainer" parent="T2"]
-margin_left = 8.0
-margin_top = 17.0
-margin_right = 76.0
-margin_bottom = 129.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Tex" type="TextureRect" parent="T2/C"]
-margin_right = 68.0
-margin_bottom = 112.0
-texture = ExtResource( 17 )
-
-[node name="sp2" type="Control" parent="T2"]
-margin_left = 8.0
-margin_top = 130.0
-margin_right = 76.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 0, 16 )
-mouse_filter = 1
-
-[node name="ECap" type="GraphNode" parent="."]
-margin_left = 536.0
-margin_top = 24.0
-margin_right = 600.0
-margin_bottom = 121.0
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 0, 0, 1 )
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color( 1, 1, 1, 1 )
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color( 1, 1, 1, 1 )
-slot/2/left_enabled = false
-slot/2/left_type = 0
-slot/2/left_color = Color( 1, 1, 1, 1 )
-slot/2/right_enabled = false
-slot/2/right_type = 0
-slot/2/right_color = Color( 1, 1, 1, 1 )
-slot/3/left_enabled = false
-slot/3/left_type = 0
-slot/3/left_color = Color( 1, 1, 1, 1 )
-slot/3/right_enabled = true
-slot/3/right_type = 0
-slot/3/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="sp" type="Control" parent="ECap"]
-margin_left = 8.0
-margin_right = 56.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 0, 16 )
-
-[node name="C" type="CenterContainer" parent="ECap"]
-margin_left = 8.0
-margin_top = 17.0
-margin_right = 56.0
-margin_bottom = 65.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Tex" type="TextureRect" parent="ECap/C"]
-margin_left = 8.0
-margin_right = 39.0
-margin_bottom = 48.0
-texture = ExtResource( 13 )
-
-[node name="Label" type="Label" parent="ECap"]
-margin_left = 8.0
-margin_top = 66.0
-margin_right = 56.0
-margin_bottom = 80.0
-text = "100uF"
-align = 1
-
-[node name="HSlider" type="HSlider" parent="ECap"]
-margin_left = 8.0
-margin_top = 81.0
-margin_right = 56.0
-margin_bottom = 97.0
+[node name="ECap" parent="." instance=ExtResource( 13 )]
+margin_left = 670.0
+margin_top = 37.0
+margin_right = 778.0
+margin_bottom = 164.0
 
 [node name="R" parent="." instance=ExtResource( 6 )]
+margin_left = 492.0
+margin_top = 22.0
+margin_right = 636.0
+margin_bottom = 174.0
 
 [node name="C" parent="." instance=ExtResource( 12 )]
 
-[node name="Zener" type="GraphNode" parent="."]
-margin_left = 296.0
-margin_top = 16.0
-margin_right = 352.0
-margin_bottom = 72.0
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 0, 0, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="C" type="CenterContainer" parent="Zener"]
-margin_left = 8.0
-margin_right = 48.0
-margin_bottom = 56.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Tex" type="TextureRect" parent="Zener/C"]
-margin_left = 5.0
-margin_right = 35.0
-margin_bottom = 56.0
-texture = ExtResource( 8 )
+[node name="Zener" parent="." instance=ExtResource( 7 )]

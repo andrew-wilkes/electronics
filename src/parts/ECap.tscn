@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://parts/C.gd" type="Script" id=1]
-[ext_resource path="res://assets/parts/cap.png" type="Texture" id=2]
+[ext_resource path="res://parts/ECap.gd" type="Script" id=1]
+[ext_resource path="res://assets/parts/e-cap.png" type="Texture" id=2]
 
-[node name="C" type="GraphNode"]
-margin_left = 376.0
-margin_top = 16.0
-margin_right = 480.0
-margin_bottom = 126.0
+[node name="ECap" type="GraphNode"]
+margin_left = 536.0
+margin_top = 24.0
+margin_right = 644.0
+margin_bottom = 151.0
 slot/0/left_enabled = true
 slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = true
+slot/0/left_color = Color( 1, 0, 0, 1 )
+slot/0/right_enabled = false
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
 slot/1/left_enabled = false
@@ -26,40 +26,53 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = false
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="C" type="CenterContainer" parent="."]
+[node name="sp" type="Control" parent="."]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 88.0
-margin_bottom = 72.0
+margin_right = 92.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 16 )
+
+[node name="C" type="CenterContainer" parent="."]
+margin_left = 16.0
+margin_top = 41.0
+margin_right = 92.0
+margin_bottom = 89.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Tex" type="TextureRect" parent="C"]
 margin_left = 22.0
-margin_right = 50.0
+margin_right = 53.0
 margin_bottom = 48.0
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 16.0
-margin_top = 73.0
-margin_right = 88.0
-margin_bottom = 87.0
-text = "10nF"
+margin_top = 90.0
+margin_right = 92.0
+margin_bottom = 104.0
+text = "100uF"
 align = 1
 
 [node name="HSlider" type="HSlider" parent="."]
 margin_left = 16.0
-margin_top = 88.0
-margin_right = 88.0
-margin_bottom = 104.0
-max_value = 2.7
+margin_top = 105.0
+margin_right = 92.0
+margin_bottom = 121.0
+max_value = 3.7
 step = 0.1
 
 [connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
