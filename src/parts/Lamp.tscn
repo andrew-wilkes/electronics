@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://parts/Lamp.gd" type="Script" id=1]
+[ext_resource path="res://assets/parts/lamp.png" type="Texture" id=2]
+
+[node name="Lamp" type="GraphNode"]
+margin_left = 16.0
+margin_top = 496.0
+margin_right = 108.0
+margin_bottom = 583.0
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C" type="CenterContainer" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 76.0
+margin_bottom = 81.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tex" type="TextureRect" parent="C"]
+margin_top = 8.0
+margin_right = 60.0
+margin_bottom = 48.0
+texture = ExtResource( 2 )

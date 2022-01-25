@@ -8,7 +8,7 @@
 [ext_resource path="res://parts/R.tscn" type="PackedScene" id=6]
 [ext_resource path="res://parts/Zener.tscn" type="PackedScene" id=7]
 [ext_resource path="res://parts/T2.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/parts/lamp.png" type="Texture" id=9]
+[ext_resource path="res://parts/Lamp.tscn" type="PackedScene" id=9]
 [ext_resource path="res://parts/C.tscn" type="PackedScene" id=12]
 [ext_resource path="res://parts/ECap.tscn" type="PackedScene" id=13]
 [ext_resource path="res://parts/T1.tscn" type="PackedScene" id=14]
@@ -46,36 +46,7 @@ margin_top = 448.0
 margin_right = 400.0
 margin_bottom = 544.0
 
-[node name="Lamp" type="GraphNode" parent="."]
-margin_left = 56.0
-margin_top = 232.0
-margin_right = 140.0
-margin_bottom = 304.0
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="C" type="CenterContainer" parent="Lamp"]
-margin_left = 8.0
-margin_right = 76.0
-margin_bottom = 72.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Tex" type="TextureRect" parent="Lamp/C"]
-margin_left = 4.0
-margin_top = 16.0
-margin_right = 64.0
-margin_bottom = 56.0
-texture = ExtResource( 9 )
+[node name="Lamp" parent="." instance=ExtResource( 9 )]
 
 [node name="Diode" type="GraphNode" parent="."]
 margin_left = 64.0
