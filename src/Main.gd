@@ -84,3 +84,7 @@ func remove_connections_to_node(node):
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		Data.save_data(graph)
+
+
+func _on_Grid_connection_to_empty(from, from_slot, release_position):
+	pass # Replace with function body.

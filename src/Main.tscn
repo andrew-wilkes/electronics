@@ -60,6 +60,7 @@ size_flags_horizontal = 3
 right_disconnects = true
 
 [connection signal="connection_request" from="Main/Grid" to="." method="_on_Grid_connection_request"]
+[connection signal="connection_to_empty" from="Main/Grid" to="." method="_on_Grid_connection_to_empty"]
 [connection signal="delete_nodes_request" from="Main/Grid" to="." method="_on_Grid_delete_nodes_request"]
 [connection signal="disconnection_request" from="Main/Grid" to="." method="_on_Grid_disconnection_request"]
 [connection signal="node_selected" from="Main/Grid" to="." method="_on_Grid_node_selected"]
