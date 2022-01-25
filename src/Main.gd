@@ -16,6 +16,7 @@ func add_part_buttons():
 	for pname in Parts.map.keys():
 		var b = TextureButton.new()
 		b.texture_normal = ResourceLoader.load(Parts.get_part_path(pname))
+		b.hint_tooltip = Parts.map[pname][1]
 		b.connect("pressed", self, "part_pressed", [pname])
 		var c = CenterContainer.new()
 		c.add_child(b)
