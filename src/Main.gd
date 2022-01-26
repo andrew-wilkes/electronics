@@ -2,6 +2,7 @@ extends Control
 
 var graph
 var selected_nodes = {}
+var probes = {}
 
 func _ready():
 	Parts.hide()
@@ -27,7 +28,7 @@ func part_pressed(pname):
 	var part = Parts.get_part(pname)
 	part.offset = Vector2(graph.rect_size.x / 2, 20)
 	part.set("custom_constants/port_offset", 0)
-	graph.add_child(part)
+	graph.add_child(part, true)
 
 
 func init_graph(graph_data: GraphData):
@@ -86,5 +87,38 @@ func _notification(what):
 		Data.save_data(graph)
 
 
-func _on_Grid_connection_to_empty(from, from_slot, release_position):
-	pass # Replace with function body.
+func _on_Grid_connection_to_empty(from, from_slot, _release_position):
+	var node: GraphNode = find_part(from)
+	var last_child = node.get_child(node.get_child_count() - 1)
+	if last_child is Node2D:
+		# Set dict entry to null
+		for pid in probes.keys():
+			if probes[pid] != null and probes[pid].part == node:
+				probes[pid] = null
+		# Remove Node2D
+		last_child.queue_free()
+	else:
+		var marker = Node2D.new()
+		marker.position = node.get_connection_output_position(from_slot) + Vector2(6, -20)
+		var probe = Label.new()
+		marker.add_child(probe)
+		node.add_child(marker)
+		var probe_info = {
+			part = node,
+			slot = from_slot,
+		}
+		# Add probe to dict or replace nulled value
+		var n = 1
+		for pid in probes.keys():
+			if probes[pid] == null:
+				n = pid
+				break
+			n = pid + 1
+		probes[n] = probe_info
+		probe.text = "P" + str(n)
+
+
+func find_part(pname):
+	for node in graph.get_children():
+		if node.name == pname:
+			return node
