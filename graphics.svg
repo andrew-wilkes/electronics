@@ -388,9 +388,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="-85.206367"
-     inkscape:cy="48.790368"
+     inkscape:zoom="8.0000002"
+     inkscape:cx="-41.187499"
+     inkscape:cy="15.25"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -422,7 +422,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="BG"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <rect
        style="fill:#d3d7cf;stroke-width:44;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.54614"
@@ -560,6 +560,43 @@
          inkscape:export-ydpi="191.99989" />
     </g>
     <g
+       id="g18038-3"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/resistor2.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"
+       transform="translate(146.5,-38.5)">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect9775-6"
+         width="10.000004"
+         height="25"
+         x="-40"
+         y="-60"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-7"
+         width="2"
+         height="9.0000191"
+         x="-36"
+         y="-70"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-2-5"
+         width="2"
+         height="9.0000191"
+         x="-36"
+         y="-34.000019"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+    </g>
+    <g
        id="g18050"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/cap.png"
        inkscape:export-xdpi="191.99989"
@@ -607,11 +644,58 @@
          inkscape:export-ydpi="191.99989" />
     </g>
     <g
+       id="g18050-2"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/cap2.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"
+       transform="translate(154,-35)">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-27-7"
+         width="2"
+         height="9.0000191"
+         x="-16"
+         y="-59.000019"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/cap.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-0-0"
+         width="2"
+         height="9.0000191"
+         x="-16"
+         y="-44.000019"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/cap.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10238-9"
+         width="14.000001"
+         height="2"
+         x="-22"
+         y="-50"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/cap.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10238-1-3"
+         width="14.000002"
+         height="2"
+         x="-22"
+         y="-46"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/cap.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+    </g>
+    <g
        id="g18058"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/e-cap.png"
        inkscape:export-xdpi="191.99989"
        inkscape:export-ydpi="191.99989"
-       transform="rotate(-90,-1.4999905,-39.50001)">
+       transform="translate(-14.49999,0.50000904)">
       <rect
          style="fill:#ffffff;stroke-width:44;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.54614"
          id="rect1994-62"
@@ -676,8 +760,7 @@
        id="g18033"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/lamp.png"
        inkscape:export-xdpi="191.99989"
-       inkscape:export-ydpi="191.99989"
-       transform="rotate(-90,-81,-15)">
+       inkscape:export-ydpi="191.99989">
       <path
          style="fill:#ffffff;stroke-width:44;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.54614"
          id="path1748-8"
@@ -730,7 +813,7 @@
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/inductor.png"
        inkscape:export-xdpi="191.99989"
        inkscape:export-ydpi="191.99989"
-       transform="rotate(90,-28,21)">
+       transform="rotate(180,-7,26)">
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect10055-8-9"
@@ -1126,6 +1209,51 @@
          inkscape:export-ydpi="191.99989" />
     </g>
     <g
+       id="g18072-3"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/diode2.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"
+       transform="matrix(0,1,1,0,181.99998,-72)">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-27-9-5-5"
+         width="2"
+         height="9"
+         x="26"
+         y="-59"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/diode.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-27-9-5-4-62"
+         width="2"
+         height="9.0000191"
+         x="26"
+         y="-41"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/diode.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10238-6-5-9"
+         width="14"
+         height="2"
+         x="20"
+         y="-50"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/diode.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 27,-49 -7,8 h 14 z"
+         id="path12992-1"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/diode.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+    </g>
+    <g
        id="g18090"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/fet.png"
        inkscape:export-xdpi="191.99989"
@@ -1224,7 +1352,7 @@
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/zener.png"
        inkscape:export-xdpi="191.99989"
        inkscape:export-ydpi="191.99989"
-       transform="rotate(-90,47.99999,-51.999991)">
+       transform="translate(-1.5000095,-12.500011)">
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect10055-27-9-5-7"
@@ -1370,6 +1498,91 @@
          inkscape:export-ydpi="191.99989" />
     </g>
     <g
+       id="g3993-6"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/schottky2.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"
+       transform="matrix(0,1,1,0,143.99998,-164)">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-27-9-5-7-6-0"
+         width="2"
+         height="9"
+         x="59"
+         y="-97"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/zener.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-27-9-5-4-6-7-6"
+         width="2"
+         height="9.0000191"
+         x="59"
+         y="-79"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/zener.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10238-6-5-5-5-2"
+         width="14"
+         height="2"
+         x="53"
+         y="-88"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/zener.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10238-6-5-5-9-35-6"
+         width="3"
+         height="2"
+         x="64"
+         y="-91"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/zener.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10238-6-5-5-9-35-9-18"
+         width="2"
+         height="1"
+         x="65"
+         y="-89"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/zener.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10238-6-5-5-9-35-9-1-7"
+         width="2"
+         height="1"
+         x="53"
+         y="-86"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/zener.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10238-6-5-5-9-3-6-9"
+         width="3"
+         height="2"
+         x="53"
+         y="-85"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/zener.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 60,-87 -7,8 h 14 z"
+         id="path12992-6-2-2"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/zener.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+    </g>
+    <g
        id="g18044"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/pot.png"
        inkscape:export-xdpi="191.99989"
@@ -1417,8 +1630,7 @@
        id="g3771"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/led.png"
        inkscape:export-xdpi="191.99989"
-       inkscape:export-ydpi="191.99989"
-       transform="rotate(-90,32.168127,-83.50001)">
+       inkscape:export-ydpi="191.99989">
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect10055-27-9-5-9"

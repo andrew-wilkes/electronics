@@ -1,6 +1,6 @@
 extends Control
 
-var graph
+var graph: GraphEdit
 var selected_nodes = {}
 var probes = {}
 
@@ -26,7 +26,7 @@ func add_part_buttons():
 
 func part_pressed(pname):
 	var part = Parts.get_part(pname)
-	part.offset = Vector2(graph.rect_size.x / 2, 20)
+	part.offset = graph.rect_size / 2 + Vector2(rand_range(-40, 40), rand_range(-40, 40))
 	part.set("custom_constants/port_offset", 0)
 	graph.add_child(part, true)
 
@@ -53,7 +53,7 @@ func clear_graph():
 
 
 func _on_Grid_connection_request(from, from_slot, to, to_slot):
-	graph.connect_node(from, from_slot, to, to_slot)
+	var _e = graph.connect_node(from, from_slot, to, to_slot)
 
 
 func _on_Grid_disconnection_request(from, from_slot, to, to_slot):

@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://parts/Lamp.gd" type="Script" id=1]
-[ext_resource path="res://assets/parts/lamp.png" type="Texture" id=2]
+[ext_resource path="res://parts/C.gd" type="Script" id=1]
+[ext_resource path="res://assets/parts/cap2.png" type="Texture" id=2]
 
-[node name="Lamp" type="GraphNode"]
-margin_left = 16.0
-margin_top = 496.0
-margin_right = 108.0
-margin_bottom = 583.0
+[node name="C" type="GraphNode"]
+margin_left = 376.0
+margin_top = 16.0
+margin_right = 480.0
+margin_bottom = 126.0
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
@@ -26,6 +26,12 @@ slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = true
 slot/2/right_type = 0
 slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -34,28 +40,39 @@ __meta__ = {
 [node name="sp" type="Control" parent="."]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 76.0
+margin_right = 88.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="C" type="CenterContainer" parent="."]
 margin_left = 16.0
 margin_top = 41.0
-margin_right = 76.0
-margin_bottom = 101.0
+margin_right = 88.0
+margin_bottom = 89.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Tex" type="TextureRect" parent="C"]
-margin_left = 10.0
+margin_left = 22.0
 margin_right = 50.0
-margin_bottom = 60.0
+margin_bottom = 48.0
 texture = ExtResource( 2 )
 
-[node name="sp2" type="Control" parent="."]
+[node name="Label" type="Label" parent="."]
 margin_left = 16.0
-margin_top = 102.0
-margin_right = 76.0
-margin_bottom = 118.0
-rect_min_size = Vector2( 0, 16 )
+margin_top = 90.0
+margin_right = 88.0
+margin_bottom = 104.0
+text = "10nF"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 16.0
+margin_top = 105.0
+margin_right = 88.0
+margin_bottom = 121.0
+max_value = 2.7
+step = 0.1
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

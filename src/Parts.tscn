@@ -1,15 +1,17 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Parts.gd" type="Script" id=1]
 [ext_resource path="res://assets/the_theme.tres" type="Theme" id=2]
 [ext_resource path="res://parts/AC.tscn" type="PackedScene" id=3]
 [ext_resource path="res://parts/DC.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/parts/diode.png" type="Texture" id=5]
-[ext_resource path="res://parts/R.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/parts/diode2.png" type="Texture" id=6]
 [ext_resource path="res://parts/Zener.tscn" type="PackedScene" id=7]
 [ext_resource path="res://parts/T2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://parts/Lamp.tscn" type="PackedScene" id=9]
-[ext_resource path="res://parts/C.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/parts/schottky2.png" type="Texture" id=10]
+[ext_resource path="res://parts/RA.tscn" type="PackedScene" id=11]
+[ext_resource path="res://parts/RB.tscn" type="PackedScene" id=12]
 [ext_resource path="res://parts/ECap.tscn" type="PackedScene" id=13]
 [ext_resource path="res://parts/T1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/parts/fet.png" type="Texture" id=15]
@@ -19,6 +21,8 @@
 [ext_resource path="res://parts/POT.tscn" type="PackedScene" id=19]
 [ext_resource path="res://part.gd" type="Script" id=20]
 [ext_resource path="res://assets/parts/schottky.png" type="Texture" id=21]
+[ext_resource path="res://parts/CB.tscn" type="PackedScene" id=22]
+[ext_resource path="res://parts/CA.tscn" type="PackedScene" id=23]
 
 [node name="Parts" type="Control"]
 anchor_right = 1.0
@@ -39,19 +43,57 @@ margin_bottom = 484.0
 slot/0/right_color = Color( 1, 1, 1, 1 )
 
 [node name="POT" parent="." instance=ExtResource( 19 )]
+margin_left = 136.0
+margin_top = 400.0
+margin_right = 238.0
+margin_bottom = 584.0
+slot/0/left_enabled = true
+slot/1/left_enabled = true
+slot/2/left_enabled = true
 
 [node name="L" parent="." instance=ExtResource( 17 )]
-margin_left = 272.0
-margin_top = 448.0
-margin_right = 400.0
-margin_bottom = 544.0
+margin_left = 304.0
+margin_top = 400.0
+margin_right = 384.0
+margin_bottom = 578.0
 
 [node name="Lamp" parent="." instance=ExtResource( 9 )]
 
-[node name="Diode" type="GraphNode" parent="."]
-margin_left = 64.0
+[node name="DA" type="GraphNode" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 96.0
+margin_bottom = 72.0
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C" type="CenterContainer" parent="DA"]
+margin_left = 8.0
+margin_right = 72.0
+margin_bottom = 48.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tex" type="TextureRect" parent="DA/C"]
+margin_left = 5.0
+margin_top = 10.0
+margin_right = 59.0
+margin_bottom = 38.0
+texture = ExtResource( 5 )
+
+[node name="DB" type="GraphNode" parent="."]
+margin_left = 16.0
 margin_top = 80.0
-margin_right = 144.0
+margin_right = 96.0
 margin_bottom = 128.0
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -63,8 +105,9 @@ script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+flipped = true
 
-[node name="C" type="CenterContainer" parent="Diode"]
+[node name="C" type="CenterContainer" parent="DB"]
 margin_left = 8.0
 margin_right = 72.0
 margin_bottom = 48.0
@@ -72,18 +115,18 @@ mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Tex" type="TextureRect" parent="Diode/C"]
+[node name="Tex" type="TextureRect" parent="DB/C"]
 margin_left = 5.0
 margin_top = 10.0
 margin_right = 59.0
 margin_bottom = 38.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
-[node name="SDiode" type="GraphNode" parent="."]
-margin_left = 64.0
-margin_top = 16.0
-margin_right = 144.0
-margin_bottom = 64.0
+[node name="SDA" type="GraphNode" parent="."]
+margin_left = 16.0
+margin_top = 160.0
+margin_right = 96.0
+margin_bottom = 208.0
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
@@ -95,7 +138,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="C" type="CenterContainer" parent="SDiode"]
+[node name="C" type="CenterContainer" parent="SDA"]
 margin_left = 8.0
 margin_right = 72.0
 margin_bottom = 48.0
@@ -103,12 +146,44 @@ mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Tex" type="TextureRect" parent="SDiode/C"]
+[node name="Tex" type="TextureRect" parent="SDA/C"]
 margin_left = 5.0
 margin_top = 10.0
 margin_right = 59.0
 margin_bottom = 38.0
 texture = ExtResource( 21 )
+
+[node name="SDB" type="GraphNode" parent="."]
+margin_left = 16.0
+margin_top = 216.0
+margin_right = 96.0
+margin_bottom = 264.0
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+flipped = true
+
+[node name="C" type="CenterContainer" parent="SDB"]
+margin_left = 8.0
+margin_right = 72.0
+margin_bottom = 48.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tex" type="TextureRect" parent="SDB/C"]
+margin_left = 5.0
+margin_top = 10.0
+margin_right = 59.0
+margin_bottom = 38.0
+texture = ExtResource( 10 )
 
 [node name="LED" parent="." instance=ExtResource( 16 )]
 margin_left = 192.0
@@ -121,7 +196,7 @@ margin_left = 168.0
 margin_top = 208.0
 margin_right = 242.0
 margin_bottom = 298.0
-slot/0/left_enabled = false
+slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
@@ -133,7 +208,7 @@ slot/1/left_color = Color( 1, 1, 1, 1 )
 slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color( 1, 1, 1, 1 )
-slot/2/left_enabled = false
+slot/2/left_enabled = true
 slot/2/left_type = 0
 slot/2/left_color = Color( 1, 1, 1, 1 )
 slot/2/right_enabled = true
@@ -239,22 +314,34 @@ mouse_filter = 1
 margin_left = 696.0
 margin_top = 48.0
 margin_right = 776.0
-margin_bottom = 136.0
-
-[node name="R" parent="." instance=ExtResource( 6 )]
-margin_left = 492.0
-margin_top = 104.0
-margin_right = 616.0
-margin_bottom = 174.0
-
-[node name="C" parent="." instance=ExtResource( 12 )]
-margin_left = 696.0
-margin_top = 168.0
-margin_right = 776.0
-margin_bottom = 248.0
+margin_bottom = 145.0
 
 [node name="Zener" parent="." instance=ExtResource( 7 )]
-margin_top = 32.0
-margin_right = 376.0
-margin_bottom = 128.0
-slot/0/left_color = Color( 1, 1, 1, 1 )
+margin_left = 496.0
+margin_right = 567.0
+margin_bottom = 172.0
+
+[node name="RA" parent="." instance=ExtResource( 11 )]
+margin_left = 688.0
+margin_top = 192.0
+margin_right = 808.0
+margin_bottom = 264.0
+
+[node name="RB" parent="." instance=ExtResource( 12 )]
+margin_left = 832.0
+margin_top = 121.0
+margin_right = 920.0
+margin_bottom = 260.0
+
+[node name="CA" parent="." instance=ExtResource( 23 )]
+margin_left = 744.0
+margin_top = 328.0
+margin_right = 832.0
+margin_bottom = 398.0
+
+[node name="CB" parent="." instance=ExtResource( 22 )]
+margin_left = 784.0
+margin_top = 437.0
+margin_right = 848.0
+margin_bottom = 534.0
+flipped = true
