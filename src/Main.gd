@@ -96,7 +96,7 @@ func _on_Grid_connection_to_empty(from, from_slot, _release_position):
 			probes[pid] = null
 			return
 	var marker = Node2D.new()
-	marker.position = node.get_connection_output_position(from_slot) + Vector2(6, -20)
+	marker.position = node.get_connection_output_position(from_slot) / graph.zoom  + Vector2(6, -20)
 	var probe = Label.new()
 	marker.add_child(probe)
 	node.add_child(marker)
