@@ -89,33 +89,31 @@ func _notification(what):
 
 func _on_Grid_connection_to_empty(from, from_slot, _release_position):
 	var node: GraphNode = find_part(from)
-	var last_child = node.get_child(node.get_child_count() - 1)
-	if last_child is Node2D:
-		# Set dict entry to null
-		for pid in probes.keys():
-			if probes[pid] != null and probes[pid].part == node:
-				probes[pid] = null
-		# Remove Node2D
-		last_child.queue_free()
-	else:
-		var marker = Node2D.new()
-		marker.position = node.get_connection_output_position(from_slot) + Vector2(6, -20)
-		var probe = Label.new()
-		marker.add_child(probe)
-		node.add_child(marker)
-		var probe_info = {
-			part = node,
-			slot = from_slot,
-		}
-		# Add probe to dict or replace nulled value
-		var n = 1
-		for pid in probes.keys():
-			if probes[pid] == null:
-				n = pid
-				break
-			n = pid + 1
-		probes[n] = probe_info
-		probe.text = "P" + str(n)
+	# Remove existing probe
+	for pid in probes.keys():
+		if probes[pid] != null and probes[pid].part == node and probes[pid].slot == from_slot:
+			probes[pid].marker.queue_free()
+			probes[pid] = null
+			return
+	var marker = Node2D.new()
+	marker.position = node.get_connection_output_position(from_slot) + Vector2(6, -20)
+	var probe = Label.new()
+	marker.add_child(probe)
+	node.add_child(marker)
+	var probe_info = {
+		part = node,
+		slot = from_slot,
+		marker = marker
+	}
+	# Add probe to dict or replace nulled value
+	var n = 1
+	for pid in probes.keys():
+		if probes[pid] == null:
+			n = pid
+			break
+		n = pid + 1
+	probes[n] = probe_info
+	probe.text = "P" + str(n)
 
 
 func find_part(pname):
