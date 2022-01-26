@@ -26,7 +26,7 @@ func add_part_buttons():
 
 func part_pressed(pname):
 	var part = Parts.get_part(pname)
-	part.offset = graph.rect_size / 2 + Vector2(rand_range(-40, 40), rand_range(-40, 40))
+	part.offset = (graph.rect_size / 2 + Vector2(rand_range(-40, 40), rand_range(-40, 40)) + graph.scroll_offset) / graph.zoom
 	part.set("custom_constants/port_offset", 0)
 	graph.add_child(part, true)
 

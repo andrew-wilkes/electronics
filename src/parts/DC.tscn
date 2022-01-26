@@ -36,6 +36,7 @@ margin_top = 24.0
 margin_right = 97.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 2
 
 [node name="M" type="MarginContainer" parent="."]
 margin_left = 16.0
@@ -89,5 +90,6 @@ margin_top = 116.0
 margin_right = 97.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 2
 
 [connection signal="value_changed" from="M/HBox/VSlider" to="." method="_on_VSlider_value_changed"]
