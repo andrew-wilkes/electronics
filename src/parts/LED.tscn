@@ -45,6 +45,7 @@ margin_left = 8.0
 margin_right = 80.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 0, 16 )
+mouse_filter = 2
 
 [node name="C" type="CenterContainer" parent="."]
 margin_left = 8.0
