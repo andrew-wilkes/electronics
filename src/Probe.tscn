@@ -16,36 +16,39 @@ __meta__ = {
 
 [node name="P" type="Label" parent="."]
 margin_top = 284.0
-margin_right = 16.0
+margin_right = 1086.0
 margin_bottom = 315.0
+size_flags_horizontal = 3
 text = "P1
 "
 
 [node name="V" type="Label" parent="."]
-margin_left = 21.0
+margin_left = 1091.0
 margin_top = 284.0
-margin_right = 45.0
+margin_right = 1115.0
 margin_bottom = 315.0
 text = "12V
 "
+valign = 1
 
 [node name="I" type="Label" parent="."]
-margin_left = 50.0
+margin_left = 1120.0
 margin_top = 284.0
-margin_right = 96.0
+margin_right = 1166.0
 margin_bottom = 315.0
 text = "100mA
 "
+valign = 1
 
 [node name="View" type="TextureButton" parent="."]
-margin_left = 101.0
-margin_right = 117.0
+margin_left = 1171.0
+margin_right = 1187.0
 margin_bottom = 600.0
 texture_normal = ExtResource( 2 )
 
 [node name="Color" type="ColorPickerButton" parent="."]
-margin_left = 122.0
-margin_right = 130.0
+margin_left = 1192.0
+margin_right = 1200.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 8, 0 )
 custom_styles/normal = SubResource( 1 )

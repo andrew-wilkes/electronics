@@ -1,9 +1,41 @@
 extends Node
 
 const GRAPH_FILE = "user://graph.res"
+const SETTINGS_FILE_NAME = "user://settings.res"
 
-func save_data(graph: GraphEdit):
+var settings: Settings
+
+
+func load_settings():
+	var data = load_resource(SETTINGS_FILE_NAME)
+	if data is Settings: # Check that the data is valid
+		settings = data
+	else:
+		settings = Settings.new()
+
+
+func save_settings():
+	save_resource(settings, SETTINGS_FILE_NAME)
+
+
+func load_resource(file_name):
+	if ResourceLoader.exists(file_name):
+		return ResourceLoader.load(file_name)
+
+
+func save_resource(data, file_name):
+	assert(ResourceSaver.save(file_name, data) == OK)
+
+
+func save_data(graph: GraphEdit, probes):
 	var graph_data = GraphData.new()
+	for pid in probes.keys():
+		var probe = probes[pid]
+		var info = { id = pid, slot = probe.slot }
+		if graph_data.probes.has(probe.part.name):
+			graph_data.probes[probe.part.name].append(info)
+		else:
+			graph_data.probes[probe.part.name] = [info]
 	graph_data.connections = graph.get_connection_list()
 	for node in graph.get_children():
 		if node is GraphNode:

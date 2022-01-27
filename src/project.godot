@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Part",
 "language": "GDScript",
 "path": "res://part.gd"
+}, {
+"base": "Resource",
+"class": "Settings",
+"language": "GDScript",
+"path": "res://settings.gd"
 } ]
 _global_script_class_icons={
 "GraphData": "",
 "NodeData": "",
-"Part": ""
+"Part": "",
+"Settings": ""
 }
 
 [application]

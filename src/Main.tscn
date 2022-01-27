@@ -49,9 +49,8 @@ rect_min_size = Vector2( 200, 0 )
 size_flags_vertical = 3
 
 [node name="Oscilloscope" parent="Main/Tools" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
 
 [node name="Grid" type="GraphEdit" parent="Main"]
 margin_left = 200.0
