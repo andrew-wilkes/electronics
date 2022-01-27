@@ -4,8 +4,10 @@ var graph: GraphEdit
 var selected_nodes = {}
 var probes = {}
 var probe_scene = preload("res://Probe.tscn")
+var probe_holder
 
 func _ready():
+	probe_holder = $Main/Tools/Probes
 	Parts.hide()
 	add_part_buttons()
 	graph = $Main/Grid
@@ -135,7 +137,19 @@ func add_probe(node, from_slot, pid):
 	}
 	# Add probe to dict or replace nulled value
 	probe_info.view.setup(pid)
-	$Main/Tools.add_child(probe_info.view)
+	if probe_holder.get_child_count() == 0:
+		probe_holder.add_child(probe_info.view)
+	else:
+		if pid == 1:
+			probe_holder.add_child(probe_info.view)
+			probe_holder.move_child(probe_info.view, 0)
+		else:
+			var _probes = probe_holder.get_children()
+			_probes.invert()
+			for child in _probes:
+				if child.id < pid:
+					probe_holder.add_child_below_node(child, probe_info.view)
+					break
 	probes[pid] = probe_info
 	probe.text = "P" + str(pid)
 
