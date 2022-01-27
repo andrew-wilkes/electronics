@@ -2,4 +2,4 @@ extends Resource
 
 class_name Settings
 
-var trace_colors = {}
+export var trace_colors = {}

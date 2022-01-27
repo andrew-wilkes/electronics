@@ -50,7 +50,11 @@ func init_graph(graph_data: GraphData):
 				add_probe(gnode, p_list.slot, p_list.id)
 	for con in graph_data.connections:
 		var _e = graph.connect_node(con.from, con.from_port, con.to, con.to_port)
-
+	graph.scroll_offset = graph_data.scroll_offset
+	graph.zoom = graph_data.zoom
+	graph.snap_distance = graph_data.snap_distance
+	graph.use_snap = graph_data.use_snap
+	graph.minimap_enabled = graph_data.minimap_enabled
 
 
 func clear_graph():

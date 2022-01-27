@@ -15,7 +15,7 @@ func load_settings():
 
 
 func save_settings():
-	save_resource(settings, SETTINGS_FILE_NAME)
+	save_resource(SETTINGS_FILE_NAME, settings)
 
 
 func load_resource(file_name):
@@ -23,7 +23,7 @@ func load_resource(file_name):
 		return ResourceLoader.load(file_name)
 
 
-func save_resource(data, file_name):
+func save_resource(file_name, data):
 	assert(ResourceSaver.save(file_name, data) == OK)
 
 
@@ -45,6 +45,11 @@ func save_data(graph: GraphEdit, probes):
 			node_data.offset = node.offset
 			node_data.data = node.data
 			graph_data.nodes.append(node_data)
+	graph_data.scroll_offset = graph.scroll_offset
+	graph_data.zoom = graph.zoom
+	graph_data.snap_distance = graph.snap_distance
+	graph_data.use_snap = graph.use_snap
+	graph_data.minimap_enabled = graph.minimap_enabled
 	if ResourceSaver.save(GRAPH_FILE, graph_data) == OK:
 		print("saved")
 

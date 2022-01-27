@@ -8,53 +8,65 @@
 [node name="Probe" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/separation = 5
+custom_constants/separation = 10
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="sp1" type="Control" parent="."]
+margin_right = 5.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 5, 0 )
+
 [node name="P" type="Label" parent="."]
+margin_left = 15.0
 margin_top = 284.0
-margin_right = 1086.0
+margin_right = 1051.0
 margin_bottom = 315.0
 size_flags_horizontal = 3
 text = "P1
 "
 
 [node name="V" type="Label" parent="."]
-margin_left = 1091.0
+margin_left = 1061.0
 margin_top = 284.0
-margin_right = 1115.0
+margin_right = 1085.0
 margin_bottom = 315.0
 text = "12V
 "
 valign = 1
 
 [node name="I" type="Label" parent="."]
-margin_left = 1120.0
+margin_left = 1095.0
 margin_top = 284.0
-margin_right = 1166.0
+margin_right = 1141.0
 margin_bottom = 315.0
 text = "100mA
 "
 valign = 1
 
 [node name="View" type="TextureButton" parent="."]
-margin_left = 1171.0
-margin_right = 1187.0
+margin_left = 1151.0
+margin_right = 1167.0
 margin_bottom = 600.0
 texture_normal = ExtResource( 2 )
 
 [node name="Color" type="ColorPickerButton" parent="."]
-margin_left = 1192.0
-margin_right = 1200.0
+margin_left = 1177.0
+margin_right = 1185.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 8, 0 )
 custom_styles/normal = SubResource( 1 )
 flat = true
 color = Color( 0.0588235, 0.490196, 0.721569, 1 )
 edit_alpha = false
+
+[node name="sp2" type="Control" parent="."]
+margin_left = 1195.0
+margin_right = 1200.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 5, 0 )
 
 [connection signal="pressed" from="View" to="." method="_on_View_pressed"]
 [connection signal="color_changed" from="Color" to="." method="_on_ColorPickerButton_color_changed"]
