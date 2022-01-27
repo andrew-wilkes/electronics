@@ -389,8 +389,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="8.0000002"
-     inkscape:cx="-41.187499"
-     inkscape:cy="15.25"
+     inkscape:cx="-42.687499"
+     inkscape:cy="14.5"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -1865,5 +1865,15 @@
        cx="-182.5"
        cy="-87.5"
        r="7.5" />
+    <rect
+       style="fill:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:none;fill-opacity:1"
+       id="rect1085"
+       width="5"
+       height="5"
+       x="-80"
+       y="15"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/white_sqr.png"
+       inkscape:export-xdpi="192"
+       inkscape:export-ydpi="192" />
   </g>
 </svg>

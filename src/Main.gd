@@ -9,7 +9,7 @@ func _ready():
 	add_part_buttons()
 	graph = $Main/Grid
 	var graph_data = Data.load_data()
-	if graph_data != null and false:
+	if graph_data != null and true:
 		init_graph(graph_data)
 
 

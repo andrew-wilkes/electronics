@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Probe.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons/icon_GUI_visibility_visible.svg" type="Texture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[node name="Probe" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P" type="Label" parent="."]
+margin_top = 284.0
+margin_right = 16.0
+margin_bottom = 315.0
+text = "P1
+"
+
+[node name="V" type="Label" parent="."]
+margin_left = 21.0
+margin_top = 284.0
+margin_right = 45.0
+margin_bottom = 315.0
+text = "12V
+"
+
+[node name="I" type="Label" parent="."]
+margin_left = 50.0
+margin_top = 284.0
+margin_right = 96.0
+margin_bottom = 315.0
+text = "100mA
+"
+
+[node name="View" type="TextureButton" parent="."]
+margin_left = 101.0
+margin_right = 117.0
+margin_bottom = 600.0
+texture_normal = ExtResource( 2 )
+
+[node name="Color" type="ColorPickerButton" parent="."]
+margin_left = 122.0
+margin_right = 130.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 8, 0 )
+custom_styles/normal = SubResource( 1 )
+flat = true
+color = Color( 0.0588235, 0.490196, 0.721569, 1 )
+edit_alpha = false
+
+[connection signal="pressed" from="View" to="." method="_on_View_pressed"]
+[connection signal="color_changed" from="Color" to="." method="_on_ColorPickerButton_color_changed"]
