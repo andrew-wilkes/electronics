@@ -49,8 +49,7 @@ func save_data(file_name, graph: GraphEdit, probes):
 	graph_data.snap_distance = graph.snap_distance
 	graph_data.use_snap = graph.use_snap
 	graph_data.minimap_enabled = graph.minimap_enabled
-	if ResourceSaver.save(file_name, graph_data) == OK:
-		print("saved")
+	return ResourceSaver.save(file_name, graph_data)
 
 
 func load_data(file_name):

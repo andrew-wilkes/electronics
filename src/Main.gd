@@ -55,6 +55,17 @@ func confirm_loss():
 		do_action()
 
 
+func _on_YesNoDialog_no():
+	$c/YesNoDialog.hide()
+	do_action()
+
+
+func _on_YesNoDialog_yes():
+	$c/YesNoDialog.hide()
+	action = SAVE
+	do_action()
+
+
 func do_action():
 	match action:
 		NEW:
@@ -69,9 +80,14 @@ func do_action():
 				$c/FileDialog.mode = FileDialog.MODE_SAVE_FILE
 				$c/FileDialog.popup_centered()
 			else:
-				Data.save_data(file_name, graph, probes)
+				save_data()
 		QUIT:
 			get_tree().quit()
+
+
+func save_data():
+	if Data.save_data(file_name, graph, probes) != OK:
+		alert("Failed to save the circuit file.")
 
 
 func open_file_dialog():
@@ -86,7 +102,7 @@ func _on_FileDialog_file_selected(path: String):
 		return
 	set_filename(path)
 	if action == SAVE:
-		Data.save_data(file_name, graph, probes)
+		save_data()
 		set_changed(false)
 	else:
 		var graph_data = Data.load_data(file_name)
@@ -209,7 +225,7 @@ func remove_probes(node):
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		Data.save_data(file_name, graph, probes)
+		save_data()
 		Data.save_settings()
 
 

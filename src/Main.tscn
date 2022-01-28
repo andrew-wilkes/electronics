@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/the_theme.tres" type="Theme" id=2]
 [ext_resource path="res://Oscilloscope.tscn" type="PackedScene" id=3]
+[ext_resource path="res://YesNoDialog.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="VBoxContainer"]
 anchor_right = 1.0
@@ -95,6 +96,8 @@ show_hidden_files = true
 current_dir = "user://"
 current_path = "user://"
 
+[node name="YesNoDialog" parent="c" instance=ExtResource( 4 )]
+
 [connection signal="connection_request" from="Main/Grid" to="." method="_on_Grid_connection_request"]
 [connection signal="connection_to_empty" from="Main/Grid" to="." method="_on_Grid_connection_to_empty"]
 [connection signal="delete_nodes_request" from="Main/Grid" to="." method="_on_Grid_delete_nodes_request"]
@@ -103,3 +106,5 @@ current_path = "user://"
 [connection signal="node_unselected" from="Main/Grid" to="." method="_on_Grid_node_unselected"]
 [connection signal="confirmed" from="c/Alert" to="." method="_on_Alert_confirmed"]
 [connection signal="file_selected" from="c/FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="no" from="c/YesNoDialog" to="." method="_on_YesNoDialog_no"]
+[connection signal="yes" from="c/YesNoDialog" to="." method="_on_YesNoDialog_yes"]

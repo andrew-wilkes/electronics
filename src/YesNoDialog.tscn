@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://YesNoDialog.gd" type="Script" id=1]
+
+[node name="YesNoDialog" type="WindowDialog"]
+margin_right = 237.0
+margin_bottom = 83.0
+window_title = "Usaved changes warning"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="M" type="MarginContainer" parent="."]
+margin_right = 236.0
+margin_bottom = 78.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="M"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 226.0
+margin_bottom = 68.0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="M/V"]
+margin_right = 216.0
+margin_bottom = 14.0
+text = "Do you want to save the changes?"
+
+[node name="H" type="HBoxContainer" parent="M/V"]
+margin_top = 34.0
+margin_right = 216.0
+margin_bottom = 54.0
+
+[node name="Spacer" type="Control" parent="M/V/H"]
+margin_right = 48.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" type="Button" parent="M/V/H"]
+margin_left = 52.0
+margin_right = 86.0
+margin_bottom = 20.0
+text = "Yes"
+
+[node name="Spacer2" type="Control" parent="M/V/H"]
+margin_left = 90.0
+margin_right = 130.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="No" type="Button" parent="M/V/H"]
+margin_left = 134.0
+margin_right = 164.0
+margin_bottom = 20.0
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer3" type="Control" parent="M/V/H"]
+margin_left = 168.0
+margin_right = 216.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="M/V/H/Yes" to="." method="_on_Yes_pressed"]
+[connection signal="pressed" from="M/V/H/No" to="." method="_on_No_pressed"]
