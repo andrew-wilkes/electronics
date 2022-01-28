@@ -1,6 +1,7 @@
 extends Node
 
 const SETTINGS_FILE_NAME = "user://settings.res"
+const DEFAULT_FILE_NAME = "user://backup.res"
 
 var settings: Settings
 
@@ -27,6 +28,8 @@ func save_resource(file_name, data):
 
 
 func save_data(file_name, graph: GraphEdit, probes):
+	if file_name == "":
+		file_name = DEFAULT_FILE_NAME
 	var graph_data = GraphData.new()
 	for pid in probes.keys():
 		var probe = probes[pid]
