@@ -1,9 +1,8 @@
-## Add a way to probe voltage and current.
+Check out: https://falstad.com/circuit/
 
-Under the oscilloscope, have buttons for adding voltage or current probes. Select which ones are active. Then click and drag on an output pin to apply the probe and remove it from another place.
+Create example circuits.
 
-Use the _on_Grid_connection_to_empty signal to facilitate this.
+Teach how they work, and then the person may experiment and try to recreate them.
 
-Need a symbol to attach to the end of the wire for V or I.
+https://falstad.com/mathphysics.html
 
-Need a way to delete the probe.

@@ -1,14 +1,18 @@
 extends HBoxContainer
 
-signal probe_view_pressed(view)
+signal probe_view_pressed(id, IV, show)
 
-var view = false
+enum { I, V }
+
+var showV = false
+var showI = false
 var hidden_icon = preload("res://assets/icons/icon_GUI_visibility_hidden.svg")
 var visible_icon = preload("res://assets/icons/icon_GUI_visibility_visible.svg")
 var id = 1
 
 func _ready():
-	set_button_icon()
+	set_button_icon($VTrace, showV)
+	set_button_icon($ITrace, showI)
 
 
 func setup(_id = 1):
@@ -23,18 +27,24 @@ func setup(_id = 1):
 		Data.settings.trace_colors[id] = $Color.color
 
 
-func _on_View_pressed():
-	view = !view
-	set_button_icon()
-	emit_signal("probe_view_pressed", view)
-
-
-func set_button_icon():
-	if view:
-		$View.texture_normal = hidden_icon
+func set_button_icon(b, show):
+	if show:
+		b.texture_normal = hidden_icon
 	else:
-		$View.texture_normal = visible_icon
+		b.texture_normal = visible_icon
 
 
 func _on_ColorPickerButton_color_changed(color):
 	Data.settings.trace_colors[id] = color
+
+
+func _on_VTrace_pressed():
+	showV = !showV
+	set_button_icon($VTrace, showV)
+	emit_signal("probe_view_pressed", id, V, showV)
+
+
+func _on_ITrace_pressed():
+	showI = !showI
+	set_button_icon($ITrace, showI)
+	emit_signal("probe_view_pressed", id, I, showI)

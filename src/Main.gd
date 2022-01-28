@@ -1,10 +1,16 @@
 extends Control
 
+enum { NOACTION, NEW, OPEN, SAVE, SAVEAS, SETTINGS, QUIT, ABOUT, LICENCES, MANUAL }
+
 var graph: GraphEdit
 var selected_nodes = {}
 var probes = {}
 var probe_scene = preload("res://Probe.tscn")
 var probe_holder
+var action = NOACTION
+var file_name = ""
+var last_file_name = ""
+var changed = false
 
 func _ready():
 	probe_holder = $Main/Tools/Probes
@@ -12,9 +18,104 @@ func _ready():
 	add_part_buttons()
 	graph = $Main/Grid
 	Data.load_settings()
-	var graph_data = Data.load_data()
-	if graph_data != null and true:
-		init_graph(graph_data)
+	setup_menus()
+
+
+func setup_menus():
+	var fm = $Top/FileMenu.get_popup()
+	fm.add_item("New", NEW, KEY_MASK_CTRL | KEY_N)
+	fm.add_item("Open", OPEN, KEY_MASK_CTRL | KEY_O)
+	fm.add_separator()
+	fm.add_item("Save", SAVE, KEY_MASK_CTRL | KEY_S)
+	fm.add_item("Save As...", SAVEAS, KEY_MASK_CTRL | KEY_MASK_SHIFT | KEY_S)
+	fm.add_separator()
+	fm.add_item("Quit", QUIT, KEY_MASK_CTRL | KEY_Q)
+	fm.connect("id_pressed", self, "file_menu_id_pressed")
+
+
+func file_menu_id_pressed(id):
+	action = id
+	match id:
+		NEW, OPEN:
+			confirm_loss()
+		SAVE:
+			do_action()
+		SAVEAS:
+			set_filename()
+			action = SAVE
+			do_action()
+		QUIT:
+			get_tree().quit()
+
+
+func confirm_loss():
+	if changed:
+		$c/YesNoDialog.popup_centered()
+	else:
+		do_action()
+
+
+func do_action():
+	match action:
+		NEW:
+			set_changed(false)
+			set_filename()
+			clear_graph()
+		OPEN:
+			open_file_dialog()
+		SAVE:
+			if file_name == "":
+				$c/FileDialog.current_file = file_name
+				$c/FileDialog.mode = FileDialog.MODE_SAVE_FILE
+				$c/FileDialog.popup_centered()
+			else:
+				Data.save_data(file_name, graph, probes)
+		QUIT:
+			get_tree().quit()
+
+
+func open_file_dialog():
+	$c/FileDialog.current_file = file_name
+	$c/FileDialog.mode = FileDialog.MODE_OPEN_FILE
+	$c/FileDialog.popup_centered()
+
+
+func _on_FileDialog_file_selected(path: String):
+	if path.rstrip("/") == path.get_base_dir():
+		alert("No filename was specified")
+		return
+	set_filename(path)
+	if action == SAVE:
+		Data.save_data(file_name, graph, probes)
+		set_changed(false)
+	else:
+		var graph_data = Data.load_data(file_name)
+		if graph_data == null:
+			$Top/CurrentFile.text = ""
+			alert("Incompatible file")
+		else:
+			init_graph(graph_data)
+
+
+func set_filename(fn = ""):
+	last_file_name = file_name
+	file_name = fn
+	$Top/CurrentFile.text = fn.get_file()
+
+
+func alert(txt = ""):
+	if txt != "":
+		$c/Alert.dialog_text = txt
+	$c/Alert.popup_centered()
+
+
+func hide_alert():
+	$c/Alert.hide()
+
+
+func set_changed(status = true):
+	changed = status
+	$Top/CurrentFile.modulate = Color.orangered if status else Color.greenyellow
 
 
 func add_part_buttons():
@@ -37,6 +138,7 @@ func part_pressed(pname):
 
 func init_graph(graph_data: GraphData):
 	clear_graph()
+	set_changed(false)
 	var probes_data = graph_data.probes
 	for node_data in graph_data.nodes:
 		# Get new node from factory autoload (singleton)
@@ -99,15 +201,15 @@ func remove_connections_to_node(node):
 
 
 func remove_probes(node):
-	for probe in probes:
-		if probe.node == node:
+	for id in probes.keys():
+		if probes[id].part == node:
 			# Remove trace if any
-			probe.view.queue_free()
+			probes[id].view.queue_free()
 
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		Data.save_data(graph, probes)
+		Data.save_data(file_name, graph, probes)
 		Data.save_settings()
 
 
@@ -172,3 +274,7 @@ func find_part(pname):
 	for node in graph.get_children():
 		if node.name == pname:
 			return node
+
+
+func _on_Alert_confirmed():
+	$c/Alert.hide()

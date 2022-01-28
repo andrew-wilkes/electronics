@@ -22,20 +22,26 @@ rect_min_size = Vector2( 5, 0 )
 [node name="P" type="Label" parent="."]
 margin_left = 15.0
 margin_top = 284.0
-margin_right = 1051.0
+margin_right = 1025.0
 margin_bottom = 315.0
 size_flags_horizontal = 3
 text = "P1
 "
 
 [node name="V" type="Label" parent="."]
-margin_left = 1061.0
+margin_left = 1035.0
 margin_top = 284.0
-margin_right = 1085.0
+margin_right = 1059.0
 margin_bottom = 315.0
 text = "12V
 "
 valign = 1
+
+[node name="VTrace" type="TextureButton" parent="."]
+margin_left = 1069.0
+margin_right = 1085.0
+margin_bottom = 600.0
+texture_normal = ExtResource( 2 )
 
 [node name="I" type="Label" parent="."]
 margin_left = 1095.0
@@ -46,7 +52,7 @@ text = "100mA
 "
 valign = 1
 
-[node name="View" type="TextureButton" parent="."]
+[node name="ITrace" type="TextureButton" parent="."]
 margin_left = 1151.0
 margin_right = 1167.0
 margin_bottom = 600.0
@@ -68,5 +74,6 @@ margin_right = 1200.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 5, 0 )
 
-[connection signal="pressed" from="View" to="." method="_on_View_pressed"]
+[connection signal="pressed" from="VTrace" to="." method="_on_VTrace_pressed"]
+[connection signal="pressed" from="ITrace" to="." method="_on_ITrace_pressed"]
 [connection signal="color_changed" from="Color" to="." method="_on_ColorPickerButton_color_changed"]

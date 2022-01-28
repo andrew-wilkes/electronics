@@ -1,6 +1,5 @@
 extends Node
 
-const GRAPH_FILE = "user://graph.res"
 const SETTINGS_FILE_NAME = "user://settings.res"
 
 var settings: Settings
@@ -27,7 +26,7 @@ func save_resource(file_name, data):
 	assert(ResourceSaver.save(file_name, data) == OK)
 
 
-func save_data(graph: GraphEdit, probes):
+func save_data(file_name, graph: GraphEdit, probes):
 	var graph_data = GraphData.new()
 	for pid in probes.keys():
 		var probe = probes[pid]
@@ -50,13 +49,13 @@ func save_data(graph: GraphEdit, probes):
 	graph_data.snap_distance = graph.snap_distance
 	graph_data.use_snap = graph.use_snap
 	graph_data.minimap_enabled = graph.minimap_enabled
-	if ResourceSaver.save(GRAPH_FILE, graph_data) == OK:
+	if ResourceSaver.save(file_name, graph_data) == OK:
 		print("saved")
 
 
-func load_data():
-	if ResourceLoader.exists(GRAPH_FILE):
-		var graph_data = ResourceLoader.load(GRAPH_FILE)
+func load_data(file_name):
+	if ResourceLoader.exists(file_name):
+		var graph_data = ResourceLoader.load(file_name)
 		if graph_data is GraphData:
 			return graph_data
 
