@@ -5,6 +5,7 @@ const PART_PATH = "res://assets/parts/small/part-"
 var map = {
 	"AC": [0, "AC power supply"],
 	"DC": [3, "DC power supply"],
+	"GND": [20, "Ground"],
 	"RA": [14, "Resistor"],
 	"RB": [13, "Resistor"],
 	"CA": [2, "Capacitor"],

@@ -388,9 +388,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8.0000002"
-     inkscape:cx="-42.687499"
-     inkscape:cy="14.5"
+     inkscape:zoom="16"
+     inkscape:cx="40.531249"
+     inkscape:cy="-32.249999"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -1168,7 +1168,7 @@
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/diode.png"
        inkscape:export-xdpi="191.99989"
        inkscape:export-ydpi="191.99989"
-       transform="rotate(90,29,-44.49999)">
+       transform="rotate(90,28,-45)">
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect10055-27-9-5"
@@ -1352,7 +1352,7 @@
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/zener.png"
        inkscape:export-xdpi="191.99989"
        inkscape:export-ydpi="191.99989"
-       transform="translate(-1.5000095,-12.500011)">
+       transform="translate(-1,-13)">
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect10055-27-9-5-7"
@@ -1875,5 +1875,43 @@
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/white_sqr.png"
        inkscape:export-xdpi="192"
        inkscape:export-ydpi="192" />
+    <g
+       id="g2133"
+       transform="translate(0,1)"
+       inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/gnd.png"
+       inkscape:export-xdpi="192"
+       inkscape:export-ydpi="192">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:16;stroke-linecap:round"
+         id="rect1086"
+         width="14"
+         height="2"
+         x="53"
+         y="-36"
+         rx="0" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:16;stroke-linecap:round"
+         id="rect1477"
+         width="8"
+         height="2"
+         x="56"
+         y="-33"
+         ry="0" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:16;stroke-linecap:round"
+         id="rect1520"
+         width="2"
+         height="2"
+         x="59"
+         y="-30" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:16;stroke-linecap:round"
+         id="rect1948"
+         width="9"
+         height="2"
+         x="36"
+         y="59"
+         transform="rotate(-90)" />
+    </g>
   </g>
 </svg>

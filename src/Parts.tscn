@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Parts.gd" type="Script" id=1]
 [ext_resource path="res://assets/the_theme.tres" type="Theme" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://assets/parts/schottky.png" type="Texture" id=21]
 [ext_resource path="res://parts/CB.tscn" type="PackedScene" id=22]
 [ext_resource path="res://parts/CA.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/parts/gnd.png" type="Texture" id=24]
 
 [node name="Parts" type="Control"]
 anchor_right = 1.0
@@ -89,6 +90,37 @@ margin_top = 10.0
 margin_right = 59.0
 margin_bottom = 38.0
 texture = ExtResource( 5 )
+
+[node name="GND" type="GraphNode" parent="."]
+margin_left = 320.0
+margin_top = 80.0
+margin_right = 376.0
+margin_bottom = 128.0
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C" type="CenterContainer" parent="GND"]
+margin_left = 8.0
+margin_right = 48.0
+margin_bottom = 48.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tex" type="TextureRect" parent="GND/C"]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 34.0
+margin_bottom = 41.0
+texture = ExtResource( 24 )
 
 [node name="DB" type="GraphNode" parent="."]
 margin_left = 16.0
