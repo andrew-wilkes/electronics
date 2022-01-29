@@ -106,6 +106,7 @@ script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_gnd = true
 
 [node name="C" type="CenterContainer" parent="GND"]
 margin_left = 8.0

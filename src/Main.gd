@@ -21,6 +21,56 @@ func _ready():
 	setup_menus()
 
 
+func get_loops():
+	var cons = graph.get_connection_list()
+	var loops = []
+	var parts = {}
+	var parts_in_loop = []
+	var gnds = []
+	# Get parts
+	for node in graph.get_children():
+		if node is GraphNode:
+			if node.is_gnd:
+				gnds.append(node)
+			else:
+				parts[node.name] = node
+	# Get loops
+	var start = cons[0]
+	while start:
+		var part = start
+		parts.erase(start.from)
+		var loop = [start.from]
+		parts_in_loop = []
+		while true:
+			# find part connected to from current part
+			var next
+			for con in cons:
+				if con.from == part.to and parts.keys().has(part.to):
+					loop.append(part.to)
+					# Assign gnds
+					for gnd in gnds:
+						if part.to == gnd.name or part.from == gnd.name:
+							parts[start.from].gnd = gnd
+					parts.erase(part.to)
+					next = con.to
+					break
+			if next:
+				part = next
+			else:
+				break
+			if part == start:
+				break
+		# Check for completed loop
+		if loop[0] == loop.pop_back():
+			loops.append(loop)
+		# Get next start
+		start = null
+		for con in cons:
+			if parts.keys().has(con.from):
+				start = con.from
+				break
+
+
 func setup_menus():
 	var fm = $Top/FileMenu.get_popup()
 	fm.add_item("New", NEW, KEY_MASK_CTRL | KEY_N)
