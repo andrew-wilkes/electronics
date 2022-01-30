@@ -25,9 +25,9 @@ func get_loops():
 	var cons = graph.get_connection_list()
 	var loops = []
 	var parts = {}
-	var parts_in_loop = []
+	var visited = []
 	var gnds = []
-	# Get parts
+	# Get parts and gnds
 	for node in graph.get_children():
 		if node is GraphNode:
 			if node.is_gnd:
@@ -35,40 +35,59 @@ func get_loops():
 			else:
 				parts[node.name] = node
 	# Get loops
-	var start = cons[0]
-	while start:
-		var part = start
-		parts.erase(start.from)
-		var loop = [start.from]
-		parts_in_loop = []
+	while true:
+		var loop_cons = []
+		# Get start node
+		var start = get_start(cons, parts.keys(), visited, loop_cons)
+		print("Start: ", start)
+		if start == null:
+			break
+		var target = start.to
+		var loop = [start.from] # The first part in the loop
 		while true:
 			# find part connected to from current part
-			var next
+			var next # This will be set to the next connected part or left as null
+			var idx = -1
 			for con in cons:
-				if con.from == part.to and parts.keys().has(part.to):
-					loop.append(part.to)
-					# Assign gnds
-					for gnd in gnds:
-						if part.to == gnd.name or part.from == gnd.name:
-							parts[start.from].gnd = gnd
-					parts.erase(part.to)
-					next = con.to
+				idx += 1
+				if con.from in gnds or con.to in gnds or loop_cons.has(idx):
+					continue
+				print("con: ", con)
+				if con.from == target or con.to == target:
+					# A new connection was found
+					print("New connection: ", con)
+					if con.from == target:
+						loop.append(con.from)
+						next = con.to
+					else:
+						loop.append(con.to)
+						next = con.from
+					visited.append(idx)
+					loop_cons.append(idx)
 					break
 			if next:
-				part = next
+				target = next
 			else:
 				break
-			if part == start:
+			if target == start.from:
 				break
 		# Check for completed loop
-		if loop[0] == loop.pop_back():
+		if target == start.from:
 			loops.append(loop)
-		# Get next start
-		start = null
-		for con in cons:
-			if parts.keys().has(con.from):
-				start = con.from
-				break
+	print(loops)
+
+
+func get_start(cons: Array, parts: Array, visited: Array, loop_cons: Array):
+	# Start from an un-visited node
+	var idx = -1
+	for con in cons:
+		idx += 1
+		if visited.has(idx):
+			continue
+		if con.from in parts:
+			visited.append(idx)
+			loop_cons.append(idx)
+			return con
 
 
 func setup_menus():
@@ -344,3 +363,7 @@ func find_part(pname):
 
 func _on_Alert_confirmed():
 	$c/Alert.hide()
+
+
+func _on_Run_pressed():
+	get_loops()

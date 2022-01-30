@@ -32,21 +32,27 @@ margin_bottom = 37.0
 
 [node name="sp" type="Control" parent="Top"]
 margin_left = 43.0
-margin_right = 1142.0
+margin_right = 1102.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 
 [node name="Parts" type="HBoxContainer" parent="Top"]
-margin_left = 1146.0
-margin_right = 1146.0
+margin_left = 1106.0
+margin_right = 1106.0
 margin_bottom = 60.0
 custom_constants/separation = 20
 
 [node name="sp2" type="Control" parent="Top"]
-margin_left = 1150.0
-margin_right = 1200.0
+margin_left = 1110.0
+margin_right = 1160.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 50, 0 )
+
+[node name="Run" type="Button" parent="Top"]
+margin_left = 1164.0
+margin_right = 1200.0
+margin_bottom = 60.0
+text = "Run"
 
 [node name="Main" type="HBoxContainer" parent="."]
 margin_top = 64.0
@@ -98,6 +104,7 @@ current_path = "user://"
 
 [node name="YesNoDialog" parent="c" instance=ExtResource( 4 )]
 
+[connection signal="pressed" from="Top/Run" to="." method="_on_Run_pressed"]
 [connection signal="connection_request" from="Main/Grid" to="." method="_on_Grid_connection_request"]
 [connection signal="connection_to_empty" from="Main/Grid" to="." method="_on_Grid_connection_to_empty"]
 [connection signal="delete_nodes_request" from="Main/Grid" to="." method="_on_Grid_delete_nodes_request"]
