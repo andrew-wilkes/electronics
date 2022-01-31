@@ -33,6 +33,8 @@ func save_data(file_name, graph: GraphEdit, probes):
 	var graph_data = GraphData.new()
 	for pid in probes.keys():
 		var probe = probes[pid]
+		if probe == null:
+			continue
 		var info = { id = pid, slot = probe.slot }
 		if graph_data.probes.has(probe.part.name):
 			graph_data.probes[probe.part.name].append(info)

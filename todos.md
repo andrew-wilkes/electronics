@@ -27,3 +27,8 @@ Inductors track the voltage.
 2. Calc dv.
 3. Set new V and Ri values.
 4. Set new Li values.
+
+----------------
+Reduce the graph to a simplified circuit model.
+Add transistor.
+Add models to parts.
