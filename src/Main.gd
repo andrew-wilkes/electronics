@@ -11,6 +11,9 @@ var action = NOACTION
 var file_name = ""
 var last_file_name = ""
 var changed = false
+var parts = {}
+var gnds = []
+var net
 
 func _ready():
 	probe_holder = $Main/Tools/Probes
@@ -20,20 +23,54 @@ func _ready():
 	Data.load_settings()
 	setup_menus()
 
+func test():
+	get_parts_and_gnds()
+	net = get_net()
+	print(net)
 
-func get_loops():
+
+func get_net():
+	# Array [{ from: [name, port], tos: [[name, port], ...]
+	var nodes = []
 	var cons = graph.get_connection_list()
-	var loops = []
-	var parts = {}
-	var visited = []
-	var gnds = []
-	# Get parts and gnds
+	for con in cons:
+		var from = [con.from, con.from_port]
+		var to = [con.to, con.to_port]
+		var found = false
+		var mirrored = parts[con.from].is_mirrored
+		for node in nodes:
+			if node.from == from:
+				node.tos.append(to)
+				found = true
+				break
+			if mirrored: # Search in 'tos' for existing connection
+				for pin in node.tos:
+					if pin == from:
+						found = true
+						break
+				if found:
+					node.tos.append(to)
+					break
+		if not found:
+			nodes.append({ "from": from, "tos": [to] })
+	return nodes
+
+
+func get_parts_and_gnds():
 	for node in graph.get_children():
 		if node is GraphNode:
 			if node.is_gnd:
 				gnds.append(node)
 			else:
 				parts[node.name] = node
+
+
+func get_loops():
+	var cons = graph.get_connection_list()
+	var loops = []
+	var visited = []
+	get_parts_and_gnds()
+
 	# Get loops
 	while true:
 		var loop_cons = []
@@ -77,14 +114,14 @@ func get_loops():
 	print(loops)
 
 
-func get_start(cons: Array, parts: Array, visited: Array, loop_cons: Array):
+func get_start(cons: Array, _parts: Array, visited: Array, loop_cons: Array):
 	# Start from an un-visited node
 	var idx = -1
 	for con in cons:
 		idx += 1
 		if visited.has(idx):
 			continue
-		if con.from in parts:
+		if con.from in _parts:
 			visited.append(idx)
 			loop_cons.append(idx)
 			return con
@@ -366,4 +403,4 @@ func _on_Alert_confirmed():
 
 
 func _on_Run_pressed():
-	get_loops()
+	test()
