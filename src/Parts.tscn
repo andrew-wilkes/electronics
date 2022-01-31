@@ -51,14 +51,17 @@ margin_bottom = 584.0
 slot/0/left_enabled = true
 slot/1/left_enabled = true
 slot/2/left_enabled = true
+mirrored_ports = true
 
 [node name="L" parent="." instance=ExtResource( 17 )]
 margin_left = 304.0
 margin_top = 400.0
 margin_right = 384.0
 margin_bottom = 578.0
+mirrored_ports = true
 
 [node name="Lamp" parent="." instance=ExtResource( 9 )]
+mirrored_ports = true
 
 [node name="DA" type="GraphNode" parent="."]
 margin_left = 16.0
@@ -107,6 +110,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 is_gnd = true
+mirrored_ports = true
 
 [node name="C" type="CenterContainer" parent="GND"]
 margin_left = 8.0
@@ -223,6 +227,7 @@ margin_left = 192.0
 margin_top = 53.0
 margin_right = 270.0
 margin_bottom = 128.0
+mirrored_ports = true
 
 [node name="FET" type="GraphNode" parent="."]
 margin_left = 168.0
@@ -251,6 +256,7 @@ script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+mirrored_ports = true
 
 [node name="sp1" type="Control" parent="FET"]
 margin_left = 8.0
@@ -348,11 +354,13 @@ margin_left = 696.0
 margin_top = 48.0
 margin_right = 776.0
 margin_bottom = 145.0
+mirrored_ports = true
 
 [node name="Zener" parent="." instance=ExtResource( 7 )]
 margin_left = 496.0
 margin_right = 567.0
 margin_bottom = 172.0
+mirrored_ports = true
 
 [node name="RA" parent="." instance=ExtResource( 11 )]
 margin_left = 688.0
@@ -365,6 +373,7 @@ margin_left = 832.0
 margin_top = 121.0
 margin_right = 920.0
 margin_bottom = 260.0
+mirrored_ports = true
 
 [node name="CA" parent="." instance=ExtResource( 23 )]
 margin_left = 744.0
@@ -378,3 +387,4 @@ margin_top = 437.0
 margin_right = 848.0
 margin_bottom = 534.0
 flipped = true
+mirrored_ports = true
