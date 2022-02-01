@@ -14,6 +14,7 @@ var changed = false
 var parts = {}
 var gnds = []
 var net
+var loops
 
 func _ready():
 	probe_holder = $Main/Tools/Probes
@@ -27,32 +28,38 @@ func test():
 	get_parts_and_gnds()
 	net = get_net()
 	print(net)
+	loops = get_loops()
+	print(loops)
 
 
 func get_net():
 	# Array [{ from: [name, port], tos: [[name, port], ...]
-	var nodes = []
+	var nodes = {}
 	var cons = graph.get_connection_list()
 	for con in cons:
+		# Cons may have a common from value
 		var from = [con.from, con.from_port]
 		var to = [con.to, con.to_port]
 		var found = false
 		var mirrored = parts[con.from].is_mirrored
-		for node in nodes:
-			if node.from == from:
-				node.tos.append(to)
+		for _from in nodes.keys():
+			if _from == from: # Found an existing `from` node so append the `to` value and break
+				nodes[from].append(to)
 				found = true
 				break
+			# The `_from` node is not `from` but may be connected to `from` parent node at the same port number as `from`. In mirrored parts, the io pins for a port number are shorted together.
 			if mirrored: # Search in 'tos' for existing connection
-				for pin in node.tos:
-					if pin == from:
+				for _to in nodes[_from]:
+					if _to == from: # Matching [name, port]
 						found = true
 						break
 				if found:
-					node.tos.append(to)
+					# Make `_from` node connect to the same `to` as `from`.
+					# Also don't add this `from` to the node list since its redundent
+					nodes[_from].append(to)
 					break
-		if not found:
-			nodes.append({ "from": from, "tos": [to] })
+		if not found: # Add new node
+			nodes[from] = [to]
 	return nodes
 
 
@@ -66,58 +73,58 @@ func get_parts_and_gnds():
 
 
 func get_loops():
-	var cons = graph.get_connection_list()
-	var loops = []
-	var visited = []
-	get_parts_and_gnds()
-
-	# Get loops
-	while true:
-		var loop_cons = []
-		# Get start node
-		var start = get_start(cons, parts.keys(), visited, loop_cons)
-		print("Start: ", start)
-		if start == null:
-			break
-		var target = start.to
-		var loop = [start.from] # The first part in the loop
-		while true:
-			# find part connected to from current part
-			var next # This will be set to the next connected part or left as null
-			var idx = -1
-			for con in cons:
-				idx += 1
-				if con.from in gnds or con.to in gnds or loop_cons.has(idx):
-					continue
-				print("con: ", con)
-				if con.from == target or con.to == target:
-					# A new connection was found
-					print("New connection: ", con)
-					if con.from == target:
-						loop.append(con.from)
-						next = con.to
-					else:
-						loop.append(con.to)
-						next = con.from
-					visited.append(idx)
-					loop_cons.append(idx)
-					break
-			if next:
-				target = next
-			else:
-				break
-			if target == start.from:
-				break
-		# Check for completed loop
-		if target == start.from:
-			loops.append(loop)
-	print(loops)
+	var _loops = []
+	# Get loops from tree
+	for start in net.keys():
+		if not_in_loop(_loops, start):
+			get_chains(_loops, [start], start)
+	return _loops
 
 
-func get_start(cons: Array, _parts: Array, visited: Array, loop_cons: Array):
+func not_in_loop(_loops, start):
+	for loop in _loops:
+		if loop.has(start):
+			return false
+	return true
+
+
+func get_chains(_loops: Array, stack: Array, from):
+	# Check for loop
+	if stack.size() > 1 and from[0] == stack[0][0]: # If back to start part
+		stack.append(from)
+		_loops.append(stack.duplicate())
+		return true
+	# Build stack by traversing the tree of nodes
+	if net.has(from):
+		for to in net[from]:
+			if stack.has(to):
+				continue
+			stack.append(to)
+			# Find chains from here
+			if get_chains(_loops, stack, to):
+				return true
+			var _x = stack.pop_back()
+	else:
+		for f in net.keys():
+			# Look for `from` in part `f`
+			if f[0] == from[0]:
+				stack.append(f)
+				if get_chains(_loops, stack, f):
+					return true
+				var _x = stack.pop_back()
+			# Look for tos to this part on other pins
+			for t in net[f]:
+				if t[0] == from[0] and t[1] != from[1]:
+					stack.append(t)
+					if get_chains(_loops, stack, f):
+						return true
+					var _x = stack.pop_back()
+
+
+func get_start(_parts: Array, visited: Array, loop_cons: Array):
 	# Start from an un-visited node
 	var idx = -1
-	for con in cons:
+	for con in net:
 		idx += 1
 		if visited.has(idx):
 			continue
