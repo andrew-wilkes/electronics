@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Parts.gd" type="Script" id=1]
 [ext_resource path="res://assets/the_theme.tres" type="Theme" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://parts/CB.tscn" type="PackedScene" id=22]
 [ext_resource path="res://parts/CA.tscn" type="PackedScene" id=23]
 [ext_resource path="res://assets/parts/gnd.png" type="Texture" id=24]
+[ext_resource path="res://assets/parts/npn.png" type="Texture" id=25]
+[ext_resource path="res://assets/parts/pnp.png" type="Texture" id=26]
 
 [node name="Parts" type="Control"]
 anchor_right = 1.0
@@ -285,6 +287,124 @@ margin_left = 8.0
 margin_top = 74.0
 margin_right = 66.0
 margin_bottom = 90.0
+rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
+
+[node name="NPN" type="GraphNode" parent="."]
+margin_left = 416.0
+margin_top = 488.0
+margin_right = 490.0
+margin_bottom = 582.0
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+is_mirrored = true
+
+[node name="sp1" type="Control" parent="NPN"]
+margin_left = 8.0
+margin_right = 66.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
+
+[node name="C" type="CenterContainer" parent="NPN"]
+margin_left = 8.0
+margin_top = 17.0
+margin_right = 66.0
+margin_bottom = 77.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tex" type="TextureRect" parent="NPN/C"]
+margin_left = 4.0
+margin_right = 54.0
+margin_bottom = 60.0
+texture = ExtResource( 25 )
+
+[node name="sp2" type="Control" parent="NPN"]
+margin_left = 8.0
+margin_top = 78.0
+margin_right = 66.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
+
+[node name="PNP" type="GraphNode" parent="."]
+margin_left = 512.0
+margin_top = 488.0
+margin_right = 586.0
+margin_bottom = 582.0
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+is_mirrored = true
+
+[node name="sp1" type="Control" parent="PNP"]
+margin_left = 8.0
+margin_right = 66.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 16 )
+mouse_filter = 1
+
+[node name="C" type="CenterContainer" parent="PNP"]
+margin_left = 8.0
+margin_top = 17.0
+margin_right = 66.0
+margin_bottom = 77.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tex" type="TextureRect" parent="PNP/C"]
+margin_left = 4.0
+margin_right = 54.0
+margin_bottom = 60.0
+texture = ExtResource( 26 )
+
+[node name="sp2" type="Control" parent="PNP"]
+margin_left = 8.0
+margin_top = 78.0
+margin_right = 66.0
+margin_bottom = 94.0
 rect_min_size = Vector2( 0, 16 )
 mouse_filter = 1
 

@@ -77,7 +77,7 @@ func get_loops():
 	# Get loops from tree
 	for start in net.keys():
 		if not_in_loop(_loops, start):
-			get_chains(_loops, [start], start)
+			try_get_loop(_loops, [start], start)
 	return _loops
 
 
@@ -88,7 +88,7 @@ func not_in_loop(_loops, start):
 	return true
 
 
-func get_chains(_loops: Array, stack: Array, from):
+func try_get_loop(_loops: Array, stack: Array, from):
 	# Check for loop
 	if stack.size() > 1 and from[0] == stack[0][0]: # If back to start part
 		stack.append(from)
@@ -101,7 +101,7 @@ func get_chains(_loops: Array, stack: Array, from):
 				continue
 			stack.append(to)
 			# Find chains from here
-			if get_chains(_loops, stack, to):
+			if try_get_loop(_loops, stack, to):
 				return true
 			var _x = stack.pop_back()
 	else:
@@ -109,29 +109,16 @@ func get_chains(_loops: Array, stack: Array, from):
 			# Look for `from` in part `f`
 			if f[0] == from[0]:
 				stack.append(f)
-				if get_chains(_loops, stack, f):
+				if try_get_loop(_loops, stack, f):
 					return true
 				var _x = stack.pop_back()
 			# Look for tos to this part on other pins
 			for t in net[f]:
 				if t[0] == from[0] and t[1] != from[1]:
 					stack.append(t)
-					if get_chains(_loops, stack, f):
+					if try_get_loop(_loops, stack, f):
 						return true
 					var _x = stack.pop_back()
-
-
-func get_start(_parts: Array, visited: Array, loop_cons: Array):
-	# Start from an un-visited node
-	var idx = -1
-	for con in net:
-		idx += 1
-		if visited.has(idx):
-			continue
-		if con.from in _parts:
-			visited.append(idx)
-			loop_cons.append(idx)
-			return con
 
 
 func setup_menus():
