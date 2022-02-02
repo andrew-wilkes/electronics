@@ -13,8 +13,10 @@ var last_file_name = ""
 var changed = false
 var parts = {}
 var gnds = []
+var gnd_names = []
 var net
 var loops
+var cvs
 
 func _ready():
 	probe_holder = $Main/Tools/Probes
@@ -28,8 +30,33 @@ func test():
 	get_parts_and_gnds()
 	net = get_net()
 	print(net)
+	get_gnd_nodes()
+	print(gnds)
 	loops = get_loops()
 	print(loops)
+
+
+func get_gnd_nodes():
+	gnds = []
+	for key in net.keys():
+		if key[0] in gnd_names:
+			for to in net[key]:
+				gnds.append(to)
+		else:
+			for to in net[key]:
+				if to[0] in gnd_names:
+					gnds.append(key)
+
+
+func simulate():
+	var idx = 0
+	for loop in loops:
+		if cvs[idx][0] == null:
+			cvs[idx][0] = 0
+			cvs[idx][1] = 0
+		for part in loop:
+			cvs[idx] = parts[part].apply_cv(cvs[idx])
+		idx += 1
 
 
 func get_net():
@@ -38,8 +65,8 @@ func get_net():
 	var cons = graph.get_connection_list()
 	for con in cons:
 		# Cons may have a common from value
-		var from = [con.from, con.from_port]
-		var to = [con.to, con.to_port]
+		var from = [con.from, con.from_port, 1]
+		var to = [con.to, con.to_port, 0]
 		var found = false
 		var mirrored = parts[con.from].is_mirrored
 		for _from in nodes.keys():
@@ -66,10 +93,9 @@ func get_net():
 func get_parts_and_gnds():
 	for node in graph.get_children():
 		if node is GraphNode:
+			parts[node.name] = node
 			if node.is_gnd:
-				gnds.append(node)
-			else:
-				parts[node.name] = node
+				gnd_names.append(node.name)
 
 
 func get_loops():
@@ -78,6 +104,11 @@ func get_loops():
 	for start in net.keys():
 		if not_in_loop(_loops, start):
 			try_get_loop(_loops, [start], start)
+	var v = []
+	var c = []
+	v.resize(_loops.size())
+	c = v.resize(_loops.size())
+	cvs = [c, v]
 	return _loops
 
 
