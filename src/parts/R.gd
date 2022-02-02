@@ -25,3 +25,14 @@ func set_text(v):
 	v = fmod(v, 1) * 10 # fractional part * 10 to give 0 - 9
 	var pow_ten = pow(10, fmod(mult, 3)) # What power of 10 to multiply the part_val by
 	$Label.text = str(part_vals[v] * pow_ten) + m_vals[mult / 3]
+
+
+var pd = 0
+
+func apply_cv(pin, cv, gnds):
+	cv = .apply_cv(pin, cv, gnds)
+	pd = data.r * cv[0]
+	if not is_mirrored:
+		# Simulate output from other resistor pin
+		cv[1] -= pd
+	return cv

@@ -25,3 +25,9 @@ func get_data():
 
 func setup():
 	pass
+
+
+func apply_cv(pin, cv, gnds):
+	if pin in gnds:
+		cv[1] = 0
+	return cv

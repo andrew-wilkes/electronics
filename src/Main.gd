@@ -31,8 +31,9 @@ func test():
 	net = get_net()
 	print(net)
 	get_gnd_nodes()
-	print(gnds)
+	#print(gnds)
 	loops = get_loops()
+	#add_spurs()
 	print(loops)
 
 
@@ -54,9 +55,31 @@ func simulate():
 		if cvs[idx][0] == null:
 			cvs[idx][0] = 0
 			cvs[idx][1] = 0
-		for part in loop:
-			cvs[idx] = parts[part].apply_cv(cvs[idx])
+		for pin in loop:
+			cvs[idx] = parts[pin[0]].apply_cv(pin, cvs[idx], gnds)
 		idx += 1
+
+
+func add_spurs():
+	for loop in loops:
+		for pin in loop:
+			pin.append(get_spurs(pin, loop))
+
+
+func get_spurs(pin, _loop):
+	var spurs = []
+	for loop in loops:
+		if loop != _loop:
+			for f in loop:
+				if pin in get_tos(f) or f in get_tos(pin):
+					spurs.append(f)
+	return spurs
+
+
+func get_tos(pin):
+	if net.has(pin):
+		return net[pin]
+	return []
 
 
 func get_net():
@@ -65,10 +88,10 @@ func get_net():
 	var cons = graph.get_connection_list()
 	for con in cons:
 		# Cons may have a common from value
-		var from = [con.from, con.from_port, 1]
-		var to = [con.to, con.to_port, 0]
-		var found = false
 		var mirrored = parts[con.from].is_mirrored
+		var from = [con.from, con.from_port, int(not mirrored)]
+		var to = [con.to, con.to_port, 0] # to, to_port, left side
+		var found = false
 		for _from in nodes.keys():
 			if _from == from: # Found an existing `from` node so append the `to` value and break
 				nodes[from].append(to)
@@ -122,7 +145,8 @@ func not_in_loop(_loops, start):
 func try_get_loop(_loops: Array, stack: Array, from):
 	# Check for loop
 	if stack.size() > 1 and from[0] == stack[0][0]: # If back to start part
-		stack.append(from)
+		if not stack.has(from):
+			stack.append(from)
 		_loops.append(stack.duplicate())
 		return true
 	# Build stack by traversing the tree of nodes
@@ -285,6 +309,8 @@ func part_pressed(pname):
 
 func init_graph(graph_data: GraphData):
 	clear_graph()
+	yield(get_tree(), "idle_frame") # Ensure that nodes are freed
+	yield(get_tree(), "idle_frame")
 	set_changed(false)
 	var probes_data = graph_data.probes
 	for node_data in graph_data.nodes:
@@ -293,7 +319,7 @@ func init_graph(graph_data: GraphData):
 		gnode.offset = node_data.offset
 		gnode.name = node_data.name
 		gnode.data = node_data.data
-		graph.add_child(gnode)
+		graph.add_child(gnode, true)
 		if probes_data.has(node_data.name):
 			for p_list in probes_data[node_data.name]:
 				add_probe(gnode, p_list.slot, p_list.id)

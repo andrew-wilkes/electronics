@@ -28,7 +28,9 @@ Inductors track the voltage.
 3. Set new V and Ri values.
 4. Set new Li values.
 
+Traverse a loop.
+At each node affect all parts attached and set a `done` flag.
+
 ----------------
 Reduce the graph to a simplified circuit model.
-Add transistor.
 Add models to parts.
