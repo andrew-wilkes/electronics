@@ -54,6 +54,7 @@ slot/0/left_enabled = true
 slot/1/left_enabled = true
 slot/2/left_enabled = true
 is_mirrored = true
+series = true
 
 [node name="L" parent="." instance=ExtResource( 17 )]
 margin_left = 304.0
@@ -473,6 +474,7 @@ isolated = true
 
 [node name="T2" parent="." instance=ExtResource( 8 )]
 isolated = true
+series = true
 
 [node name="ECap" parent="." instance=ExtResource( 13 )]
 margin_left = 696.0

@@ -7,6 +7,7 @@ export var is_gnd = false
 export var is_mirrored = false
 export var inc_from_pin = false
 export var isolated = false
+export var series = false
 
 const part_vals = [1, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 4.7, 6.8, 8.2]
 

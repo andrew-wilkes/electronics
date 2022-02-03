@@ -145,6 +145,9 @@ func try_get_loop(from_pin, start_node, stack):
 				# If isolated, must be on same side
 				if parts[to_pin[0]].isolated and from_pin[2] != to_pin[2]:
 					continue
+				if parts[to_pin[0]].series: # new pin must be adjacent
+					if abs(from_pin[1] - to_pin[1]) > 1.1:
+						continue
 				if to_pin == stack[0]:
 					return true
 				if to_pin in stack:
