@@ -142,25 +142,32 @@ func try_get_loop(from_pin, start_node, stack):
 		for to_pin in to_node:
 			# Find another pin on the same part
 			if to_pin != from_pin and from_pin[0] == to_pin[0]:
-				# If isolated, must be on same side
+				# If isolated, the pin must be on same side
 				if parts[to_pin[0]].isolated and from_pin[2] != to_pin[2]:
 					continue
-				if parts[to_pin[0]].series: # new pin must be adjacent
+				# If tagged as series, new pin must be adjacent
+				if parts[to_pin[0]].series:
 					if abs(from_pin[1] - to_pin[1]) > 1.1:
 						continue
+				# If got back to the start pin, we have a loop
 				if to_pin == stack[0]:
 					return true
+				# Can't have the same pin in a loop
 				if to_pin in stack:
 					continue
+				# The pin is OK to add to the loop
 				stack.append(to_pin)
+				# Check for completion of the loop
 				if to_node == start_node:
 					return true
-				# Get next pin
+				# Get next pin on same node
 				for pin in to_node:
+					# Can't have the same pin in a loop
 					if not pin in stack:
 						stack.append(pin)
 						if try_get_loop(pin, start_node, stack):
 							return true
+						# The loop could not be completed from this pin, so remove it from the stack
 						var _x = stack.pop_back()
 	return false
 
