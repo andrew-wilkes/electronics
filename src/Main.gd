@@ -14,9 +14,11 @@ var changed = false
 var parts = {}
 var gnds = []
 var gnd_names = []
+var from_tos
 var net
 var loops
 var cvs
+var net_nodes
 
 func _ready():
 	probe_holder = $Main/Tools/Probes
@@ -28,23 +30,24 @@ func _ready():
 
 func test():
 	get_parts_and_gnds()
-	net = get_net()
-	print(net)
+	from_tos = get_from_tos()
+	prints("from_tos", from_tos)
 	get_gnd_nodes()
-	#print(gnds)
+	prints("gnds", gnds)
+	get_net_nodes()
+	print("net_nodes", net_nodes)
 	loops = get_loops()
-	#add_spurs()
-	print(loops)
+	print("loops", loops)
 
 
 func get_gnd_nodes():
 	gnds = []
-	for key in net.keys():
+	for key in from_tos.keys():
 		if key[0] in gnd_names:
-			for to in net[key]:
+			for to in from_tos[key]:
 				gnds.append(to)
 		else:
-			for to in net[key]:
+			for to in from_tos[key]:
 				if to[0] in gnd_names:
 					gnds.append(key)
 
@@ -60,36 +63,25 @@ func simulate():
 		idx += 1
 
 
-func add_spurs():
-	for loop in loops:
-		for pin in loop:
-			pin.append(get_spurs(pin, loop))
+func get_net_nodes():
+	net_nodes = []
+	for from in from_tos.keys():
+		var node_ = [from]
+		node_.append_array(from_tos[from])
+		net_nodes.append(node_)
 
 
-func get_spurs(pin, _loop):
-	var spurs = []
-	for loop in loops:
-		if loop != _loop:
-			for f in loop:
-				if pin in get_tos(f) or f in get_tos(pin):
-					spurs.append(f)
-	return spurs
-
-
-func get_tos(pin):
-	if net.has(pin):
-		return net[pin]
-	return []
-
-
-func get_net():
+func get_from_tos():
 	# Array [{ from: [name, port], tos: [[name, port], ...]
 	var nodes = {}
 	var cons = graph.get_connection_list()
 	for con in cons:
 		# Cons may have a common from value
-		var mirrored = parts[con.from].is_mirrored
-		var from = [con.from, con.from_port, int(not mirrored)]
+		var from_side = 0 if parts[con.from].is_mirrored else 1
+		var from_port = con.from_port
+		if from_port > 0 and parts[con.from].inc_from_pin:
+			from_port += 1
+		var from = [con.from, from_port, from_side]
 		var to = [con.to, con.to_port, 0] # to, to_port, left side
 		var found = false
 		for _from in nodes.keys():
@@ -98,7 +90,7 @@ func get_net():
 				found = true
 				break
 			# The `_from` node is not `from` but may be connected to `from` parent node at the same port number as `from`. In mirrored parts, the io pins for a port number are shorted together.
-			if mirrored: # Search in 'tos' for existing connection
+			if from_side == 0: # Search in 'tos' for existing connection
 				for _to in nodes[_from]:
 					if _to == from: # Matching [name, port]
 						found = true
@@ -123,10 +115,13 @@ func get_parts_and_gnds():
 
 func get_loops():
 	var _loops = []
-	# Get loops from tree
-	for start in net.keys():
-		if not_in_loop(_loops, start):
-			try_get_loop(_loops, [start], start)
+	# Get loops from net
+	for node in net_nodes:
+		for pin in node:
+			if not_in_loop(_loops, pin):
+				var stack = [pin]
+				if try_get_loop(pin, node, stack):
+					_loops.append(stack)
 	var v = []
 	var c = []
 	v.resize(_loops.size())
@@ -142,38 +137,29 @@ func not_in_loop(_loops, start):
 	return true
 
 
-func try_get_loop(_loops: Array, stack: Array, from):
-	# Check for loop
-	if stack.size() > 1 and from[0] == stack[0][0]: # If back to start part
-		if not stack.has(from):
-			stack.append(from)
-		_loops.append(stack.duplicate())
-		return true
-	# Build stack by traversing the tree of nodes
-	if net.has(from):
-		for to in net[from]:
-			if stack.has(to):
-				continue
-			stack.append(to)
-			# Find chains from here
-			if try_get_loop(_loops, stack, to):
-				return true
-			var _x = stack.pop_back()
-	else:
-		for f in net.keys():
-			# Look for `from` in part `f`
-			if f[0] == from[0]:
-				stack.append(f)
-				if try_get_loop(_loops, stack, f):
+func try_get_loop(from_pin, start_node, stack):
+	for to_node in net_nodes:
+		for to_pin in to_node:
+			# Find another pin on the same part
+			if to_pin != from_pin and from_pin[0] == to_pin[0]:
+				# If isolated, must be on same side
+				if parts[to_pin[0]].isolated and from_pin[2] != to_pin[2]:
+					continue
+				if to_pin == stack[0]:
 					return true
-				var _x = stack.pop_back()
-			# Look for tos to this part on other pins
-			for t in net[f]:
-				if t[0] == from[0] and t[1] != from[1]:
-					stack.append(t)
-					if try_get_loop(_loops, stack, f):
-						return true
-					var _x = stack.pop_back()
+				if to_pin in stack:
+					continue
+				stack.append(to_pin)
+				if to_node == start_node:
+					return true
+				# Get next pin
+				for pin in to_node:
+					if not pin in stack:
+						stack.append(pin)
+						if try_get_loop(pin, start_node, stack):
+							return true
+						var _x = stack.pop_back()
+	return false
 
 
 func setup_menus():

@@ -259,6 +259,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 is_mirrored = true
+inc_from_pin = true
 
 [node name="sp1" type="Control" parent="FET"]
 margin_left = 8.0
@@ -318,6 +319,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 is_mirrored = true
+inc_from_pin = true
 
 [node name="sp1" type="Control" parent="NPN"]
 margin_left = 8.0
@@ -377,6 +379,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 is_mirrored = true
+inc_from_pin = true
 
 [node name="sp1" type="Control" parent="PNP"]
 margin_left = 8.0
@@ -466,8 +469,10 @@ rect_min_size = Vector2( 0, 16 )
 mouse_filter = 1
 
 [node name="T1" parent="." instance=ExtResource( 14 )]
+isolated = true
 
 [node name="T2" parent="." instance=ExtResource( 8 )]
+isolated = true
 
 [node name="ECap" parent="." instance=ExtResource( 13 )]
 margin_left = 696.0
