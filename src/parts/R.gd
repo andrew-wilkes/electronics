@@ -16,6 +16,7 @@ func _on_HSlider_value_changed(value):
 
 func set_data(v):
 	data = v
+	r = data.r
 	$HSlider.value = data.r
 	set_text(data.r)
 

@@ -9,6 +9,17 @@ func _init():
 	data = { r = 1, p = 0.5 }
 
 
+func get_r(_port = 0):
+	match _port:
+		0:
+			return data.r * 1000 * (1.0 - data.p)
+		1:
+			return data.r * 1000 * (1.0 - data.p) * data.p
+		2:
+			return data.r * 1000 * data.p
+	return r
+
+
 func _on_HSlider_value_changed(value):
 	data.r = value
 	set_text(value)

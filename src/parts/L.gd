@@ -10,6 +10,7 @@ func _init():
 
 func _on_HSlider_value_changed(value):
 	data.c = value
+	l = value
 	set_text(value)
 	emit_signal("l_changed", value)
 

@@ -20,6 +20,14 @@ var loops
 var cvs
 var net_nodes
 
+class net_node:
+	var v = 0.0
+	var r = INF
+	var l = INF
+	var c = 0.0
+	var elements = []
+
+
 func _ready():
 	probe_holder = $Main/Tools/Probes
 	Parts.hide()
@@ -66,8 +74,20 @@ func simulate():
 func get_net_nodes():
 	net_nodes = []
 	for from in from_tos.keys():
-		var node_ = [from]
-		node_.append_array(from_tos[from])
+		var node_ = net_node.new()
+		node_.elements.append(from)
+		node_.elements.append_array(from_tos[from])
+		for el in node_.elements:
+			var p = parts[el[0]]
+			if p.r != INF:
+				node_.r += 1 / p.r
+			node_.c += parts[el[0]].c
+			if p.l != INF:
+				node_.l += 1 / parts[el[0]].l
+		if node_.r != INF:
+			node_.r = 1 / node_.r
+		if node_.l!= INF:
+			node_.l = 1 / node_.l
 		net_nodes.append(node_)
 
 
@@ -117,7 +137,7 @@ func get_loops():
 	var _loops = []
 	# Get loops from net
 	for node in net_nodes:
-		for pin in node:
+		for pin in node.elements:
 			if not_in_loop(_loops, pin):
 				var stack = [pin]
 				if try_get_loop(pin, node, stack):
@@ -139,7 +159,7 @@ func not_in_loop(_loops, start):
 
 func try_get_loop(from_pin, start_node, stack):
 	for to_node in net_nodes:
-		for to_pin in to_node:
+		for to_pin in to_node.elements:
 			# Find another pin on the same part
 			if to_pin != from_pin and from_pin[0] == to_pin[0]:
 				# If isolated, the pin must be on same side
@@ -161,7 +181,7 @@ func try_get_loop(from_pin, start_node, stack):
 				if to_node == start_node:
 					return true
 				# Get next pin on same node
-				for pin in to_node:
+				for pin in to_node.elements:
 					# Can't have the same pin in a loop
 					if not pin in stack:
 						stack.append(pin)

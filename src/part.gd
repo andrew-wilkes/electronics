@@ -14,6 +14,13 @@ const part_vals = [1, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 4.7, 6.8, 8.2]
 var type = ""
 var data = {} setget set_data, get_data
 var gnd # Reference to ground node
+var r = INF setget ,get_r
+var l = INF
+var c = 0.0
+
+func get_r(_port = 0):
+	return r
+
 
 func _ready():
 	if get_parent().name == "Grid":
