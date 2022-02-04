@@ -71,6 +71,20 @@ func simulate():
 		idx += 1
 
 
+func thevenin(rvs):
+	var v = 0
+	var r = 0
+	for rv in rvs:
+		v += rv[1] / rv[0]
+		r += 1 / rv[0]
+	return [1 / r, v / r]
+
+
+func delta_v(v1, i1, vl, vr, r, l, c, dt):
+	var v = dt * dt * (v1 - vl) / l + dt  * (v1 - vr) / r - i1 / r / l
+	return v / c
+
+
 func get_net_nodes():
 	net_nodes = []
 	for from in from_tos.keys():
