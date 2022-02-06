@@ -36,6 +36,7 @@ func _ready():
 	Data.load_settings()
 	setup_menus()
 
+
 func test():
 	get_parts_and_gnds()
 	from_tos = get_from_tos()
@@ -45,7 +46,6 @@ func test():
 	get_net_nodes()
 	print("net_nodes", net_nodes)
 	loops = get_loops()
-	print("loops", loops)
 
 
 func get_gnd_nodes():
@@ -61,48 +61,23 @@ func get_gnd_nodes():
 
 
 func simulate():
+	var dt = 0.1 #???
 	var idx = 0
 	for loop in loops:
 		if cvs[idx][0] == null:
 			cvs[idx][0] = 0
 			cvs[idx][1] = 0
 		for pin in loop:
-			cvs[idx] = parts[pin[0]].apply_cv(pin, cvs[idx], gnds)
+			cvs[idx] = parts[pin[0]].apply_cv(pin, cvs[idx], gnds, dt)
 		idx += 1
-
-
-func thevenin(rvs):
-	var v = 0
-	var r = 0
-	for rv in rvs:
-		v += rv[1] / rv[0]
-		r += 1 / rv[0]
-	return [1 / r, v / r]
-
-
-func delta_v(v1, i1, vl, vr, r, l, c, dt):
-	var v = dt * dt * (v1 - vl) / l + dt  * (v1 - vr) / r - i1 / r / l
-	return v / c
 
 
 func get_net_nodes():
 	net_nodes = []
 	for from in from_tos.keys():
-		var node_ = net_node.new()
-		node_.elements.append(from)
-		node_.elements.append_array(from_tos[from])
-		for el in node_.elements:
-			var p = parts[el[0]]
-			if p.r != INF:
-				node_.r += 1 / p.r
-			node_.c += parts[el[0]].c
-			if p.l != INF:
-				node_.l += 1 / parts[el[0]].l
-		if node_.r != INF:
-			node_.r = 1 / node_.r
-		if node_.l!= INF:
-			node_.l = 1 / node_.l
-		net_nodes.append(node_)
+		var node = from_tos[from]
+		node.append(from)
+		net_nodes.append(node)
 
 
 func get_from_tos():
@@ -151,17 +126,61 @@ func get_loops():
 	var _loops = []
 	# Get loops from net
 	for node in net_nodes:
-		for pin in node.elements:
+		for pin in node:
 			if not_in_loop(_loops, pin):
 				var stack = [pin]
 				if try_get_loop(pin, node, stack):
 					_loops.append(stack)
+					for part in stack:
+						assign_node_to_part(parts[part[0]])
 	var v = []
 	var c = []
 	v.resize(_loops.size())
 	c = v.resize(_loops.size())
 	cvs = [c, v]
 	return _loops
+
+
+func assign_node_to_part(p: Part):
+	for node in net_nodes:
+		for el in node:
+			if p.name == el[0]:
+				# The part is joined to node
+				calc_thev(p, node)
+				return
+
+
+func calc_thev(part: Part, node):
+	part.c_th = 0
+	part.sinks = []
+	for el in node:
+		if el[0] != part.name:
+			part.sinks.append([parts[el[0]], el[1], el[2]])
+	part.r_th = calc_rl(part.sinks, "r")
+	part.l_th = calc_rl(part.sinks, "l")
+	for s in part.sinks:
+		part.c_th += s[0].c
+	prints(part.r_th, part.l_th, part.c_th)
+
+
+func calc_rl(sinks, rl):
+	var x = INF
+	var xs = []
+	for s in sinks:
+		if s[0][rl] < 0.1:
+			x = s[0][rl]
+			return
+		if s[0].r != INF:
+			xs.append(s[0][rl])
+	for n in xs:
+		if x == INF:
+			x = 1 / n
+		else:
+			x += 1 / n
+	if x == 0:
+		return INF
+	else:
+		return 1 / x
 
 
 func not_in_loop(_loops, start):
@@ -173,7 +192,7 @@ func not_in_loop(_loops, start):
 
 func try_get_loop(from_pin, start_node, stack):
 	for to_node in net_nodes:
-		for to_pin in to_node.elements:
+		for to_pin in to_node:
 			# Find another pin on the same part
 			if to_pin != from_pin and from_pin[0] == to_pin[0]:
 				# If isolated, the pin must be on same side
@@ -195,7 +214,7 @@ func try_get_loop(from_pin, start_node, stack):
 				if to_node == start_node:
 					return true
 				# Get next pin on same node
-				for pin in to_node.elements:
+				for pin in to_node:
 					# Can't have the same pin in a loop
 					if not pin in stack:
 						stack.append(pin)

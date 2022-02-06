@@ -16,7 +16,6 @@ func _on_HSlider_value_changed(value):
 
 func set_data(v):
 	data = v
-	r = data.r
 	$HSlider.value = data.r
 	set_text(data.r)
 
@@ -25,15 +24,21 @@ func set_text(v):
 	var mult = floor(v) # 0 - 6
 	v = fmod(v, 1) * 10 # fractional part * 10 to give 0 - 9
 	var pow_ten = pow(10, fmod(mult, 3)) # What power of 10 to multiply the part_val by
-	$Label.text = str(part_vals[v] * pow_ten) + m_vals[mult / 3]
+	var n = part_vals[v] * pow_ten
+	r = n * [1, 1000, 1000000][mult / 3]
+	$Label.text = str(n) + m_vals[mult / 3]
 
 
-var pd = 0
-
-func apply_cv(pin, cv, gnds):
-	cv = .apply_cv(pin, cv, gnds)
-	pd = data.r * cv[0]
-	if not is_mirrored:
-		# Simulate output from other resistor pin
-		cv[1] -= pd
-	return cv
+func set_ir(_port, _side, dv):
+	volts[_side][_port] += dv
+	var v
+	if flipped:
+		v = volts[0][1] - volts[0][0]
+	else:
+		v = volts[0][0] - volts[0][1]
+	if _port == 1 or _side == 1:
+		v = -v
+	amps[R][0][0] += v / r
+	amps[R][0][1] = -amps[L][0][0] 
+	amps[R][1][0] = amps[L][0][1]
+	return amps[L][_side][_port]

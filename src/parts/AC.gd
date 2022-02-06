@@ -20,3 +20,7 @@ func set_data(v):
 
 func set_text(v):
 	$M/HBox/VBox/Label.text = str(v) + "V"
+
+
+func get_voltage(_port, _side):
+	return volts[_port]

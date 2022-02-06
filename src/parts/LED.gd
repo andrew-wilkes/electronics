@@ -1,6 +1,6 @@
 extends Part
 
-var current = 0.02 setget set_brightness
+var _current = 0.02 setget set_brightness
 
 func _init():
 	data = { hue = 0 }
@@ -18,11 +18,11 @@ func _on_HSlider_value_changed(value):
 
 
 func set_brightness(i):
-	current = i
+	_current = i
 	set_color()
 
 
 func set_color():
 	# 50mA max
-	var value = 1.0 if current < 0.05 else 0.0
-	$C/Tex.modulate = Color.from_hsv(data.hue / 100, 50 * clamp(current, 0, 0.02), value)
+	var value = 1.0 if _current < 0.05 else 0.0
+	$C/Tex.modulate = Color.from_hsv(data.hue / 100, 50 * clamp(_current, 0, 0.02), value)
