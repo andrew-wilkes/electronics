@@ -11,6 +11,7 @@ export var series = false
 
 enum { PART, PORT, SIDE }
 enum { R, C, L }
+enum { I, V }
 
 const part_vals = [1, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 4.7, 6.8, 8.2]
 
@@ -122,9 +123,9 @@ func set_ics(dv, dt):
 # Update cv
 func apply_cv(pin, cv, gnds, dt):
 	if pin in gnds:
-		cv[1] = 0
-	var dv = delta_v(cv[1], cv[0], get_total_i(L) * l_th, get_total_i(R) * r_th, dt)
+		cv[V] = 0
+	var dv = delta_v(cv[V], cv[I], get_total_i(L) * l_th, get_total_i(R) * r_th, dt)
 	# Affect the node elements
-	cv[0] = (Vector2(set_irs(dv), 0) + Vector2(0, set_ils(dv, dt)) + Vector2(0, -set_ics(dv, dt))).length_squared()
-	cv[1] += dv
+	cv[I] = (Vector2(set_irs(dv), 0) + Vector2(0, set_ils(dv, dt)) + Vector2(0, -set_ics(dv, dt))).length_squared()
+	cv[V] += dv
 	return cv
