@@ -8,6 +8,7 @@ export var is_mirrored = false
 export var inc_from_pin = false
 export var isolated = false
 export var series = false
+export var is_voltage_source = false
 
 enum { PART, PORT, SIDE }
 enum { R, C, L }
@@ -122,10 +123,10 @@ func set_ics(dv, dt):
 # Get currents
 # Update cv
 func apply_cv(pin, cv, gnds, dt):
-	if pin in gnds:
-		cv[V] = 0
 	var dv = delta_v(cv[V], cv[I], get_total_i(L) * l_th, get_total_i(R) * r_th, dt)
 	# Affect the node elements
 	cv[I] = (Vector2(set_irs(dv), 0) + Vector2(0, set_ils(dv, dt)) + Vector2(0, -set_ics(dv, dt))).length_squared()
 	cv[V] += dv
+	if pin in gnds:
+		cv[V] = 0
 	return cv

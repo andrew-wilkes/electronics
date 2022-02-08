@@ -37,6 +37,7 @@ __meta__ = {
 }
 
 [node name="AC" parent="." instance=ExtResource( 3 )]
+is_voltage_source = true
 
 [node name="DC" parent="." instance=ExtResource( 4 )]
 margin_left = 616.0
@@ -44,6 +45,7 @@ margin_top = 376.0
 margin_right = 713.0
 margin_bottom = 484.0
 slot/0/right_color = Color( 1, 1, 1, 1 )
+is_voltage_source = true
 
 [node name="POT" parent="." instance=ExtResource( 19 )]
 margin_left = 136.0

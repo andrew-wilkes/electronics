@@ -138,8 +138,13 @@ func get_loops(pgs_, net_nodes_):
 				var stack = [pin]
 				if try_get_loop(pin, node, stack, pgs_):
 					loops_.append(stack)
-					for part in stack:
-						assign_node_to_part(pgs_.parts[part[0]], pgs_, net_nodes_)
+					print(stack)
+					var out_pin = false
+					for pin_ in stack:
+						# Assign sinks only for the pins connecting to the next part in the loop
+						if out_pin:
+							assign_sinks_to_part(pin_, pgs_, net_nodes_)
+						out_pin = not out_pin
 	var v = []
 	var c = []
 	v.resize(loops_.size())
@@ -148,13 +153,36 @@ func get_loops(pgs_, net_nodes_):
 	return loops_
 
 
-func assign_node_to_part(p: Part, pgs_, net_nodes_):
+func assign_sinks_to_part(pin, pgs_, net_nodes_):
 	for node in net_nodes_:
 		for el in node:
-			if p.name == el[0]:
+			if el == pin:
 				# The part is joined to node
-				calc_thev(p, pgs_, node)
+				var part = pgs_.parts[pin[0]]
+				calc_thev(part, pgs_, get_related_nodes(node, net_nodes_, pin, pgs_))
 				return
+
+
+# This handles the case of voltage sources that need to connect together (short) nodes
+func get_related_nodes(pins, net_nodes_, pin, pgs_):
+	var all_pins = pins.duplicate()
+	for el in pins:
+		if el != pin:
+			if pgs_.parts[el[0]].is_voltage_source:
+				all_pins.erase(el)
+				var other_pin = [el[0], (el[1] + 1) % 2, el[2]]
+				for nn in net_nodes_:
+					for el_ in nn:
+						if el_ == other_pin:
+							all_pins.append_array(nn)
+							all_pins.erase(other_pin)
+							for n in nn:
+								if n != other_pin and pgs_.parts[n[0]].is_voltage_source:
+									all_pins.append_array(get_related_nodes(nn, net_nodes_, n, pgs_))
+									all_pins.erase(n)
+							break
+				
+	return all_pins
 
 
 func calc_thev(part: Part, pgs_, node):
@@ -162,12 +190,14 @@ func calc_thev(part: Part, pgs_, node):
 	part.sinks = []
 	for el in node:
 		if el[0] != part.name:
-			part.sinks.append([pgs_.parts[el[0]], el[1], el[2]])
+			var p = pgs_.parts[el[0]]
+			# Deal with special cases such as a voltage source
+			part.sinks.append([p, el[1], el[2]])
 	part.r_th = calc_rl(part.sinks, "r")
 	part.l_th = calc_rl(part.sinks, "l")
 	for s in part.sinks:
 		part.c_th += s[0].c
-	prints(part.r_th, part.l_th, part.c_th)
+	prints(part.name, part.r_th, part.l_th, part.c_th)
 
 
 func calc_rl(sinks, rl):
@@ -221,6 +251,7 @@ func try_get_loop(from_pin, start_node, stack, pgs_):
 				if to_node == start_node:
 					return true
 				# Get next pin on same node
+				var _x
 				for pin in to_node:
 					# Can't have the same pin in a loop
 					if not pin in stack:
@@ -228,7 +259,9 @@ func try_get_loop(from_pin, start_node, stack, pgs_):
 						if try_get_loop(pin, start_node, stack, pgs_):
 							return true
 						# The loop could not be completed from this pin, so remove it from the stack
-						var _x = stack.pop_back()
+						_x = stack.pop_back()
+				# The starting part pin needs to be removed from the stack
+				_x = stack.pop_back()
 	return false
 
 
