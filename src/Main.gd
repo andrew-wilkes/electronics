@@ -11,22 +11,13 @@ var action = NOACTION
 var file_name = ""
 var last_file_name = ""
 var changed = false
-var parts = {}
-var gnds = []
+var pgs: Dictionary
 var gnd_names = []
-var from_tos
+var from_tos: Dictionary
 var net
 var loops
 var cvs
 var net_nodes
-
-class net_node:
-	var v = 0.0
-	var r = INF
-	var l = INF
-	var c = 0.0
-	var elements = []
-
 
 func _ready():
 	probe_holder = $Main/Tools/Probes
@@ -38,29 +29,30 @@ func _ready():
 
 
 func test():
-	get_parts_and_gnds()
-	from_tos = get_from_tos()
+	pgs = get_parts_and_gnds(graph)
+	from_tos = get_from_tos(pgs, graph)
 	prints("from_tos", from_tos)
-	get_gnd_nodes()
-	prints("gnds", gnds)
-	get_net_nodes()
+	pgs.gnds = get_gnd_nodes(from_tos, pgs.gnds)
+	prints("gnds", pgs.gnds)
+	net_nodes = get_net_nodes(from_tos)
 	print("net_nodes", net_nodes)
-	loops = get_loops()
+	loops = get_loops(pgs, net_nodes)
 
 
-func get_gnd_nodes():
-	gnds = []
-	for key in from_tos.keys():
-		if key[0] in gnd_names:
-			for to in from_tos[key]:
-				gnds.append(to)
+func get_gnd_nodes(from_tos_, gnd_names_):
+	var gnds_ = []
+	for key in from_tos_.keys():
+		if key[0] in gnd_names_:
+			for to in from_tos_[key]:
+				gnds_.append(to)
 		else:
-			for to in from_tos[key]:
-				if to[0] in gnd_names:
-					gnds.append(key)
+			for to in from_tos_[key]:
+				if to[0] in gnd_names_:
+					gnds_.append(key)
+	return gnds_
 
 
-func simulate():
+func simulate(pgs_):
 	var dt = 0.1 #???
 	var idx = 0
 	for loop in loops:
@@ -68,27 +60,28 @@ func simulate():
 			cvs[idx][0] = 0
 			cvs[idx][1] = 0
 		for pin in loop:
-			cvs[idx] = parts[pin[0]].apply_cv(pin, cvs[idx], gnds, dt)
+			cvs[idx] = pgs_.parts[pin[0]].apply_cv(pin, cvs[idx], pgs_.gnds, dt)
 		idx += 1
 
 
-func get_net_nodes():
-	net_nodes = []
-	for from in from_tos.keys():
-		var node = from_tos[from]
+func get_net_nodes(from_tos_):
+	var net_nodes_ = []
+	for from in from_tos_.keys():
+		var node = from_tos_[from]
 		node.append(from)
-		net_nodes.append(node)
+		net_nodes_.append(node)
+	return net_nodes_
 
 
-func get_from_tos():
+func get_from_tos(pgs_, graph_):
 	# Array [{ from: [name, port], tos: [[name, port], ...]
 	var nodes = {}
-	var cons = graph.get_connection_list()
+	var cons = graph_.get_connection_list()
 	for con in cons:
 		# Cons may have a common from value
-		var from_side = 0 if parts[con.from].is_mirrored else 1
+		var from_side = 0 if pgs_.parts[con.from].is_mirrored else 1
 		var from_port = con.from_port
-		if from_port > 0 and parts[con.from].inc_from_pin:
+		if from_port > 0 and pgs_.parts[con.from].inc_from_pin:
 			from_port += 1
 		var from = [con.from, from_port, from_side]
 		var to = [con.to, con.to_port, 0] # to, to_port, left side
@@ -98,7 +91,7 @@ func get_from_tos():
 				nodes[from].append(to)
 				found = true
 				break
-			# The `_from` node is not `from` but may be connected to `from` parent node at the same port number as `from`. In mirrored parts, the io pins for a port number are shorted together.
+			# The `_from` node is not `from` but may be connected to `from` parent node at the same port number as `from`. In mirrored pgs_.parts, the io pins for a port number are shorted together.
 			if from_side == 0: # Search in 'tos' for existing connection
 				for _to in nodes[_from]:
 					if _to == from: # Matching [name, port]
@@ -114,48 +107,51 @@ func get_from_tos():
 	return nodes
 
 
-func get_parts_and_gnds():
-	for node in graph.get_children():
+func get_parts_and_gnds(_graph):
+	var _parts = {}
+	var _gnd_names = []
+	for node in _graph.get_children():
 		if node is GraphNode:
-			parts[node.name] = node
+			_parts[node.name] = node
 			if node.is_gnd:
-				gnd_names.append(node.name)
+				_gnd_names.append(node.name)
+	return { parts = _parts, gnds = _gnd_names }
 
 
-func get_loops():
-	var _loops = []
+func get_loops(pgs_, net_nodes_):
+	var loops_ = []
 	# Get loops from net
-	for node in net_nodes:
+	for node in net_nodes_:
 		for pin in node:
-			if not_in_loop(_loops, pin):
+			if not_in_loop(loops_, pin):
 				var stack = [pin]
-				if try_get_loop(pin, node, stack):
-					_loops.append(stack)
+				if try_get_loop(pin, node, stack, pgs_):
+					loops_.append(stack)
 					for part in stack:
-						assign_node_to_part(parts[part[0]])
+						assign_node_to_part(pgs_.parts[part[0]], pgs_, net_nodes_)
 	var v = []
 	var c = []
-	v.resize(_loops.size())
-	c = v.resize(_loops.size())
+	v.resize(loops_.size())
+	c = v.resize(loops_.size())
 	cvs = [c, v]
-	return _loops
+	return loops_
 
 
-func assign_node_to_part(p: Part):
-	for node in net_nodes:
+func assign_node_to_part(p: Part, pgs_, net_nodes_):
+	for node in net_nodes_:
 		for el in node:
 			if p.name == el[0]:
 				# The part is joined to node
-				calc_thev(p, node)
+				calc_thev(p, pgs_, node)
 				return
 
 
-func calc_thev(part: Part, node):
+func calc_thev(part: Part, pgs_, node):
 	part.c_th = 0
 	part.sinks = []
 	for el in node:
 		if el[0] != part.name:
-			part.sinks.append([parts[el[0]], el[1], el[2]])
+			part.sinks.append([pgs_.parts[el[0]], el[1], el[2]])
 	part.r_th = calc_rl(part.sinks, "r")
 	part.l_th = calc_rl(part.sinks, "l")
 	for s in part.sinks:
@@ -190,16 +186,16 @@ func not_in_loop(_loops, start):
 	return true
 
 
-func try_get_loop(from_pin, start_node, stack):
+func try_get_loop(from_pin, start_node, stack, pgs_):
 	for to_node in net_nodes:
 		for to_pin in to_node:
 			# Find another pin on the same part
 			if to_pin != from_pin and from_pin[0] == to_pin[0]:
 				# If isolated, the pin must be on same side
-				if parts[to_pin[0]].isolated and from_pin[2] != to_pin[2]:
+				if pgs_.parts[to_pin[0]].isolated and from_pin[2] != to_pin[2]:
 					continue
 				# If tagged as series, new pin must be adjacent
-				if parts[to_pin[0]].series:
+				if pgs_.parts[to_pin[0]].series:
 					if abs(from_pin[1] - to_pin[1]) > 1.1:
 						continue
 				# If got back to the start pin, we have a loop
@@ -218,7 +214,7 @@ func try_get_loop(from_pin, start_node, stack):
 					# Can't have the same pin in a loop
 					if not pin in stack:
 						stack.append(pin)
-						if try_get_loop(pin, start_node, stack):
+						if try_get_loop(pin, start_node, stack, pgs_):
 							return true
 						# The loop could not be completed from this pin, so remove it from the stack
 						var _x = stack.pop_back()
