@@ -68,9 +68,20 @@ func get_net_nodes(from_tos_):
 	var net_nodes_ = []
 	for from in from_tos_.keys():
 		var node = from_tos_[from]
+		if goes_to_existing_node(from, node, net_nodes_):
+			continue
 		node.append(from)
 		net_nodes_.append(node)
 	return net_nodes_
+
+
+func goes_to_existing_node(from, node, net_nodes_):
+	for net_node_ in net_nodes_:
+			for to in node:
+				if to in net_node_:
+					net_node_.append(from)
+					return true
+	return false
 
 
 func get_from_tos(pgs_, graph_):
