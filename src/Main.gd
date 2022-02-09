@@ -52,15 +52,11 @@ func get_gnd_nodes(from_tos_, gnd_names_):
 	return gnds_
 
 
-func simulate(pgs_):
-	var dt = 0.1 #???
+func simulate(dt, cvs_, pgs_, loops_):
 	var idx = 0
-	for loop in loops:
-		if cvs[idx][0] == null:
-			cvs[idx][0] = 0
-			cvs[idx][1] = 0
+	for loop in loops_:
 		for pin in loop:
-			cvs[idx] = pgs_.parts[pin[0]].apply_cv(pin, cvs[idx], pgs_.gnds, dt)
+			cvs_[idx] = pgs_.parts[pin[0]].apply_cv(pin, cvs_[idx], pgs_.gnds, dt)
 		idx += 1
 
 
@@ -148,7 +144,10 @@ func get_loops(pgs_, net_nodes_):
 	var v = []
 	var c = []
 	v.resize(loops_.size())
-	c = v.resize(loops_.size())
+	c = v.duplicate()
+	for idx in loops_.size():
+		c[idx] = 0
+		v[idx] = 0
 	cvs = [c, v]
 	return loops_
 

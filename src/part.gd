@@ -118,10 +118,7 @@ func set_ics(dv, dt):
 		ics += s[PART].set_ic(s[SIDE], s[PORT], dv, dt)
 	return ics
 
-# Calc v0
-# Calc dv
-# Get currents
-# Update cv
+
 func apply_cv(pin, cv, gnds, dt):
 	var dv = delta_v(cv[V], cv[I], get_total_i(L) * l_th, get_total_i(R) * r_th, dt)
 	# Affect the node elements
