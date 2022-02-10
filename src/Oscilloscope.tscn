@@ -8,12 +8,15 @@ code = "shader_type canvas_item;
 
 uniform sampler2D traces; // Use RGBA values for the y value of each of 4 traces
 uniform float trace_thickness = 0.005;
+uniform vec4 a_color: hint_color;
+uniform vec4 b_color: hint_color;
+uniform vec4 c_color: hint_color;
+uniform vec4 d_color: hint_color;
 
 varying vec2 v;
 
 bool show_trace(float y1, float y2, vec2 uv) {
 	// Join dots with previous point
-	
 	return (y2 > uv.y && y2 < uv.y + trace_thickness) || (y2 > y1 && y1 < uv.y && uv.y < y2) || (y2 < y1 && uv.y > y2 && uv.y < y1);
 }
 
@@ -23,27 +26,30 @@ void fragment() {
 	if (UV.x > trace_thickness)
 		y1 = texture(traces, vec2(UV.x - trace_thickness, UV.y));
 	if (show_trace(y1.r, y2.r, UV))
-		COLOR = vec4(1.0, 0.0, 0.0, 1.0);
+		COLOR = a_color;
 	if (show_trace(y1.g, y2.g, UV))
-		COLOR = vec4(0.0, 1.0, 0.0, 1.0);
+		COLOR = b_color;
 	if (show_trace(y1.b, y2.b, UV))
-		COLOR = vec4(0.0, 0.0, 1.0, 1.0);
+		COLOR = c_color;
 	if (show_trace(y1.a, y2.a, UV))
-		COLOR = vec4(1.0, 1.0, 0.0, 1.0);
+		COLOR = d_color;
 }
-
 "
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
 shader_param/trace_thickness = 0.005
+shader_param/a_color = Color( 1, 0, 0, 1 )
+shader_param/b_color = Color( 0, 1, 0, 1 )
+shader_param/c_color = Color( 0, 0, 1, 1 )
+shader_param/d_color = Color( 1, 1, 0, 1 )
 shader_param/traces = ExtResource( 1 )
 
 [node name="Oscilloscope" type="ColorRect"]
 material = SubResource( 2 )
 margin_right = 284.0
 margin_bottom = 148.0
-color = Color( 0.258824, 0.572549, 0.572549, 1 )
+color = Color( 0.0117647, 0.458824, 0.576471, 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

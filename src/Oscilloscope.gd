@@ -35,9 +35,39 @@ func _draw():
 		x += grid_spacing / 5
 
 
+func combine_samples(traces: Array):
+	var rgba = PoolByteArray([])
+	match traces.size():
+		1:
+			for n in traces[0].size():
+				rgba.append(traces[0][n])
+				rgba.append(0)
+				rgba.append(0)
+				rgba.append(0)
+		2:
+			for n in traces[0].size():
+				rgba.append(traces[0][n] / 2)
+				rgba.append(traces[1][n] / 2 + 128)
+				rgba.append(0)
+				rgba.append(0)
+		3:
+			for n in traces[0].size():
+				rgba.append(traces[0][n] / 3)
+				rgba.append(traces[1][n] / 3 + 85)
+				rgba.append(traces[2][n] / 3 + 170)
+				rgba.append(0)
+		4:
+			for n in traces[0].size():
+				rgba.append(traces[0][n] / 4)
+				rgba.append(traces[1][n] / 4 + 64)
+				rgba.append(traces[2][n] / 4 + 128)
+				rgba.append(traces[3][n] / 4 + 192)
+	return rgba
+
+
 # Create an RGBA8 image texture of wave data
 func test():
-	var rgba = PoolByteArray([])
+	var traces = [[], [], [], []]
 	var num_samples = int(rect_size.x)
 	for n in num_samples:
 		var a = 128 + 120 * sin(PI * 4 * n / num_samples) # sine wave
@@ -46,11 +76,12 @@ func test():
 		var d = (n * 6) % 256
 		if d > 128: d = 256 - d
 		d += 64
-		rgba.append(a)
-		rgba.append(b)
-		rgba.append(c)
-		rgba.append(d)
-	show_traces(rgba)
+		traces[0].append(a)
+		traces[1].append(b)
+		traces[2].append(c)
+		traces[3].append(d)
+	#traces.resize(1)
+	show_traces(combine_samples(traces))
 
 
 func show_traces(rgba):
