@@ -3,7 +3,7 @@ extends Control
 func _ready():
 	yield(get_tree(), "idle_frame")
 	rect_min_size.y = round(0.8 * rect_size.x)
-	test()
+	set_process(true) # For testing
 
 
 func _draw():
@@ -64,23 +64,21 @@ func combine_samples(traces: Array):
 				rgba.append(traces[3][n] / 4 + 192)
 	return rgba
 
+var phase = 0
 
 # Create an RGBA8 image texture of wave data
-func test():
+func test_sine():
 	var traces = [[], [], [], []]
 	var num_samples = int(rect_size.x)
 	for n in num_samples:
-		var a = 128 + 120 * sin(PI * 4 * n / num_samples) # sine wave
-		var b = (n * 4) % 200 + 25 # sawtooth
-		var c = 240 if a > 128 else 20 # square wave
-		var d = (n * 6) % 256
-		if d > 128: d = 256 - d
-		d += 64
+		var a = 128 + 120 * sin(n / 20.0 + phase)
+		var b = 128 + 110 * cos(n / 20.0 + phase)
+		var c = 240 if a > 128 else 30 # square wave
+		var d = (n * 4 + int(phase * 20)) % 200 + 25 # sawtooth
 		traces[0].append(a)
 		traces[1].append(b)
 		traces[2].append(c)
 		traces[3].append(d)
-	#traces.resize(1)
 	show_traces(combine_samples(traces))
 
 
@@ -90,3 +88,8 @@ func show_traces(rgba):
 	var texture = ImageTexture.new()
 	texture.create_from_image(img, 0)
 	material.set_shader_param("traces", texture)
+
+
+func _process(_delta):
+	test_sine()
+	phase += 0.1
