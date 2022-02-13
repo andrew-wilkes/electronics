@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://part.gd"
 }, {
+"base": "HBoxContainer",
+"class": "Probe",
+"language": "GDScript",
+"path": "res://Probe.gd"
+}, {
 "base": "Resource",
 "class": "Settings",
 "language": "GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "GraphData": "",
 "NodeData": "",
 "Part": "",
+"Probe": "",
 "Settings": ""
 }
 

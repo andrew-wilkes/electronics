@@ -75,6 +75,10 @@ func get_voltage(_port, _side):
 	return volts[_side][_port]
 
 
+func get_current(_port, _side):
+	return (Vector2(amps[_side][_port][R], 0) + Vector2(0, amps[_side][_port][L]) + Vector2(0, -amps[_side][_port][C])).length()
+
+
 # The effect of this is specific to each type of part
 func update_current(_port, _side, _v, _dv, _dt):
 	pass
@@ -99,33 +103,34 @@ func get_total_i(rcl):
 	return i
 
 
-func set_irs(dv):
+func set_irs(port, side, dv):
 	var irs = 0
 	for s in sinks:
 		irs += s[PART].set_ir(s[SIDE], s[PORT], dv)
-	return irs
+	amps[R][side][port] = irs
 
 
-func set_ils(dv, dt):
+func set_ils(port, side, dv, dt):
 	var ils = 0
 	for s in sinks:
 		ils += s[0].set_il(s[SIDE], s[PORT], dv, dt)
-	return ils
+	amps[L][side][port] = ils
 
 
-func set_ics(dv, dt):
+func set_ics(port, side, dv, dt):
 	var ics = 0
 	for s in sinks:
 		ics += s[PART].set_ic(s[SIDE], s[PORT], dv, dt)
-	return ics
+	amps[C][side][port] = ics
 
 
-func apply_cv(pin, cv, gnds, dt):
-	var dv = delta_v(cv[V], cv[I], get_total_i(L) * l_th, get_total_i(R) * r_th, dt)
+func apply_cv(pin, gnds, dt):
+	var dv = delta_v(get_voltage(pin[PORT], pin[SIDE]), get_current(pin[PORT], pin[SIDE]), get_total_i(L) * l_th, get_total_i(R) * r_th, dt)
 	# Affect the node elements
-	amps[pin] = (Vector2(set_irs(dv), 0) + Vector2(0, set_ils(dv, dt)) + Vector2(0, -set_ics(dv, dt))).length_squared()
-	cv[V] += dv
+	set_irs(pin[PORT], pin[SIDE], dv)
+	set_ils(pin[PORT], pin[SIDE], dv, dt)
+	set_ics(pin[PORT], pin[SIDE], dv, dt)
+	volts[pin[SIDE]][pin[PORT]] += dv
 	if pin in gnds:
-		cv[V] = 0
-	volts[pin] = cv[V]
+		volts[pin[SIDE]][pin[PORT]] = 0
 	time += dt

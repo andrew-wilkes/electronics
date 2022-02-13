@@ -16,10 +16,10 @@ var gnd_names = []
 var from_tos: Dictionary
 var net
 var loops
-var cvs
 var net_nodes
 
 func _ready():
+	set_process(false)
 	probe_holder = $Main/Tools/Probes
 	Parts.hide()
 	add_part_buttons()
@@ -29,13 +29,17 @@ func _ready():
 
 
 func test():
+	update_network()
+	prints("from_tos", from_tos)
+	prints("gnds", pgs.gnds)
+	print("net_nodes", net_nodes)
+
+
+func update_network():
 	pgs = get_parts_and_gnds(graph)
 	from_tos = get_from_tos(pgs, graph)
-	prints("from_tos", from_tos)
 	pgs.gnds = get_gnd_nodes(from_tos, pgs.gnds)
-	prints("gnds", pgs.gnds)
 	net_nodes = get_net_nodes(from_tos)
-	print("net_nodes", net_nodes)
 	loops = get_loops(pgs, net_nodes)
 
 
@@ -52,12 +56,10 @@ func get_gnd_nodes(from_tos_, gnd_names_):
 	return gnds_
 
 
-func simulate(dt, cvs_, pgs_, loops_):
-	var idx = 0
+func simulate(dt, pgs_, loops_):
 	for loop in loops_:
 		for pin in loop:
-			cvs_[idx] = pgs_.parts[pin[0]].apply_cv(pin, cvs_[idx], pgs_.gnds, dt)
-		idx += 1
+			pgs_.parts[pin[0]].apply_cv(pin, pgs_.gnds, dt)
 
 
 func get_net_nodes(from_tos_):
@@ -141,14 +143,6 @@ func get_loops(pgs_, net_nodes_):
 						if out_pin:
 							assign_sinks_to_part(pin_, pgs_, net_nodes_)
 						out_pin = not out_pin
-	var v = []
-	var c = []
-	v.resize(loops_.size())
-	c = v.duplicate()
-	for idx in loops_.size():
-		c[idx] = 0
-		v[idx] = 0
-	cvs = [c, v]
 	return loops_
 
 
@@ -315,6 +309,7 @@ func do_action():
 			set_changed(false)
 			set_filename()
 			clear_graph()
+			update_network()
 		OPEN:
 			open_file_dialog()
 		SAVE:
@@ -354,6 +349,7 @@ func _on_FileDialog_file_selected(path: String):
 			alert("Incompatible file")
 		else:
 			init_graph(graph_data)
+			update_network()
 
 
 func set_filename(fn = ""):
@@ -501,6 +497,8 @@ func add_probe(node, from_slot, pid):
 		slot = from_slot,
 		marker = marker,
 		view = probe_scene.instance(),
+		vac = false,
+		iac = false,
 	}
 	# Add probe to dict or replace nulled value
 	if probe_holder.get_child_count() == 0:
@@ -520,6 +518,14 @@ func add_probe(node, from_slot, pid):
 	probe.text = "P" + str(pid)
 	probe_info.view.connect("probe_color_changed", self, "probe_color_changed", [pid])
 	probe_info.view.setup(pid)
+
+
+func update_probe(pid):
+	var p = probes[pid]
+	if p.view.show_v:
+		p.view.update_v(p.part.volts[1][p.from_slot], p.vac)
+	if p.view.show_i:
+		p.view.update_i(p.part.amps[1][p.from_slot], p.iac)
 
 
 func probe_color_changed(color, pid):
@@ -547,4 +553,11 @@ func _on_Alert_confirmed():
 
 
 func _on_Run_pressed():
+	set_process(true)
 	test()
+
+
+func _process(_d):
+	simulate(0.02, pgs, loops)
+	for pid in probes:
+		update_probe(pid)
