@@ -2,6 +2,8 @@ extends Part
 
 signal vac_changed(v)
 
+var two_pi_f = 2 * PI * 50
+
 func _init():
 	data = { vac = 120 }
 
@@ -24,3 +26,12 @@ func set_text(v):
 
 func get_voltage(_port, _side):
 	return volts[_port]
+
+
+func apply_cv(pin, cv, gnds, dt):
+	.apply_cv(pin, cv, gnds, dt)
+	var v = sin(two_pi_f * time) * data.vac
+	if pin == 0:
+		volts[1] = volts[0] - v
+	else:
+		volts[0] = volts[1] + v

@@ -1,6 +1,7 @@
 extends HBoxContainer
 
 signal probe_view_pressed(id, IV, show)
+signal probe_color_changed(color)
 
 enum { I, V }
 
@@ -25,6 +26,7 @@ func setup(_id = 1):
 	else:
 		$Color.color = Color.from_hsv(randf(), 0.8, 1.0)
 		Data.settings.trace_colors[id] = $Color.color
+	emit_signal("probe_color_changed", $Color.color)
 
 
 func set_button_icon(b, show):
@@ -36,6 +38,7 @@ func set_button_icon(b, show):
 
 func _on_ColorPickerButton_color_changed(color):
 	Data.settings.trace_colors[id] = color
+	emit_signal("probe_color_changed", color)
 
 
 func _on_VTrace_pressed():

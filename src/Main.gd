@@ -503,7 +503,6 @@ func add_probe(node, from_slot, pid):
 		view = probe_scene.instance(),
 	}
 	# Add probe to dict or replace nulled value
-	probe_info.view.setup(pid)
 	if probe_holder.get_child_count() == 0:
 		probe_holder.add_child(probe_info.view)
 	else:
@@ -519,6 +518,12 @@ func add_probe(node, from_slot, pid):
 					break
 	probes[pid] = probe_info
 	probe.text = "P" + str(pid)
+	probe_info.view.connect("probe_color_changed", self, "probe_color_changed", [pid])
+	probe_info.view.setup(pid)
+
+
+func probe_color_changed(color, pid):
+	probes[pid].marker.get_child(0).modulate = color
 
 
 func get_probe_id():

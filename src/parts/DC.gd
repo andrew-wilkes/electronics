@@ -20,3 +20,11 @@ func set_data(v):
 
 func set_text(v):
 	$M/HBox/VBox/Label.text = str(v) + "V"
+
+
+func apply_cv(pin, cv, gnds, dt):
+	.apply_cv(pin, cv, gnds, dt)
+	if pin == 0:
+		volts[1] = volts[0] - data.vdc
+	else:
+		volts[0] = volts[1] + data.vdc

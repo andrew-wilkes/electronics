@@ -28,6 +28,7 @@ var l_th
 var c_th
 var volts = [[0, 0, 0], [0, 0, 0]]
 var amps = [[[0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0]]]
+var time = 0
 
 func get_r(_port = 0):
 	return r
@@ -122,8 +123,9 @@ func set_ics(dv, dt):
 func apply_cv(pin, cv, gnds, dt):
 	var dv = delta_v(cv[V], cv[I], get_total_i(L) * l_th, get_total_i(R) * r_th, dt)
 	# Affect the node elements
-	cv[I] = (Vector2(set_irs(dv), 0) + Vector2(0, set_ils(dv, dt)) + Vector2(0, -set_ics(dv, dt))).length_squared()
+	amps[pin] = (Vector2(set_irs(dv), 0) + Vector2(0, set_ils(dv, dt)) + Vector2(0, -set_ics(dv, dt))).length_squared()
 	cv[V] += dv
 	if pin in gnds:
 		cv[V] = 0
-	return cv
+	volts[pin] = cv[V]
+	time += dt
