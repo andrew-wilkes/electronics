@@ -27,7 +27,7 @@ var r_th
 var l_th
 var c_th
 var volts = [[0, 0, 0], [0, 0, 0]]
-var amps = [[[0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0]]]
+var amps = [[0, 0, 0], [0, 0, 0]]
 var time = 0
 
 func get_r(_port = 0):
@@ -65,72 +65,32 @@ func thevenin(rvs):
 	return [1 / _r, v / _r]
 
 
-func delta_v(v1, i1, vl, vr, dt):
-	var v = dt * dt * (v1 - vl) / l + dt  * (v1 - vr) / r - i1 / r / l
-	return v / c
-
-
 # This is requested by connected parts
 func get_voltage(_port, _side):
 	return volts[_side][_port]
 
 
 func get_current(_port, _side):
-	return (Vector2(amps[_side][_port][R], 0) + Vector2(0, amps[_side][_port][L]) + Vector2(0, -amps[_side][_port][C])).length()
+	return 
 
 
-# The effect of this is specific to each type of part
-func update_current(_port, _side, _v, _dv, _dt):
-	pass
-
-
-func set_ir(_port, _side, _dv):
-	return 0
-
-
-func set_il(_port, _side, _dv, _dt):
-	return 0
-
-
-func set_ic(_port, _side, _dv, _dt):
-	return 0
-
-
-func get_total_i(rcl):
+func get_sink_current():
 	var i = 0
 	for s in sinks:
-		i += s[PART].amps[rcl][s[SIDE]][s[PORT]]
+		i += s[PART].amps[s[SIDE]][s[PORT]]
 	return i
 
 
-func set_irs(port, side, dv):
-	var irs = 0
-	for s in sinks:
-		irs += s[PART].set_ir(s[SIDE], s[PORT], dv)
-	amps[R][side][port] = irs
+# The effect of this is specific to each type of part
+func update_vout(_port, _side, _cv, _dt):
+	return _cv
 
 
-func set_ils(port, side, dv, dt):
-	var ils = 0
-	for s in sinks:
-		ils += s[0].set_il(s[SIDE], s[PORT], dv, dt)
-	amps[L][side][port] = ils
-
-
-func set_ics(port, side, dv, dt):
-	var ics = 0
-	for s in sinks:
-		ics += s[PART].set_ic(s[SIDE], s[PORT], dv, dt)
-	amps[C][side][port] = ics
-
-
-func apply_cv(pin, gnds, dt):
-	var dv = delta_v(get_voltage(pin[PORT], pin[SIDE]), get_current(pin[PORT], pin[SIDE]), get_total_i(L) * l_th, get_total_i(R) * r_th, dt)
-	# Affect the node elements
-	set_irs(pin[PORT], pin[SIDE], dv)
-	set_ils(pin[PORT], pin[SIDE], dv, dt)
-	set_ics(pin[PORT], pin[SIDE], dv, dt)
-	volts[pin[SIDE]][pin[PORT]] += dv
+func apply_cv(pin, gnds, cv, dt):
+	# The pins voltage and current will not be changed, but applied to this part and the sinks
+	cv[0] -=  get_sink_current()
+	cv = update_vout(pin[PORT], pin[SIDE], cv, dt)
 	if pin in gnds:
-		volts[pin[SIDE]][pin[PORT]] = 0
+		cv[2] = -cv[1] # Set GND voltage offset for measurement purposes
 	time += dt
+	return cv

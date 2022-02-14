@@ -17,6 +17,7 @@ var from_tos: Dictionary
 var net
 var loops
 var net_nodes
+var cvs = []
 
 func _ready():
 	set_process(false)
@@ -41,6 +42,9 @@ func update_network():
 	pgs.gnds = get_gnd_nodes(from_tos, pgs.gnds)
 	net_nodes = get_net_nodes(from_tos)
 	loops = get_loops(pgs, net_nodes)
+	cvs.clear()
+	for _n in loops.size():
+		cvs.append([0, 0, 0]) # C, V, GND offset voltage
 
 
 func get_gnd_nodes(from_tos_, gnd_names_):
@@ -56,10 +60,12 @@ func get_gnd_nodes(from_tos_, gnd_names_):
 	return gnds_
 
 
-func simulate(dt, pgs_, loops_):
+func simulate(dt, pgs_, loops_, cvs_):
+	var idx = 0
 	for loop in loops_:
 		for pin in loop:
-			pgs_.parts[pin[0]].apply_cv(pin, pgs_.gnds, dt)
+			cvs_[idx] = pgs_.parts[pin[0]].apply_cv(pin, pgs_.gnds, cvs_[idx], dt)
+		idx += 1
 
 
 func get_net_nodes(from_tos_):
@@ -558,6 +564,6 @@ func _on_Run_pressed():
 
 
 func _process(_d):
-	simulate(0.02, pgs, loops)
+	simulate(0.02, pgs, loops, cvs)
 	for pid in probes:
 		update_probe(pid)

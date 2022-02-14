@@ -28,10 +28,11 @@ func get_voltage(_port, _side):
 	return volts[_port]
 
 
-func apply_cv(pin, gnds, dt):
-	.apply_cv(pin, gnds, dt)
+func apply_cv(pin, gnds, cv, dt):
+	cv = .apply_cv(pin, gnds, cv, dt)
 	var v = sin(two_pi_f * time) * data.vac
 	if pin == 0:
 		volts[1] = volts[0] - v
 	else:
 		volts[0] = volts[1] + v
+	return cv
