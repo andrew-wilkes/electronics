@@ -63,6 +63,7 @@ func get_gnd_nodes(from_tos_, gnd_names_):
 func simulate(dt, pgs_, loops_, cvs_):
 	var idx = 0
 	for loop in loops_:
+		# The cvs_[idx] value travels around the loop
 		for pin in loop:
 			cvs_[idx] = pgs_.parts[pin[0]].apply_cv(pin, pgs_.gnds, cvs_[idx], dt)
 		idx += 1
@@ -89,7 +90,7 @@ func goes_to_existing_node(from, node, net_nodes_):
 
 
 func get_from_tos(pgs_, graph_):
-	# Array [{ from: [name, port], tos: [[name, port], ...]
+	# Array [{ from: [name, port, side], tos: [[name, port, side], ...]
 	var nodes = {}
 	var cons = graph_.get_connection_list()
 	for con in cons:

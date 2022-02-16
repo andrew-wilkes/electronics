@@ -22,10 +22,11 @@ func set_text(v):
 	$M/HBox/VBox/Label.text = str(v) + "V"
 
 
-func apply_cv(pin, gnds, cv, dt):
-	cv = .apply_cv(pin, gnds, cv, dt)
-	if pin == 0:
-		volts[1] = volts[0] - data.vdc
-	else:
-		volts[0] = volts[1] + data.vdc
+func update_vout(port, side, cv, _dt):
+	# Input will only be to port 1
+	volts[side][port] = cv[V]
+	amps[side][port] = -cv[I]
+	cv[V] += data.vdc
+	volts[side][0] = cv[V]
+	amps[side][0] = cv[I]
 	return cv

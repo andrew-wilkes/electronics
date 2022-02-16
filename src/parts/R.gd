@@ -29,16 +29,16 @@ func set_text(v):
 	$Label.text = str(n) + m_vals[mult / 3]
 
 
-func set_ir(_port, _side, dv):
-	volts[_side][_port] += dv
-	var v
+func update_vout(port, side, cv, _dt):
+	volts[side][port] = cv[V]
+	amps[side][port] = -cv[I]
+	cv[V] -= cv[I] * r
 	if flipped:
-		v = volts[0][1] - volts[0][0]
+		var out_side = [1, 0][side]
+		amps[out_side][port] = cv[I]
+		volts[out_side][port] = cv[V]
 	else:
-		v = volts[0][0] - volts[0][1]
-	if _port == 1 or _side == 1:
-		v = -v
-	amps[R][0][0] += v / r
-	amps[R][0][1] = -amps[L][0][0] 
-	amps[R][1][0] = amps[L][0][1]
-	return amps[L][_side][_port]
+		var out_port = [1, 0][port]
+		amps[side][out_port] = cv[I]
+		volts[side][out_port] = cv[V]
+	return cv

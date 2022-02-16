@@ -89,8 +89,8 @@ func update_vout(_port, _side, _cv, _dt):
 func apply_cv(pin, gnds, cv, dt):
 	# The pins voltage and current will not be changed, but applied to this part and the sinks
 	cv[0] -=  get_sink_current()
-	cv = update_vout(pin[PORT], pin[SIDE], cv, dt)
 	if pin in gnds:
 		cv[2] = -cv[1] # Set GND voltage offset for measurement purposes
+	cv = update_vout(pin[PORT], pin[SIDE], cv, dt)
 	time += dt
 	return cv

@@ -5,7 +5,7 @@
    viewBox="0 0 793.7007874 1122.519685"
    version="1.1"
    id="svg863"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    sodipodi:docname="graphics.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -510,6 +510,71 @@
          class="powerclip"
          d="m -95,-60 h 30 v 30 h -30 z m 23,15 h -8 l 7.999984,-0.01592 a 8,8 0 0 0 -8.011922,-7.984073 8,8 0 0 0 -7.988058,8.00795 8,8 0 0 0 8.003975,7.99204 A 8,8 0 0 0 -72,-45 Z" />
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipath_lpe_path-effect2682-1">
+      <path
+         style="display:none;fill:#babdb6;stroke-width:44;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.54614"
+         id="path2684-1"
+         sodipodi:type="arc"
+         sodipodi:cx="-80"
+         sodipodi:cy="-45"
+         sodipodi:rx="8"
+         sodipodi:ry="8"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m -72,-45 a 8,8 0 0 1 -7.996021,7.999999 8,8 0 0 1 -8.003975,-7.99204 8,8 0 0 1 7.988058,-8.00795 8,8 0 0 1 8.011922,7.984073 L -80,-45 Z" />
+      <path
+         id="lpe_path-effect2682-5"
+         style="fill:#babdb6;stroke-width:44;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.54614"
+         class="powerclip"
+         d="m -95,-60 h 30 v 30 h -30 z m 23,15 h -8 l 7.999984,-0.01592 a 8,8 0 0 0 -8.011922,-7.984073 8,8 0 0 0 -7.988058,8.00795 8,8 0 0 0 8.003975,7.99204 A 8,8 0 0 0 -72,-45 Z" />
+    </clipPath>
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect2682-9"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+    <marker
+       style="overflow:visible"
+       id="TriangleOutS-2-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutS"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.2)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path11571-6-7" />
+    </marker>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipath_lpe_path-effect2682-9">
+      <path
+         style="display:none;fill:#babdb6;stroke-width:44;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.54614"
+         id="path42497"
+         sodipodi:type="arc"
+         sodipodi:cx="-80"
+         sodipodi:cy="-45"
+         sodipodi:rx="8"
+         sodipodi:ry="8"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m -72,-45 a 8,8 0 0 1 -7.996021,7.999999 8,8 0 0 1 -8.003975,-7.99204 8,8 0 0 1 7.988058,-8.00795 8,8 0 0 1 8.011922,7.984073 L -80,-45 Z" />
+      <path
+         id="lpe_path-effect2682-9"
+         style="fill:#babdb6;stroke-width:44;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.54614"
+         class="powerclip"
+         d="m -95,-60 h 30 v 30 h -30 z m 23,15 h -8 l 7.999984,-0.01592 a 8,8 0 0 0 -8.011922,-7.984073 8,8 0 0 0 -7.988058,8.00795 8,8 0 0 0 8.003975,7.99204 A 8,8 0 0 0 -72,-45 Z" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -518,9 +583,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568543"
-     inkscape:cx="91.305163"
-     inkscape:cy="62.04862"
+     inkscape:zoom="2"
+     inkscape:cx="-138.75"
+     inkscape:cy="186.5"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -532,7 +597,8 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:snap-global="true">
+     inkscape:snap-global="true"
+     showguides="false">
     <inkscape:grid
        type="xygrid"
        id="grid1426" />
@@ -552,20 +618,28 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="BG"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true">
     <rect
-       style="fill:#d3d7cf;stroke-width:44;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.54614"
+       style="fill:#d3d7cf;stroke-width:35.8134;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.54614"
        id="rect916"
        width="615"
-       height="400"
+       height="265"
        x="-375"
        y="-170" />
+    <rect
+       style="display:inline;fill:#555753;stroke:none;stroke-width:4.74534;stroke-linecap:round;stroke-linejoin:round"
+       id="rect1377"
+       width="620"
+       height="375"
+       x="-380"
+       y="105" />
   </g>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     style="display:inline">
     <g
        id="g18023"
        inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/dc.png"
@@ -584,7 +658,7 @@
          sodipodi:arc-type="slice"
          clip-path="url(#clipPath2623)"
          inkscape:path-effect="#path-effect2627"
-         d="m -70,-45 a 10,10 0 0 1 -9.995026,9.999999 10,10 0 0 1 -10.004969,-9.990051 10,10 0 0 1 9.985072,-10.009937 10,10 0 0 1 10.014903,9.980092 L -80,-45 Z"
+         d="m -70,-45 a 10,10 0 0 1 -9.995026,9.999999 10,10 0 0 1 -10.004969,-9.99005 10,10 0 0 1 9.985072,-10.009938 10,10 0 0 1 10.014903,9.980092 L -80,-45 Z"
          inkscape:export-filename="/home/andrew/dc.png"
          inkscape:export-xdpi="191.99989"
          inkscape:export-ydpi="191.99989" />
@@ -644,7 +718,7 @@
          inkscape:export-xdpi="191.99989"
          inkscape:export-ydpi="191.99989" />
       <path
-         style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m -61,-44 c 0,0 3,-6 6.047376,-0.413083 C -52,-40 -49,-46 -49,-46"
          id="path6566"
          sodipodi:nodetypes="ccc"
@@ -1908,7 +1982,7 @@
          id="path19223"
          sodipodi:nodetypes="cccc" />
       <path
-         style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 115,-5 h 10"
          id="path19451" />
       <path
@@ -1956,7 +2030,7 @@
        inkscape:export-xdpi="191.99989"
        inkscape:export-ydpi="191.99989" />
     <rect
-       style="fill:#dedede;stroke-width:16;stroke-linecap:round;fill-opacity:1"
+       style="fill:#dedede;fill-opacity:1;stroke-width:16;stroke-linecap:round"
        id="rect4853"
        width="220"
        height="120"
@@ -1996,7 +2070,7 @@
        cy="-87.5"
        r="7.5" />
     <rect
-       style="fill:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:none;fill-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
        id="rect1085"
        width="5"
        height="5"
@@ -2064,7 +2138,8 @@
          transform="translate(170,106)"
          inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/fet.png"
          inkscape:export-xdpi="191.99989"
-         inkscape:export-ydpi="191.99989" />
+         inkscape:export-ydpi="191.99989"
+         d="m -70,-45 a 10,10 0 0 1 -9.995026,9.999999 10,10 0 0 1 -10.004969,-9.99005 10,10 0 0 1 9.985072,-10.009938 10,10 0 0 1 10.014903,9.980092 L -80,-45 Z" />
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect10055-27-9-5-7-4-5"
@@ -2190,5 +2265,1240 @@
          id="path1436-3-2"
          sodipodi:nodetypes="cc" />
     </g>
+    <rect
+       style="fill:#888a85;stroke:none;stroke-width:1.5374;stroke-linecap:round;stroke-linejoin:round"
+       id="rect1137"
+       width="20"
+       height="65"
+       x="-185"
+       y="125"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <rect
+       style="display:inline;fill:#888a85;stroke:none;stroke-width:1.40646;stroke-linecap:round;stroke-linejoin:round"
+       id="rect1137-7"
+       width="32"
+       height="34"
+       x="-180"
+       y="256"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243" />
+    <g
+       id="g18038-3-3"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"
+       transform="translate(-140,205)"
+       style="display:inline">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect9775-6-5"
+         width="10.000004"
+         height="25"
+         x="-40"
+         y="-60"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-7-6"
+         width="2"
+         height="9.0000191"
+         x="-36"
+         y="-70"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-2-5-2"
+         width="2"
+         height="9.0000191"
+         x="-36"
+         y="-34.000019"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+    </g>
+    <path
+       style="fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504"
+       sodipodi:type="arc"
+       sodipodi:cx="-165"
+       sodipodi:cy="130"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -162.5,130 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50249 2.5,2.5 0 0 1 2.50373,2.49503 L -165,130 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-9"
+       sodipodi:type="arc"
+       sodipodi:cx="-185"
+       sodipodi:cy="130"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -182.5,130 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50249 2.5,2.5 0 0 1 2.50373,2.49503 L -185,130 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-1"
+       sodipodi:type="arc"
+       sodipodi:cx="-185"
+       sodipodi:cy="185"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -182.5,185 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50249 2.5,2.5 0 0 1 2.50373,2.49503 L -185,185 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-1-4"
+       sodipodi:type="arc"
+       sodipodi:cx="-148"
+       sodipodi:cy="260"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -145.5,260 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50249 2.5,2.5 0 0 1 2.50373,2.49503 L -148,260 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-1-81"
+       sodipodi:type="arc"
+       sodipodi:cx="-148"
+       sodipodi:cy="286"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -145.5,286 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50249 2.5,2.5 0 0 1 2.50373,2.49503 L -148,286 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-1-2"
+       sodipodi:type="arc"
+       sodipodi:cx="-180"
+       sodipodi:cy="260"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -177.5,260 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50249 2.5,2.5 0 0 1 2.50373,2.49503 L -180,260 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-1-93"
+       sodipodi:type="arc"
+       sodipodi:cx="-180"
+       sodipodi:cy="273"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -177.5,273 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50249 2.5,2.5 0 0 1 2.50373,2.49503 L -180,273 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-1-90"
+       sodipodi:type="arc"
+       sodipodi:cx="-180"
+       sodipodi:cy="286"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -177.5,286 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50249 2.5,2.5 0 0 1 2.50373,2.49503 L -180,286 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-2"
+       sodipodi:type="arc"
+       sodipodi:cx="-165"
+       sodipodi:cy="185"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -162.5,185 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50249 2.5,2.5 0 0 1 2.50373,2.49503 L -165,185 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m -185,130 h 20"
+       id="path1689"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -185,185 h 20"
+       id="path1689-7"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;fill:#ffffff"
+       x="-163.44858"
+       y="161.14862"
+       id="text4908"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906"
+         x="-163.44858"
+         y="161.14862">Side 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-163.44858"
+       y="126.14862"
+       id="text4908-06"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1"
+         x="-163.44858"
+         y="126.14862">From</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-125.93784"
+       y="126.13755"
+       id="text4908-06-5"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-5"
+         x="-125.93784"
+         y="126.13755">To</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-216.4659"
+       y="160.78404"
+       id="text4908-0"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-9"
+         x="-216.4659"
+         y="160.78404">Side 0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-191.3907"
+       y="141.45352"
+       id="text4908-0-3"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-9-6"
+         x="-191.3907"
+         y="141.45352">0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-164.22487"
+       y="141.62758"
+       id="text4908-0-3-0"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-9-6-6"
+         x="-164.22487"
+         y="141.62758">0</tspan></text>
+    <rect
+       style="display:inline;fill:#888a85;stroke:none;stroke-width:1.5374;stroke-linecap:round;stroke-linejoin:round"
+       id="rect1137-9"
+       width="20"
+       height="65"
+       x="-112.49999"
+       y="125.00497"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <g
+       id="g18038-3-3-2"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"
+       transform="translate(-67.499997,205.00497)"
+       style="display:inline">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect9775-6-5-0"
+         width="10.000004"
+         height="25"
+         x="-40"
+         y="-60"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-7-6-2"
+         width="2"
+         height="9.0000191"
+         x="-36"
+         y="-70"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-2-5-2-3"
+         width="2"
+         height="9.0000191"
+         x="-36"
+         y="-34.000019"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+    </g>
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-7"
+       sodipodi:type="arc"
+       sodipodi:cx="-92.499992"
+       sodipodi:cy="130.00497"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -89.999992,130.00497 a 2.5,2.5 0 0 1 -2.498757,2.5 2.5,2.5 0 0 1 -2.501242,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50248 2.5,2.5 0 0 1 2.503726,2.49502 l -2.499995,0.005 z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-9-5"
+       sodipodi:type="arc"
+       sodipodi:cx="-112.49999"
+       sodipodi:cy="130.00497"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -109.99999,130.00497 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50248 A 2.5,2.5 0 0 1 -110,130 l -2.49999,0.005 z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-1-9"
+       sodipodi:type="arc"
+       sodipodi:cx="-112.49999"
+       sodipodi:cy="185.00497"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -109.99999,185.00497 a 2.5,2.5 0 0 1 -2.49876,2.5 2.5,2.5 0 0 1 -2.50124,-2.49751 2.5,2.5 0 0 1 2.49627,-2.50248 A 2.5,2.5 0 0 1 -110,185 l -2.49999,0.005 z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-2-2"
+       sodipodi:type="arc"
+       sodipodi:cx="-92.499992"
+       sodipodi:cy="185.00497"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -89.999992,185.00497 a 2.5,2.5 0 0 1 -2.498757,2.5 2.5,2.5 0 0 1 -2.501242,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50248 2.5,2.5 0 0 1 2.503726,2.49502 l -2.499995,0.005 z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -112.5,130.00497 h 20.000003"
+       id="path1689-2"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -112.5,185.00497 h 20.000003"
+       id="path1689-7-8"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <rect
+       style="display:inline;fill:#888a85;stroke:none;stroke-width:1.5374;stroke-linecap:round;stroke-linejoin:round"
+       id="rect1137-1"
+       width="20"
+       height="65"
+       x="-64"
+       y="125"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <g
+       id="g18038-3-3-29"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"
+       transform="translate(-19,205)"
+       style="display:inline">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect9775-6-5-3"
+         width="10.000004"
+         height="25"
+         x="-40"
+         y="-60"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-7-6-1"
+         width="2"
+         height="9.0000191"
+         x="-36"
+         y="-70"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-2-5-2-9"
+         width="2"
+         height="9.0000191"
+         x="-36"
+         y="-34.000019"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+    </g>
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-4"
+       sodipodi:type="arc"
+       sodipodi:cx="-44"
+       sodipodi:cy="130"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -41.5,130 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L -44,130 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-9-7"
+       sodipodi:type="arc"
+       sodipodi:cx="-64"
+       sodipodi:cy="130"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -61.5,130 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L -64,130 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-1-8"
+       sodipodi:type="arc"
+       sodipodi:cx="-64"
+       sodipodi:cy="185"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -61.5,185 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L -64,185 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+       id="path1504-2-4"
+       sodipodi:type="arc"
+       sodipodi:cx="-44"
+       sodipodi:cy="185"
+       sodipodi:rx="2.5"
+       sodipodi:ry="2.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m -41.5,185 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L -44,185 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -64,130 h 20"
+       id="path1689-5"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -64,185 h 20"
+       id="path1689-7-0"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <g
+       id="g37152"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989">
+      <rect
+         style="display:inline;fill:#888a85;stroke:none;stroke-width:1.5374;stroke-linecap:round;stroke-linejoin:round"
+         id="rect1137-1-7"
+         width="20"
+         height="65"
+         x="61"
+         y="120" />
+      <g
+         id="g18038-3-3-29-4"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/resistor2.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989"
+         transform="translate(106,200)"
+         style="display:inline">
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect9775-6-5-3-4"
+           width="10.000004"
+           height="25"
+           x="-40"
+           y="-60"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+           inkscape:export-xdpi="191.99989"
+           inkscape:export-ydpi="191.99989" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect10055-7-6-1-3"
+           width="2"
+           height="9.0000191"
+           x="-36"
+           y="-70"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+           inkscape:export-xdpi="191.99989"
+           inkscape:export-ydpi="191.99989" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect10055-2-5-2-9-0"
+           width="2"
+           height="9.0000191"
+           x="-36"
+           y="-34.000019"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+           inkscape:export-xdpi="191.99989"
+           inkscape:export-ydpi="191.99989" />
+      </g>
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-4-7"
+         sodipodi:type="arc"
+         sodipodi:cx="81"
+         sodipodi:cy="125"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 83.5,125 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 81,125 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-9-7-8"
+         sodipodi:type="arc"
+         sodipodi:cx="61"
+         sodipodi:cy="125"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 63.5,125 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 61,125 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-1-8-6"
+         sodipodi:type="arc"
+         sodipodi:cx="61"
+         sodipodi:cy="180"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 63.5,180 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 61,180 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-2-4-8"
+         sodipodi:type="arc"
+         sodipodi:cx="81"
+         sodipodi:cy="180"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 83.5,180 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 81,180 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 61,125 H 81"
+         id="path1689-5-8" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 61,180 H 81"
+         id="path1689-7-0-4" />
+    </g>
+    <g
+       id="g37152-3"
+       style="display:inline"
+       transform="translate(38,15)"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989">
+      <rect
+         style="display:inline;fill:#888a85;stroke:none;stroke-width:1.5374;stroke-linecap:round;stroke-linejoin:round"
+         id="rect1137-1-7-1"
+         width="20"
+         height="65"
+         x="61"
+         y="120" />
+      <g
+         id="g18038-3-3-29-4-4"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/resistor2.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989"
+         transform="translate(106,200)"
+         style="display:inline">
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect9775-6-5-3-4-9"
+           width="10.000004"
+           height="25"
+           x="-40"
+           y="-60"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+           inkscape:export-xdpi="191.99989"
+           inkscape:export-ydpi="191.99989" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect10055-7-6-1-3-2"
+           width="2"
+           height="9.0000191"
+           x="-36"
+           y="-70"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+           inkscape:export-xdpi="191.99989"
+           inkscape:export-ydpi="191.99989" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect10055-2-5-2-9-0-0"
+           width="2"
+           height="9.0000191"
+           x="-36"
+           y="-34.000019"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+           inkscape:export-xdpi="191.99989"
+           inkscape:export-ydpi="191.99989" />
+      </g>
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-4-7-6"
+         sodipodi:type="arc"
+         sodipodi:cx="81"
+         sodipodi:cy="125"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 83.5,125 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 81,125 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-9-7-8-8"
+         sodipodi:type="arc"
+         sodipodi:cx="61"
+         sodipodi:cy="125"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 63.5,125 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 61,125 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-1-8-6-9"
+         sodipodi:type="arc"
+         sodipodi:cx="61"
+         sodipodi:cy="180"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 63.5,180 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 61,180 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-2-4-8-2"
+         sodipodi:type="arc"
+         sodipodi:cx="81"
+         sodipodi:cy="180"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 83.5,180 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 81,180 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 61,125 H 81"
+         id="path1689-5-8-6" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 61,180 H 81"
+         id="path1689-7-0-4-6" />
+    </g>
+    <g
+       id="g37152-4"
+       style="display:inline"
+       transform="translate(69,40)"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989">
+      <rect
+         style="display:inline;fill:#888a85;stroke:none;stroke-width:1.5374;stroke-linecap:round;stroke-linejoin:round"
+         id="rect1137-1-7-9"
+         width="20"
+         height="65"
+         x="61"
+         y="120" />
+      <g
+         id="g18038-3-3-29-4-5"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/resistor2.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989"
+         transform="translate(106,200)"
+         style="display:inline">
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect9775-6-5-3-4-0"
+           width="10.000004"
+           height="25"
+           x="-40"
+           y="-60"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+           inkscape:export-xdpi="191.99989"
+           inkscape:export-ydpi="191.99989" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect10055-7-6-1-3-4"
+           width="2"
+           height="9.0000191"
+           x="-36"
+           y="-70"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+           inkscape:export-xdpi="191.99989"
+           inkscape:export-ydpi="191.99989" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect10055-2-5-2-9-0-8"
+           width="2"
+           height="9.0000191"
+           x="-36"
+           y="-34.000019"
+           inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/resistor.png"
+           inkscape:export-xdpi="191.99989"
+           inkscape:export-ydpi="191.99989" />
+      </g>
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-4-7-7"
+         sodipodi:type="arc"
+         sodipodi:cx="81"
+         sodipodi:cy="125"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 83.5,125 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 81,125 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-9-7-8-1"
+         sodipodi:type="arc"
+         sodipodi:cx="61"
+         sodipodi:cy="125"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 63.5,125 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 61,125 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-1-8-6-7"
+         sodipodi:type="arc"
+         sodipodi:cx="61"
+         sodipodi:cy="180"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 63.5,180 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 61,180 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path1504-2-4-8-27"
+         sodipodi:type="arc"
+         sodipodi:cx="81"
+         sodipodi:cy="180"
+         sodipodi:rx="2.5"
+         sodipodi:ry="2.5"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         d="m 83.5,180 a 2.5,2.5 0 0 1 -2.498756,2.5 2.5,2.5 0 0 1 -2.501243,-2.49751 2.5,2.5 0 0 1 2.496268,-2.50249 2.5,2.5 0 0 1 2.503726,2.49503 L 81,180 Z" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 61,125 H 81"
+         id="path1689-5-8-2" />
+      <path
+         style="display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 61,180 H 81"
+         id="path1689-7-0-4-2" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-190.50302"
+       y="197.74623"
+       id="text4908-0-3-2"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-9-6-61"
+         x="-190.50302"
+         y="197.74623">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-164.65225"
+       y="197.7486"
+       id="text4908-0-3-2-8"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-9-6-61-7"
+         x="-164.65225"
+         y="197.7486">1</tspan></text>
+    <path
+       style="fill:none;stroke:#fefefe;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -165,130 H -65"
+       id="path21062"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:none;stroke:#fefefe;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -165,185 H -65"
+       id="path21062-2"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-181.3036"
+       y="204.95764"
+       id="text4908-06-4"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7"
+         x="-181.3036"
+         y="204.95764">R1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-213.23756"
+       y="276.4906"
+       id="text4908-06-4-8"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-8"
+         x="-213.23756"
+         y="276.4906">Port 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-143.30264"
+       y="289.83945"
+       id="text4908-06-4-8-5"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-8-0"
+         x="-143.30264"
+         y="289.83945">Port 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-213.34169"
+       y="263.77869"
+       id="text4908-06-4-8-9"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-8-6"
+         x="-213.34169"
+         y="263.77869">Port 0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-144.05919"
+       y="263.79398"
+       id="text4908-06-4-8-9-3"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-8-6-8"
+         x="-144.05919"
+         y="263.79398">Port 0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-213.63156"
+       y="289.20795"
+       id="text4908-06-4-8-9-5"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-8-6-6"
+         x="-213.63156"
+         y="289.20795">Port 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="66.204445"
+       y="118.0332"
+       id="text4908-06-4-4"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-9"
+         x="66.204445"
+         y="118.0332">R1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-108.7236"
+       y="204.67036"
+       id="text4908-06-4-9"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-3"
+         x="-108.7236"
+         y="204.67036">R2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="103.43881"
+       y="133.15765"
+       id="text4908-06-4-9-0"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-3-9"
+         x="103.43881"
+         y="133.15765">R2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-59.471767"
+       y="204.74257"
+       id="text4908-06-4-7"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/mirrored.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-4"
+         x="-59.471767"
+         y="204.74257">R3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="134.14658"
+       y="156.83342"
+       id="text4908-06-4-7-1"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-4-7"
+         x="134.14658"
+         y="156.83342">R3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-11.045215"
+       y="164.10175"
+       id="text4908-06-4-5"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-2"
+         x="-11.045215"
+         y="164.10175">Node 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff"
+       x="-11.022153"
+       y="203.43161"
+       id="text4908-06-4-5-5"
+       inkscape:transform-center-x="11.640029"
+       inkscape:transform-center-y="-1.9158218"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989"><tspan
+         sodipodi:role="line"
+         id="tspan4906-1-7-2-4"
+         x="-11.022153"
+         y="203.43161">Node 2</tspan></text>
+    <path
+       style="fill:none;stroke:#f3fd00;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 30,160 c 5,-30 30,-35 30,-35"
+       id="path37471"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:none;stroke:#f3fd00;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 30,160 c 25,-25 70,-20 70,-20"
+       id="path37471-1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:none;stroke:#f3fd00;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 30,160 c 5,5 100,5 100,5"
+       id="path37471-0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:none;stroke:#f3fd00;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 30,200 C 40,180 60,180 60,180"
+       id="path37471-6"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:none;stroke:#f3fd00;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 30,200 c 15,-5 70,-5 70,-5"
+       id="path37471-15"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:none;stroke:#f3fd00;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 30,200 c 15,25 100,20 100,20"
+       id="path37471-9"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="display:inline;fill:#ffffff;stroke:#fefefe;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path37334-6"
+       sodipodi:type="arc"
+       sodipodi:cx="30"
+       sodipodi:cy="160"
+       sodipodi:rx="4.5"
+       sodipodi:ry="4.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m 34.5,160 a 4.5,4.5 0 0 1 -4.497762,4.5 4.5,4.5 0 0 1 -4.502236,-4.49552 4.5,4.5 0 0 1 4.493283,-4.50447 4.5,4.5 0 0 1 4.506706,4.49104 L 30,160 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <path
+       style="fill:#ffffff;stroke:#fefefe;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path37334"
+       sodipodi:type="arc"
+       sodipodi:cx="30"
+       sodipodi:cy="200"
+       sodipodi:rx="4.5"
+       sodipodi:ry="4.5"
+       sodipodi:start="0"
+       sodipodi:end="6.2811956"
+       sodipodi:arc-type="slice"
+       d="m 34.5,200 a 4.5,4.5 0 0 1 -4.497762,4.5 4.5,4.5 0 0 1 -4.502236,-4.49552 4.5,4.5 0 0 1 4.493283,-4.50447 4.5,4.5 0 0 1 4.506706,4.49104 L 30,200 Z"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/net-nodes.png"
+       inkscape:export-xdpi="191.99989"
+       inkscape:export-ydpi="191.99989" />
+    <g
+       id="g2815-6"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243"
+       style="display:inline"
+       transform="translate(-286,212)">
+      <path
+         style="fill:#ffffff;stroke-width:44;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.54614"
+         id="path1748-5-3-1-7"
+         sodipodi:type="arc"
+         sodipodi:cx="-80"
+         sodipodi:cy="-45"
+         sodipodi:rx="10"
+         sodipodi:ry="10"
+         sodipodi:start="0"
+         sodipodi:end="6.2811956"
+         sodipodi:arc-type="slice"
+         clip-path="url(#clipath_lpe_path-effect2682-9)"
+         inkscape:path-effect="#path-effect2682-9"
+         transform="translate(205,106)"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/fet.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989"
+         d="m -70,-45 a 10,10 0 0 1 -9.995026,9.999999 10,10 0 0 1 -10.004969,-9.99005 10,10 0 0 1 9.985072,-10.009938 10,10 0 0 1 10.014903,9.980092 L -80,-45 Z" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-27-9-5-7-4-5-8-3"
+         width="2"
+         height="8"
+         x="127"
+         y="46"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/fet.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-27-9-5-7-4-4-3-2-7-6"
+         width="2"
+         height="12"
+         x="120"
+         y="55"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/fet.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10055-27-9-5-7-7-9-9-5"
+         width="2"
+         height="7"
+         x="127"
+         y="69"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/fet.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10238-6-5-5-4-1-2-6"
+         width="10"
+         height="2"
+         x="110"
+         y="60"
+         inkscape:export-filename="/home/andrew/dev/godot/git/andrew-wilkes/electronics/src/assets/parts/fet.png"
+         inkscape:export-xdpi="191.99989"
+         inkscape:export-ydpi="191.99989" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutS-2-7)"
+         d="m 121,63 5,4"
+         id="path1436-0-3"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 128,53 -7,6"
+         id="path1436-3-2-9"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <path
+       style="fill:none;stroke:#fafafa;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m -180,260 h 30"
+       id="path48475"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243" />
+    <path
+       style="display:inline;fill:none;stroke:#fafafa;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -180,286 h 30"
+       id="path48475-1"
+       inkscape:export-filename="/home/andrew/dev/websites/gdscript.com/content/devlogs/analog-circuit-simulator/extract-circuit-from-graph/npn.png"
+       inkscape:export-xdpi="192.36243"
+       inkscape:export-ydpi="192.36243" />
   </g>
 </svg>

@@ -69,14 +69,13 @@ size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Oscilloscope" parent="Main/Tools" instance=ExtResource( 3 )]
+visible = false
 margin_right = 200.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 
 [node name="Probes" type="VBoxContainer" parent="Main/Tools"]
-margin_top = 110.0
 margin_right = 200.0
-margin_bottom = 110.0
 custom_constants/separation = 10
 
 [node name="Grid" type="GraphEdit" parent="Main"]
