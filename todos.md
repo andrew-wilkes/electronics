@@ -5,6 +5,9 @@ Create example circuits.
 Teach how they work, and then the person may experiment and try to recreate them.
 
 https://falstad.com/mathphysics.html
+https://falstad.com/circuit/
+http://lushprojects.com/circuitjs/
+https://danceswithcode.net/engineeringnotes/linear_equations/linear_equations.html
 
 
 Airy Chimes

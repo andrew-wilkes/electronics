@@ -16,6 +16,7 @@ var gnd_names = []
 var from_tos: Dictionary
 var net
 var loops
+var dc_loops
 var net_nodes
 var cvs = []
 
@@ -42,6 +43,7 @@ func update_network():
 	pgs.gnds = get_gnd_nodes(from_tos, pgs.gnds)
 	net_nodes = get_net_nodes(from_tos)
 	loops = get_loops(pgs, net_nodes)
+	dc_loops = get_dc_loops(loops)
 	cvs.clear()
 	for _n in loops.size():
 		cvs.append([0, 0, 0]) # C, V, GND offset voltage
@@ -153,6 +155,25 @@ func get_loops(pgs_, net_nodes_):
 	return loops_
 
 
+func get_dc_loops(loops_):
+	var regex = RegEx.new()
+	regex.compile("^L\\d*")
+	var dc_loops_ = []
+	for loop_ in loops_:
+		var is_loop = true
+		var dc_loop = []
+		for part in loop_:
+			if part[0].begins_with("ECap") or part[0].begins_with("C"):
+				is_loop = false
+				break
+				# skip inductors
+			if  not regex.search(part[0]):
+				dc_loop.append(part)
+		if is_loop:
+			dc_loops_.append(dc_loop)
+	return dc_loops_
+
+
 func assign_sinks_to_part(pin, pgs_, net_nodes_):
 	for node in net_nodes_:
 		for el in node:
@@ -242,8 +263,15 @@ func try_get_loop(from_pin, start_node, stack, pgs_):
 				# If got back to the start pin, we have a loop
 				if to_pin == stack[0]:
 					return true
-				# Can't have the same pin in a loop
+					# Can't connect to itself
 				if to_pin in stack:
+					continue
+				# Can't connect to node that already has 2 connections
+				var n = 0
+				for pin in to_node:
+					if pin in stack:
+						n += 1
+				if n > 1:
 					continue
 				# The pin is OK to add to the loop
 				stack.append(to_pin)
