@@ -384,6 +384,8 @@ func _on_FileDialog_file_selected(path: String):
 			alert("Incompatible file")
 		else:
 			init_graph(graph_data)
+			yield(get_tree(), "idle_frame")
+			yield(get_tree(), "idle_frame")
 			update_network()
 
 
