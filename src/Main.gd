@@ -43,6 +43,8 @@ func update_network():
 	pgs.gnds = get_gnd_nodes(from_tos, pgs.gnds)
 	net_nodes = get_net_nodes(from_tos)
 	loops = get_loops(pgs, net_nodes)
+	prints("loops", loops)
+	minimize_loops(loops)
 	dc_loops = get_dc_loops(loops)
 	cvs.clear()
 	for _n in loops.size():
@@ -142,17 +144,87 @@ func get_loops(pgs_, net_nodes_):
 	for node in net_nodes_:
 		for pin in node:
 			if not_in_loop(loops_, pin):
-				var stack = [pin]
-				if try_get_loop(pin, node, stack, pgs_):
-					loops_.append(stack)
-					print(stack)
-					var out_pin = false
-					for pin_ in stack:
-						# Assign sinks only for the pins connecting to the next part in the loop
-						if out_pin:
-							assign_sinks_to_part(pin_, pgs_, net_nodes_)
-						out_pin = not out_pin
+				var stack = []
+				var _e = try_get_loop(pin, node, stack, pgs_, loops_)
+				var out_pin = false
+				for pin_ in stack:
+					# Assign sinks only for the pins connecting to the next part in the loop
+					if out_pin:
+						assign_sinks_to_part(pin_, pgs_, net_nodes_)
+					out_pin = not out_pin
 	return loops_
+
+"""
+Algorithm to extract independent mesh windows
+
+Compare 2 loops
+
+Find common sequence of 3 or more nodes (cs)
+
+Designate the loops A and B where B is the shortest loop
+
+Replace inner nodes of cs in A with reversed B nodes minus cs nodes
+"""
+func minimize_loops(loops_):
+	var idxa = 0
+	while idxa < loops_.size() - 1:
+		var idxb = idxa + 1
+		# Look for subsequence of A in B
+		var a1 = -1
+		var b1 = -1
+		for ai in loops_[idxa].size():
+			var i = loops_[idxb].find(loops_[idxa][ai])
+			if i > -1:
+				a1 = ai
+				b1 = i
+				break
+		if b1 > -1:
+			var ai = a1
+			var bi = b1
+			var a2
+			var b2
+			var run_length = 1
+			while true:
+				ai += 1
+				# Wrap ai
+				if ai == loops_[idxa].size():
+					ai = 0
+				bi += 1
+				# Wrap bi
+				if bi == loops_[idxb].size():
+					bi = 0
+				if loops_[idxa][ai] != loops_[idxb][bi]:
+					break
+				a2 = ai
+				b2 = bi
+				run_length += 1
+			if run_length > 2:
+				# Got a subsequence
+				if loops_[idxa].size() > loops_[idxb].size():
+					var l = shrink_loop(idxa, idxb, a1, a2, b2, run_length, loops_)
+					loops_[idxa] = loops_[idxb]
+					loops_[idxb] = l
+				else:
+					loops_[idxb] = shrink_loop(idxb, idxa, b1, b2, a2, run_length, loops_)
+		idxa += 1
+
+
+func shrink_loop(idxa, idxb, a1, a2, b2, run_length, loops_):
+	var b_nodes = []
+	for i in run_length - 2:
+		b2 -= 1
+		if b2 < 0:
+			b2 = loops_[idxb].size() - 1
+		b_nodes.append(loops_[idxb][b2])
+	var loopa
+	if a2 > a1:
+		loopa = loops_[idxa].slice(0, a1)
+		loopa.append_array(b_nodes)
+		loopa = loops_[idxa].slice(a2, -1)
+	else:
+		loopa = loops_[idxa].slice(a2, a1)
+		loopa.append_array(b_nodes)
+	return loopa
 
 
 func get_dc_loops(loops_):
@@ -248,7 +320,7 @@ func not_in_loop(_loops, start):
 	return true
 
 
-func try_get_loop(from_pin, start_node, stack, pgs_):
+func try_get_loop(from_pin, start_node, stack_, pgs_, loops_):
 	for to_node in net_nodes:
 		for to_pin in to_node:
 			# Find another pin on the same part
@@ -260,38 +332,31 @@ func try_get_loop(from_pin, start_node, stack, pgs_):
 				if pgs_.parts[to_pin[0]].series:
 					if abs(from_pin[1] - to_pin[1]) > 1.1:
 						continue
-				# If got back to the start pin, we have a loop
-				if to_pin == stack[0]:
-					return true
-					# Can't connect to itself
-				if to_pin in stack:
+				# Can't connect to itself
+				if to_pin in stack_:
 					continue
 				# Can't connect to node that already has 2 connections
 				var n = 0
 				for pin in to_node:
-					if pin in stack:
+					if pin in stack_:
 						n += 1
 				if n > 1:
 					continue
 				# The pin is OK to add to the loop
-				stack.append(to_pin)
+				stack_.append(from_pin)
+				stack_.append(to_pin)
 				# Check for completion of the loop
 				if to_node == start_node:
+					loops_.append(stack_)
+					prints("Stack:", stack_)
 					return true
 				# Get next pin on same node
-				var _x
 				for pin in to_node:
 					# Can't have the same pin in a loop
-					if not pin in stack:
-						stack.append(pin)
-						if try_get_loop(pin, start_node, stack, pgs_):
+					if not pin in stack_:
+						if try_get_loop(pin, start_node, stack_, pgs_, loops_):
 							return true
-						# The loop could not be completed from this pin, so remove it from the stack
-						_x = stack.pop_back()
-				# The starting part pin needs to be removed from the stack
-				_x = stack.pop_back()
 	return false
-
 
 func setup_menus():
 	var fm = $Top/FileMenu.get_popup()
