@@ -169,14 +169,14 @@ func minimize_loops(loops_):
 	var idxa = 0
 	while idxa < loops_.size() - 1:
 		var idxb = idxa + 1
-		# Look for subsequence of A in B
+		# Look for subsequence of B in A
 		var a1 = -1
 		var b1 = -1
-		for ai in loops_[idxa].size():
-			var i = loops_[idxb].find(loops_[idxa][ai])
+		for bi in loops_[idxb].size():
+			var i = loops_[idxa].find(loops_[idxb][bi])
 			if i > -1:
-				a1 = ai
-				b1 = i
+				a1 = i
+				b1 = bi
 				break
 		if b1 > -1:
 			var ai = a1
@@ -184,6 +184,7 @@ func minimize_loops(loops_):
 			var a2
 			var b2
 			var run_length = 1
+			# Scan in clockwise direction
 			while true:
 				ai += 1
 				# Wrap ai
@@ -201,29 +202,62 @@ func minimize_loops(loops_):
 			if run_length > 2:
 				# Got a subsequence
 				if loops_[idxa].size() > loops_[idxb].size():
-					var l = shrink_loop(idxa, idxb, a1, a2, b2, run_length, loops_)
+					var l = shrink_loop(idxa, idxb, a1, a2, b1, b2, loops_, true)
 					loops_[idxa] = loops_[idxb]
 					loops_[idxb] = l
 				else:
-					loops_[idxb] = shrink_loop(idxb, idxa, b1, b2, a2, run_length, loops_)
+					loops_[idxb] = shrink_loop(idxb, idxa, b1, b2, a1, a2, loops_, true)
+			else:
+				# Scan in anticlockwise direction
+				ai = a1
+				bi = b1
+				run_length = 1
+				while true:
+					ai -= 1
+					# Wrap ai
+					if ai < 0:
+						ai = loops_[idxa].size()
+					bi += 1
+					# Wrap bi
+					if bi == loops_[idxb].size():
+						bi = 0
+					if loops_[idxa][ai] != loops_[idxb][bi]:
+						break
+					a2 = ai
+					b2 = bi
+					run_length += 1
+				if run_length > 2:
+					# Got a subsequence
+					if loops_[idxa].size() > loops_[idxb].size():
+						var l = shrink_loop(idxa, idxb, a1, a2, b1, b2, loops_, false)
+						loops_[idxa] = loops_[idxb]
+						loops_[idxb] = l
+					else:
+						loops_[idxb] = shrink_loop(idxb, idxa, b1, b2, a1, a2, loops_, false)
 		idxa += 1
 
 
-func shrink_loop(idxa, idxb, a1, a2, b2, run_length, loops_):
+func shrink_loop(idxa, idxb, a1, a2, b1, b2, loops_, reverse):
 	var b_nodes = []
-	for i in run_length - 2:
-		b2 -= 1
-		if b2 < 0:
-			b2 = loops_[idxb].size() - 1
-		b_nodes.append(loops_[idxb][b2])
+	if b1 > 0:
+		b_nodes.append_array(loops_[idxb].slice(0, b1 - 1))
+	if b2 < loops_[idxb].size() - 1:
+		b_nodes.append_array(loops_[idxb].slice(b2 + 1, -1))
+	if reverse:
+		b_nodes.invert()
 	var loopa
 	if a2 > a1:
-		loopa = loops_[idxa].slice(0, a1)
+		if a1 > 0:
+			loopa = loops_[idxa].slice(0, a1 - 1)
 		loopa.append_array(b_nodes)
-		loopa = loops_[idxa].slice(a2, -1)
+		if a2 < loops_[idxa].size() - 1:
+			loopa = loops_[idxa].slice(a2 + 1, -1)
 	else:
-		loopa = loops_[idxa].slice(a2, a1)
+		if a2 > 0:
+			loopa = loops_[idxa].slice(0, a2 - 1)
 		loopa.append_array(b_nodes)
+		if a1 < loops_[idxa].size() - 1:
+			loopa.append_array(loops_[idxa].slice(a1 + 1, -1))
 	return loopa
 
 
