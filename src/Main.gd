@@ -42,10 +42,13 @@ func update_network():
 	from_tos = get_from_tos(pgs, graph)
 	pgs.gnds = get_gnd_nodes(from_tos, pgs.gnds)
 	net_nodes = get_net_nodes(from_tos)
+	prints("net_nodes", net_nodes)
+	# Pass a deep copy of net_nodes otherwise it will be reduced
+	var dc_nodes = get_dc_net_nodes(net_nodes.duplicate(true))
+	prints("dc_nodes", dc_nodes)
 	loops = get_loops(pgs, net_nodes)
 	prints("loops", loops)
 	minimize_loops(loops)
-	dc_loops = get_dc_loops(loops)
 	cvs.clear()
 	for _n in loops.size():
 		cvs.append([0, 0, 0]) # C, V, GND offset voltage
@@ -82,6 +85,53 @@ func get_net_nodes(from_tos_):
 		node.append(from)
 		net_nodes_.append(node)
 	return net_nodes_
+
+
+func get_dc_net_nodes(net_nodes_):
+	var regex = RegEx.new()
+	regex.compile("^L\\d*")
+	var nodes = []
+	# Remove capacitors
+	for node in net_nodes_:
+		for pin in node:
+			if pin[0].begins_with("ECap") or pin[0].begins_with("C"):
+				node.erase(pin)
+	# Combine inductor nodes
+	var inductor_nodes = {}
+	for node in net_nodes_:
+		var no_inductor = true
+		for pin in node:
+			var result = regex.search(pin[0])
+			if result:
+				if inductor_nodes.keys().has(pin[0]):
+					inductor_nodes[pin[0]].append_array(node)
+				else:
+					inductor_nodes[pin[0]] = node
+				no_inductor = false
+		if no_inductor and node.size() > 0:
+				nodes.append(node)
+	# Combine common nodes resulting from the previous operations
+	for key in inductor_nodes.keys():
+		for k2 in inductor_nodes.keys():
+			if k2 != key:
+				for pin in inductor_nodes[k2]:
+					if pin[0] == key:
+						inductor_nodes[k2].append_array(inductor_nodes[key])
+						inductor_nodes[key].clear() # Don't replicate these pins
+	# Remove inductor pins
+	for key in inductor_nodes.keys():
+		var pins_to_erase = []
+		for k2 in inductor_nodes.keys():
+			for pin in inductor_nodes[key]:
+				if pin[0] == k2:
+					pins_to_erase.append(pin)
+		for pin in pins_to_erase:
+			inductor_nodes[key].erase(pin)
+	# Add non-empty inductor nodes
+	for node in inductor_nodes.values():
+		if node.size() > 0:
+			nodes.append(node)
+	return nodes
 
 
 func goes_to_existing_node(from, node, net_nodes_):
@@ -259,25 +309,6 @@ func shrink_loop(idxa, idxb, a1, a2, b1, b2, loops_, reverse):
 		if a1 < loops_[idxa].size() - 1:
 			loopa.append_array(loops_[idxa].slice(a1 + 1, -1))
 	return loopa
-
-
-func get_dc_loops(loops_):
-	var regex = RegEx.new()
-	regex.compile("^L\\d*")
-	var dc_loops_ = []
-	for loop_ in loops_:
-		var is_loop = true
-		var dc_loop = []
-		for part in loop_:
-			if part[0].begins_with("ECap") or part[0].begins_with("C"):
-				is_loop = false
-				break
-				# skip inductors
-			if  not regex.search(part[0]):
-				dc_loop.append(part)
-		if is_loop:
-			dc_loops_.append(dc_loop)
-	return dc_loops_
 
 
 func assign_sinks_to_part(pin, pgs_, net_nodes_):
