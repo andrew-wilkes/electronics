@@ -46,6 +46,13 @@ func update_network():
 	# Pass a deep copy of net_nodes otherwise it will be reduced
 	var dc_nodes = get_dc_net_nodes(net_nodes.duplicate(true))
 	prints("dc_nodes", dc_nodes)
+	dc_loops = get_loops(pgs, dc_nodes)
+	minimize_loops(dc_loops)
+	assign_loops_to_parts(dc_loops, pgs)
+	# Get the parameters for the simultaneous equations
+	var sims = []
+	for loop in dc_loops:
+		sims.append(apply_kvl(loop, pgs))
 	loops = get_loops(pgs, net_nodes)
 	prints("loops", loops)
 	minimize_loops(loops)
@@ -285,6 +292,35 @@ func minimize_loops(loops_):
 					else:
 						loops_[idxb] = shrink_loop(idxb, idxa, b1, b2, a1, a2, loops_, false)
 		idxa += 1
+
+
+# When evaluating the KVL equation for a loop, we need to know
+# what other loop currents flow in the same part if any
+func assign_loops_to_parts(loops_, pgs_):
+	var assign = true
+	for loop in loops_:
+		for pin in loop:
+			# There are 2 pins per part, so only assign loop once per part
+			if assign:
+				var current_direction = -1 if pin[1] == 1 else 1
+				pgs_.parts[pin[0]].loops[loop] = current_direction
+				assign = !assign
+
+
+func apply_kvl(loop, pgs_):
+	var irs = {}
+	var v = 0
+	var apply = false
+	for pin in loop:
+		var p = pgs_.parts[pin[0]]
+		if p.r > 0:
+			for l in p.loops.keys():
+				# Think of a loop ref as a current identifier like i1
+				irs[l] = p.r * p.loops[l] # Will be used for +/-ir 
+		else:
+			if p.data.has("vdc"):
+				v += p.data.vdc
+	return [irs, v]
 
 
 func shrink_loop(idxa, idxb, a1, a2, b1, b2, loops_, reverse):

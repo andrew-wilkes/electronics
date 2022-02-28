@@ -29,6 +29,7 @@ var c_th
 var volts = [[0, 0, 0], [0, 0, 0]]
 var amps = [[0, 0, 0], [0, 0, 0]]
 var time = 0
+var loops = {} # refs of loops that this part belongs to loop: direction of current +/- 1
 
 func get_r(_port = 0):
 	return r
